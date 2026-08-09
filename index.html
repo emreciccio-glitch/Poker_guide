@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<!-- skill:chrome -->
+<style>
+/* Credit line — bottom-right */
+.design-ui-credit {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font: 11px/1 system-ui, sans-serif;
+  color: rgba(128,128,128,0.5);
+  pointer-events: none;
+  z-index: 2147483647;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+/* Hide chrome on touch devices */
+@media (hover: none) {
+  .design-ui-credit { display: none; }
+}
+
+/* Print fixes */
+@media print {
+  * {
+    transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+  }
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .design-ui-credit { display: none !important; }
+}
+
+</style>
+<script>
+(function () {
+    // Design-ui pages are single compositions, so the whole body is editable.
+    function markEditable() {
+        document.body.classList.add('artifact-editable');
+    }
+
+    // Credit badge with idle-fade. Hover devices only.
+    function initChromeUI() {
+        if (!matchMedia('(hover: hover)').matches) return;
+
+        var credit = document.createElement('div');
+        credit.className = 'design-ui-credit';
+        credit.setAttribute('aria-hidden', 'true');
+        credit.innerHTML = '\u{1F49C} by ClickUp Brain';
+        document.body.appendChild(credit);
+
+        var timer = null;
+        var fade = function (out) { credit.style.opacity = out ? '0' : ''; };
+        fade(true);
+        var show = function () {
+            fade(false);
+            clearTimeout(timer);
+            timer = setTimeout(function () { fade(true); }, 3000);
+        };
+        document.addEventListener('mousemove', show);
+        show();
+    }
+
+    function init() {
+        markEditable();
+        initChromeUI();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+
+</script>
+<!-- /skill:chrome -->
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Poker Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:oklch(98.5% .004 235);--bg2:oklch(95.7% .008 235);--sf:oklch(99.6% .003 235);--sf2:oklch(97% .006 235);--tx:oklch(18% .014 235);--tx2:oklch(42% .01 235);--tx3:oklch(60% .008 235);--ac:oklch(61% .15 235);--ac2:oklch(92% .04 235);--bd:oklch(90% .014 235);--bd2:oklch(94% .008 235);--ok:oklch(57% .13 150);--shadow:0 12px 34px oklch(15% .01 235 / .06)}
+[data-theme="dark"]{--bg:oklch(11% .012 235);--bg2:oklch(15.5% .014 235);--sf:oklch(13.5% .01 235);--sf2:oklch(18% .012 235);--tx:oklch(93% .005 235);--tx2:oklch(72% .008 235);--tx3:oklch(54% .006 235);--ac:oklch(69% .14 235);--ac2:oklch(22% .05 235);--bd:oklch(22% .02 235);--bd2:oklch(18% .015 235);--shadow:none}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.7;-webkit-font-smoothing:antialiased}
+button,select,input{font:inherit}a{text-decoration:none;color:inherit}
+.hdr{position:fixed;top:0;left:0;right:0;height:62px;display:flex;align-items:center;gap:12px;padding:0 16px;backdrop-filter:blur(16px);background:color-mix(in oklch,var(--sf) 87%,transparent);border-bottom:1px solid var(--bd2);z-index:60}.menu{display:none}.logo{display:flex;align-items:center;gap:8px;font-weight:700;letter-spacing:-.02em}.logo-b{width:28px;height:28px;border-radius:8px;background:var(--ac);display:grid;place-items:center;color:#fff;font-size:.72rem}.hdr-r{margin-left:auto;display:flex;align-items:center;gap:8px}.ghost{padding:6px 10px;border:1px solid var(--bd);background:var(--sf);border-radius:999px;font-size:.72rem;color:var(--tx3)}.cred{padding:7px 12px;border-radius:999px;background:var(--ac2);border:1px solid transparent;color:var(--ac);font-size:.75rem;font-weight:700;cursor:pointer}.cred:hover{border-color:var(--ac)}.sel,.icon{border:1px solid var(--bd);background:var(--sf);color:var(--tx);border-radius:10px}.sel{padding:7px 10px;font-size:.76rem;cursor:pointer}.icon{width:36px;height:36px;display:grid;place-items:center;cursor:pointer}.prog{position:fixed;top:62px;left:0;right:0;height:3px;z-index:61}.bar{height:100%;width:0;background:var(--ac)}
+.app{display:grid;grid-template-columns:260px 1fr;padding-top:65px}.side{position:sticky;top:65px;height:calc(100vh - 65px);overflow:auto;border-right:1px solid var(--bd2);padding:16px 10px;background:var(--sf)}.lbl{padding:6px 10px 4px;color:var(--ac);font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.nav{display:flex;align-items:center;gap:8px;padding:10px 11px;border-radius:10px;color:var(--tx2);cursor:pointer;font-size:.84rem;margin-bottom:1px}.nav:hover{background:var(--bg2);color:var(--tx)}.nav.on{background:var(--ac2);color:var(--ac);font-weight:700}.nav .lk{margin-left:auto;opacity:.5}.wrap{display:flex;justify-content:center}.main{width:min(100%,920px);padding:24px 28px 90px}.hero{text-align:center;padding:14px 0 18px}.ey{font:500 .68rem 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px}.hero h1{font-size:clamp(1.9rem,4vw,3rem);line-height:1.05;letter-spacing:-.05em}.hero p{max-width:68ch;margin:10px auto 0;color:var(--tx2)}.meta{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:14px}.chip{padding:7px 10px;border:1px solid var(--bd);background:var(--sf);border-radius:999px;font-size:.73rem;color:var(--tx3)}
+.ai{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--ac2);border:1px solid color-mix(in oklch,var(--ac) 18%,var(--bd));border-radius:16px;margin:18px auto 24px;max-width:760px;cursor:pointer}.ai:hover{border-color:var(--ac)}.ai-i{width:40px;height:40px;border-radius:50%;background:var(--ac);display:grid;place-items:center;color:#fff;flex-shrink:0}.ai strong{display:block;font-size:.9rem}.ai span{font-size:.82rem;color:var(--tx2)}
+.sec{background:var(--sf);border:1px solid var(--bd);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}.sec-h{display:flex;align-items:center;gap:10px;padding:15px 16px;cursor:pointer}.sec-h:hover{background:var(--sf2)}.sec-i{min-width:30px;height:30px;border-radius:8px;background:var(--ac2);color:var(--ac);display:grid;place-items:center;font:700 .72rem 'JetBrains Mono',monospace}.sec-t{font-weight:700;font-size:.94rem;flex:1}.sec-a{transition:transform .2s;color:var(--tx3)}.sec.open .sec-a{transform:rotate(180deg)}.sec-b{display:none;padding:0 16px 18px}.sec.open .sec-b{display:block}
+.art h2{font-size:1.28rem;letter-spacing:-.02em;margin:22px 0 10px;text-align:center}.art h3{font-size:1rem;margin:16px 0 8px;text-align:center}.art p{max-width:72ch;margin:0 auto 14px;text-align:center;color:var(--tx2)}.art strong{color:var(--tx)}.art ul,.art ol{max-width:64ch;margin:0 auto 14px;padding-left:20px;color:var(--tx2);text-align:left}.art li{margin-bottom:6px}.call{max-width:72ch;margin:14px auto;padding:12px 14px;border:1px solid var(--bd);background:var(--bg2);border-radius:12px;text-align:center}.call p{margin:0;color:var(--tx)}
+.lock{max-width:720px;margin:0 auto;padding:34px 18px;background:var(--sf2);border:1px dashed var(--bd);border-radius:18px;text-align:center}.lock h3{font-size:1.1rem;margin-bottom:5px}.lock p{max-width:42ch;margin:0 auto 14px;color:var(--tx2)}.ub{border:none;background:var(--ac);color:#fff;padding:12px 24px;border-radius:999px;font:700 .88rem inherit;cursor:pointer}
+.quiz{display:flex;align-items:center;justify-content:center;gap:8px;margin:22px auto 0;max-width:320px;padding:12px 20px;border:1px solid var(--bd);background:var(--sf);border-radius:12px;color:var(--tx2);cursor:pointer}.quiz:hover{border-color:var(--ac);color:var(--ac);background:var(--ac2)}
+.navb{display:flex;gap:10px;margin-top:22px}.navb button{flex:1;border:1px solid var(--bd);background:var(--sf);padding:12px;border-radius:12px;text-align:left;cursor:pointer;color:var(--tx)}.navb button span{display:block;color:var(--tx3);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}.navb button strong{display:block;margin-top:2px;font-size:.88rem}
+.fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border:none;border-radius:50%;background:var(--ac);color:#fff;box-shadow:0 8px 24px color-mix(in oklch,var(--ac) 30%,transparent);cursor:pointer;z-index:45}.fab-l{position:fixed;right:86px;bottom:28px;background:var(--sf);border:1px solid var(--bd);padding:7px 11px;border-radius:10px;font-size:.74rem;color:var(--tx2);opacity:0;transform:translateX(6px);transition:.18s}.fab:hover+.fab-l{opacity:1;transform:translateX(0)}
+.ovl,.shop-ovl,.quiz-ovl{position:fixed;inset:0;background:oklch(10% .01 235 / .5);display:none;align-items:flex-end;justify-content:center;padding:12px;z-index:80}.ovl.open,.shop-ovl.open,.quiz-ovl.open{display:flex}
+.chat{width:min(100%,450px);max-height:76vh;background:var(--sf);border:1px solid var(--bd);border-radius:18px 18px 14px 14px;display:flex;flex-direction:column;overflow:hidden}.chat-h{display:flex;align-items:center;gap:8px;padding:14px 16px;border-bottom:1px solid var(--bd2)}.chat-h strong{flex:1;font-size:.9rem}.chat-sub{font-size:.67rem;color:var(--tx3)}.chat-cr{padding:4px 8px;border-radius:999px;background:var(--ac2);color:var(--ac);font-size:.7rem;font-weight:700}.x{width:26px;height:26px;border:none;background:var(--bg2);border-radius:50%;cursor:pointer;color:var(--tx2)}.chat-b{height:420px;overflow:auto;padding:14px}.m{max-width:84%;margin-bottom:10px}.m.bot{margin-right:auto}.m.u{margin-left:auto}.bb{padding:10px 12px;border-radius:12px;font-size:.82rem;line-height:1.5}.m.bot .bb{background:var(--bg2)}.m.u .bb{background:var(--ac);color:#fff}.chat-i{display:flex;gap:8px;padding:12px 14px;border-top:1px solid var(--bd2)}.chat-i input{flex:1;border:1px solid var(--bd);background:var(--bg);padding:10px 12px;border-radius:999px;color:var(--tx)}.chat-i button{width:36px;height:36px;border:none;border-radius:50%;background:var(--ac);color:#fff;cursor:pointer}
+.shop{width:min(100%,420px);background:var(--sf);border:1px solid var(--bd);border-radius:18px;padding:22px;max-height:86vh;overflow:auto}.shop h3{font-size:1rem;margin-bottom:14px}.sl{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);font-weight:700;margin-bottom:8px}.si{display:flex;align-items:center;justify-content:space-between;padding:12px;border:1px solid var(--bd);border-radius:12px;margin-bottom:8px;cursor:pointer;transition:.15s}.si:hover{border-color:var(--ac);background:var(--ac2)}.si .a{font-size:.86rem;font-weight:500}.si .a small{display:block;color:var(--tx3);font-size:.72rem;margin-top:1px}.si .p{font:700 .85rem 'JetBrains Mono',monospace;color:var(--ac)}.sc{width:100%;background:none;border:none;color:var(--tx3);padding:8px;cursor:pointer}
+.qm{width:min(100%,520px);background:var(--sf);border:1px solid var(--bd);border-radius:18px;padding:22px;max-height:86vh;overflow:auto}.qm h3{font-size:1.06rem;margin-bottom:4px}.qm p{font-size:.84rem;color:var(--tx2);margin-bottom:16px}.qi{margin-bottom:14px;padding:14px;border:1px solid var(--bd);border-radius:12px}.qi p{margin:0 0 10px;color:var(--tx);font-weight:600}.qo{display:block;padding:8px 10px;border:1px solid var(--bd);border-radius:8px;margin-bottom:6px;color:var(--tx2)}.qc{width:100%;border:none;background:var(--ac);color:#fff;padding:12px;border-radius:999px;cursor:pointer;font-weight:700}
+.empty{padding:50px 24px;text-align:center;color:var(--tx2)}.loading{padding:50px 24px;text-align:center;color:var(--tx2)}
+.mob{display:none;position:fixed;inset:65px 0 0 0;background:oklch(10% .01 235/.4);z-index:54}
+@media(max-width:900px){.app{grid-template-columns:1fr}.side{position:fixed;left:0;top:65px;bottom:0;width:260px;transform:translateX(-100%);transition:transform .22s;z-index:55}.side.open{transform:translateX(0)}.mob.open{display:block}.main{padding:22px 14px 88px}.menu{display:grid}.ghost{display:none}.fab-l{display:none}}
+</style>
+</head>
+<body>
+<header class="hdr">
+  <button class="icon menu" onclick="toggleSide()">☰</button>
+  <div class="logo"><div class="logo-b">♠</div><span>The Poker Guide</span></div>
+  <div class="hdr-r">
+    <div class="ghost" data-i18n="cost">1 credito = 1 domanda</div>
+    <div class="cred" onclick="openShop()"><span id="credTop">5 crediti</span></div>
+    <select class="sel" id="langSel" onchange="setLang(this.value)">
+      <option value="it">🇮🇹 IT</option>
+      <option value="en">🇬🇧 EN</option>
+      <option value="es">🇪🇸 ES</option>
+      <option value="de">🇩🇪 DE</option>
+      <option value="fr">🇫🇷 FR</option>
+    </select>
+    <button class="icon" onclick="toggleTheme()">◐</button>
+  </div>
+</header>
+<div class="prog"><div class="bar" id="bar"></div></div>
+<div class="mob" id="mob" onclick="toggleSide()"></div>
+<div class="app">
+  <aside class="side" id="side"></aside>
+  <div class="wrap"><main class="main" id="main"><div class="loading">loading chapters.json...</div></main></div>
+</div>
+<button class="fab" onclick="openChat()">✦</button><div class="fab-l">AI poker GTO coach</div>
+<div class="ovl" id="chatOvl" onclick="if(event.target===this)closeChat()"><div class="chat"><div class="chat-h"><div><strong id="chatTitle">AI poker GTO coach</strong><div class="chat-sub" id="chatSub">strategia GTO avanzata</div></div><span class="chat-sub" data-i18n="cost">1 credito = 1 domanda</span><span class="chat-cr">5</span><button class="x" onclick="closeChat()">✕</button></div><div class="chat-b" id="chatBody"></div><div class="chat-i"><input id="chatInput" onkeydown="if(event.key==='Enter')sendMsg()"><button onclick="sendMsg()">➤</button></div></div></div>
+<div class="shop-ovl" id="shopOvl" onclick="if(event.target===this)closeShop()"><div class="shop"><h3 data-i18n="shop">Shop</h3><div class="sl" data-i18n="unlockguide">Sblocca guida</div><div class="si" onclick="fakeBuy('pro')"><div class="a"><span data-i18n="proguide">Guida Completa PRO</span><small data-i18n="prodesc">Tutti i capitoli + 10 crediti AI bonus</small></div><div class="p">€1,49</div></div><div class="sl" data-i18n="creditspack">Crediti AI</div><div class="si" onclick="fakeBuy('15')"><div class="a">15 crediti<small data-i18n="launch">Offerta di lancio</small></div><div class="p">€0,49</div></div><div class="si" onclick="fakeBuy('40')"><div class="a">40 crediti<small data-i18n="morevalue">Più valore per credito</small></div><div class="p">€0,99</div></div><div class="si" onclick="fakeBuy('120')"><div class="a">120 crediti<small data-i18n="bestvalue">Miglior rapporto</small></div><div class="p">€2,49</div></div><button class="sc" onclick="closeShop()" data-i18n="close">Chiudi</button></div></div>
+<div class="quiz-ovl" id="quizOvl" onclick="if(event.target===this)closeQuiz()"><div class="qm" id="quizMain"></div></div>
+<script>
+const T={it:{free:'gratuito',pro:'pro',extra:'extra',shop:'Shop',unlockguide:'Sblocca guida',proguide:'Guida Completa PRO',prodesc:'Tutti i capitoli + 10 crediti AI bonus',creditspack:'Crediti AI',launch:'Offerta di lancio',morevalue:'Più valore per credito',bestvalue:'Miglior rapporto',close:'Chiudi',cost:'1 credito = 1 domanda',aiTitle:'AI poker GTO coach',aiSub:'strategia GTO avanzata',aiBannerTitle:'AI poker GTO coach',aiBannerText:'Non hai capito qualcosa? La nostra AI è allenata esclusivamente sulla strategia GTO avanzata. Chiedile di spiegarti questo argomento.',quiz:'Quiz: verifica le tue conoscenze',quizSoon:'Domande relative al capitolo. Le compiliamo nel prossimo step.',prev:'precedente',next:'successivo',shopAlert:'Acquisto simulato. Nella versione finale passerà dal Microsoft Store.',glossary:'Glossario'},en:{free:'free',pro:'pro',extra:'extra',shop:'Shop',unlockguide:'Unlock guide',proguide:'Full PRO Guide',prodesc:'All chapters + 10 bonus AI credits',creditspack:'AI credits',launch:'Launch offer',morevalue:'More value per credit',bestvalue:'Best value',close:'Close',cost:'1 credit = 1 question',aiTitle:'AI poker GTO coach',aiSub:'advanced GTO strategy',aiBannerTitle:'AI poker GTO coach',aiBannerText:'Something unclear? Our AI is trained exclusively on advanced GTO strategy. Ask it to explain this topic.',quiz:'Quiz: test your knowledge',quizSoon:'Chapter questions go here. We fill them next step.',prev:'previous',next:'next',shopAlert:'Simulated purchase. Final version will use Microsoft Store.',glossary:'Glossary'},es:{free:'gratis',pro:'pro',extra:'extra',shop:'Tienda',unlockguide:'Desbloquear guía',proguide:'Guía PRO completa',prodesc:'Todos los capítulos + 10 créditos IA',creditspack:'Créditos IA',launch:'Oferta de lanzamiento',morevalue:'Más valor por crédito',bestvalue:'Mejor relación',close:'Cerrar',cost:'1 crédito = 1 pregunta',aiTitle:'AI poker GTO coach',aiSub:'estrategia GTO avanzada',aiBannerTitle:'AI poker GTO coach',aiBannerText:'¿Algo no está claro? Nuestra IA está entrenada exclusivamente en estrategia GTO avanzada.',quiz:'Quiz: pon a prueba tus conocimientos',quizSoon:'Aquí van las preguntas del capítulo.',prev:'anterior',next:'siguiente',shopAlert:'Compra simulada. La versión final usará Microsoft Store.',glossary:'Glosario'},de:{free:'kostenlos',pro:'pro',extra:'extra',shop:'Shop',unlockguide:'Guide freischalten',proguide:'Vollständiger PRO-Guide',prodesc:'Alle Kapitel + 10 Bonus-Credits',creditspack:'KI-Credits',launch:'Launch-Angebot',morevalue:'Mehr Wert pro Credit',bestvalue:'Bestes Verhältnis',close:'Schließen',cost:'1 Credit = 1 Frage',aiTitle:'AI poker GTO coach',aiSub:'fortgeschrittene GTO-Strategie',aiBannerTitle:'AI poker GTO coach',aiBannerText:'Etwas unklar? Unsere KI ist ausschließlich auf fortgeschrittene GTO-Strategie trainiert.',quiz:'Quiz: teste dein Wissen',quizSoon:'Hier kommen die Kapitel-Fragen hin.',prev:'zurück',next:'weiter',shopAlert:'Simulierter Kauf. Final über Microsoft Store.',glossary:'Glossar'},fr:{free:'gratuit',pro:'pro',extra:'extra',shop:'Boutique',unlockguide:'Débloquer le guide',proguide:'Guide PRO complet',prodesc:'Tous les chapitres + 10 crédits IA bonus',creditspack:'Crédits IA',launch:'Offre de lancement',morevalue:'Plus de valeur par crédit',bestvalue:'Meilleur rapport',close:'Fermer',cost:'1 crédit = 1 question',aiTitle:'AI poker GTO coach',aiSub:'stratégie GTO avancée',aiBannerTitle:'AI poker GTO coach',aiBannerText:'Quelque chose n\'est pas clair ? Notre IA est entraînée exclusivement sur la stratégie GTO avancée.',quiz:'Quiz : teste tes connaissances',quizSoon:'Les questions du chapitre iront ici.',prev:'précédent',next:'suivant',shopAlert:'Achat simulé. La version finale utilisera Microsoft Store.',glossary:'Glossaire'}};
+let lang='it',cur='fondamentali',tester=false,data=null;
+function tr(k){return T[lang][k]||T.it[k]||k}
+function clabel(key){if(!data)return key;const ch=data.chapters[key];if(!ch)return key;return (ch.label && (ch.label[lang]||ch.label.it)) || key}
+function renderSide(){if(!data)return;let h=`<div class="lbl">${tr('free')}</div>`;data.structure.free.forEach(k=>h+=`<div class="nav ${cur===k?'on':''}" onclick="go('${k}')">${clabel(k)}</div>`);h+=`<div class="lbl" style="margin-top:12px">${tr('pro')}</div>`;data.structure.pro.forEach(k=>h+=`<div class="nav ${cur===k?'on':''}" onclick="go('${k}')">${clabel(k)}${tester?'':'<span class="lk">🔒</span>'}</div>`);h+=`<div class="lbl" style="margin-top:12px">${tr('extra')}</div>`;h+=`<div class="nav" onclick="openShop()">🛒 ${tr('shop')}</div>`;h+=`<div class="nav" onclick="showGlossary()">📚 ${tr('glossary')}</div>`;h+=`<div class="nav" style="color:var(--ok)" onclick="toggleTester()">${tester?'✓ tester on':'🔓 tester mode'}</div>`;document.getElementById('side').innerHTML=h}
+function aiBanner(){return `<div class="ai" onclick="openChat()"><div class="ai-i">✦</div><div><strong>${tr('aiBannerTitle')}</strong><span>${tr('aiBannerText')}</span></div></div>`}
+function quizBtn(){return `<div class="quiz" onclick="openQuiz()">📝 ${tr('quiz')}</div>`}
+function render(){if(!data)return;const ch=data.chapters[cur];if(!ch){document.getElementById('main').innerHTML='<div class="empty">chapter not found</div>';return;}const locked=(data.structure.pro.includes(cur)&&!tester);const i=data.order.indexOf(cur);const prev=data.order[i-1],next=data.order[i+1];let html=`<div class="hero"><div class="ey">${ch.eyebrow||''}</div><h1>${clabel(cur)}</h1><p>${data.meta.summary[lang]||data.meta.summary.it}</p><div class="meta"><div class="chip">interactive docs</div><div class="chip">5 free credits</div><div class="chip">${tr('cost')}</div></div></div>${aiBanner()}`;if(locked){html+=`<div class="lock"><h3>${tr('proguide')}</h3><p>${tr('prodesc')}</p><button class="ub" onclick="openShop()">${tr('unlockguide')} — €1,49</button></div>`}else{html+=`<div class="sec open"><div class="sec-h" onclick="this.parentElement.classList.toggle('open')"><div class="sec-i">01</div><div class="sec-t">${clabel(cur)}</div><div class="sec-a">⌄</div></div><div class="sec-b"><div class="art">${ch.body_it || '<p>missing body</p>'}</div>${quizBtn()}</div></div>`}html+=`<div class="navb"><button ${!prev?'disabled style="opacity:.4;cursor:default"':'onclick="go(\''+prev+'\')"'}><span>${tr('prev')}</span><strong>${prev?clabel(prev):'—'}</strong></button><button ${!next?'disabled style="opacity:.4;cursor:default"':'onclick="go(\''+next+'\')"'}><span>${tr('next')}</span><strong>${next?clabel(next):'—'}</strong></button></div>`;document.getElementById('main').innerHTML=html}
+function applyUI(){document.querySelectorAll('[data-i18n="cost"]').forEach(n=>n.textContent=tr('cost'));document.querySelectorAll('[data-i18n="shop"]').forEach(n=>n.textContent=tr('shop'));document.querySelectorAll('[data-i18n="unlockguide"]').forEach(n=>n.textContent=tr('unlockguide'));document.querySelectorAll('[data-i18n="proguide"]').forEach(n=>n.textContent=tr('proguide'));document.querySelectorAll('[data-i18n="prodesc"]').forEach(n=>n.textContent=tr('prodesc'));document.querySelectorAll('[data-i18n="creditspack"]').forEach(n=>n.textContent=tr('creditspack'));document.querySelectorAll('[data-i18n="launch"]').forEach(n=>n.textContent=tr('launch'));document.querySelectorAll('[data-i18n="morevalue"]').forEach(n=>n.textContent=tr('morevalue'));document.querySelectorAll('[data-i18n="bestvalue"]').forEach(n=>n.textContent=tr('bestvalue'));document.querySelectorAll('[data-i18n="close"]').forEach(n=>n.textContent=tr('close'));document.getElementById('chatTitle').textContent=tr('aiTitle');document.getElementById('chatSub').textContent=tr('aiSub');document.getElementById('credTop').textContent=lang==='it'?'5 crediti':'5 credits';document.getElementById('chatInput').placeholder=lang==='it'?'chiedi sulla strategia GTO...':'ask about GTO strategy...';document.getElementById('chatBody').innerHTML=`<div class="m bot"><div class="bb">${lang==='it'?'Ciao, sono AI poker GTO coach. La mia specialità è la strategia GTO avanzata. Chiedimi qualsiasi cosa sull\'argomento che stai leggendo.':'Hi, I am AI poker GTO coach. I specialize in advanced GTO strategy. Ask me anything about the chapter you are reading.'}</div></div>`;renderSide();render()}
+function setLang(v){lang=v;applyUI()}
+function toggleTheme(){const isDark=document.documentElement.getAttribute('data-theme')==='dark';if(isDark){document.documentElement.removeAttribute('data-theme');localStorage.setItem('theme','light')}else{document.documentElement.setAttribute('data-theme','dark');localStorage.setItem('theme','dark')}}
+(function initTheme(){const saved=localStorage.getItem('theme');if(saved==='dark'||(!saved&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark')}})();
+function go(k){cur=k;renderSide();render();window.scrollTo({top:0,behavior:'smooth'});closeSide()}
+function toggleTester(){tester=!tester;renderSide();render()}
+function openChat(){document.getElementById('chatOvl').classList.add('open')}function closeChat(){document.getElementById('chatOvl').classList.remove('open')}
+function openShop(){document.getElementById('shopOvl').classList.add('open')}function closeShop(){document.getElementById('shopOvl').classList.remove('open')}
+function fakeBuy(){alert(tr('shopAlert'))}
+function openQuiz(){document.getElementById('quizMain').innerHTML=`<h3>${tr('quiz')}</h3><p>${tr('quizSoon')}</p><div class="qi"><p>1. Placeholder question for ${clabel(cur)}</p><div class="qo">A. Option 1</div><div class="qo">B. Option 2</div><div class="qo">C. Option 3</div></div><div class="qi"><p>2. Placeholder question</p><div class="qo">A. Option 1</div><div class="qo">B. Option 2</div><div class="qo">C. Option 3</div></div><button class="qc" onclick="closeQuiz()">${tr('close')}</button>`;document.getElementById('quizOvl').classList.add('open')}
+function closeQuiz(){document.getElementById('quizOvl').classList.remove('open')}
+function showGlossary(){const g=(data && data.glossary && (data.glossary[lang]||data.glossary.it))||[];const list=g.map(([a,b])=>`<div class="qi"><p>${a}</p><div class="qo" style="cursor:default">${b}</div></div>`).join('');document.getElementById('quizMain').innerHTML=`<h3>${tr('glossary')}</h3><p>${lang==='it'?'Termini chiave del poker utili mentre studi la guida.':'Key poker terms while studying the guide.'}</p>${list}<button class="qc" onclick="closeQuiz()">${tr('close')}</button>`;document.getElementById('quizOvl').classList.add('open')}
+function sendMsg(){const i=document.getElementById('chatInput'),v=i.value.trim();if(!v)return;const b=document.getElementById('chatBody');b.innerHTML+=`<div class="m u"><div class="bb">${v}</div></div>`;i.value='';setTimeout(()=>{b.innerHTML+=`<div class="m bot"><div class="bb">${lang==='it'?'Demo: nella versione finale risponderò in modo contestuale e tecnico, focalizzato sulla GTO avanzata del capitolo attuale.':'Demo: in the final version I will answer contextually with advanced GTO focus for the current chapter.'}</div></div>`;b.scrollTop=b.scrollHeight},450)}
+function toggleSide(){document.getElementById('side').classList.toggle('open');document.getElementById('mob').classList.toggle('open')}function closeSide(){document.getElementById('side').classList.remove('open');document.getElementById('mob').classList.remove('open')}
+window.addEventListener('scroll',()=>{const d=document.documentElement;const p=(d.scrollTop/(d.scrollHeight-d.clientHeight))*100;document.getElementById('bar').style.width=Math.max(0,Math.min(100,p))+'%'});
+async function boot(){try{const res=await fetch('chapters.json');data=await res.json();cur=data.order[0];applyUI()}catch(e){document.getElementById('main').innerHTML='<div class="empty">Could not load chapters.json. Put this HTML in the same folder as chapters.json.</div>';}}
+boot();
+</script>
+</body>
+</html>
