@@ -163,7 +163,7 @@ function launchQuiz(){quizActive=true;quizScore=0;quizIdx=0;
 const ch=data.chapters[cur];if(!ch||!ch.quiz)return;
 const pool=ch.quiz[lang]||ch.quiz.en||[];
 const shuffled=[...pool].sort(()=>Math.random()-.5);
-quizQs=shuffled.slice(0,4).map(q=>{
+quizQs=shuffled.slice(0,8).map(q=>{
 const entries=Object.entries(q.options);
 const shuffledOpts=[...entries].sort(()=>Math.random()-.5);
 return{question:q.question,options:shuffledOpts,correct:q.correct,correctText:q.options[q.correct]}});
