@@ -66,12 +66,12 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 <aside class="side" id="side"></aside>
 <div class="wrap"><main class="main" id="main"><div style="padding:50px;text-align:center;color:var(--tx3)">Loading...</div></main></div>
 </div>
-<button class="fab" onclick="openChat()">\u2728</button>
+<button class="fab" onclick="openChat()">✨</button>
 
 <!-- CHAT MODAL -->
 <div class="modal-bg bottom" id="chatModal">
 <div class="modal" style="border-radius:20px 20px 14px 14px">
-<div class="modal-head"><strong id="chatTitle">AI poker GTO coach</strong><span class="ghost" id="chatCost">1 credit = 1 question</span><span class="cred" style="margin-left:8px">5</span><button class="modal-x" onclick="closeChat()">\u2715</button></div>
+<div class="modal-head"><strong id="chatTitle">AI poker GTO coach</strong><span class="ghost" id="chatCost">1 credit = 1 question</span><span class="cred" style="margin-left:8px">5</span><button class="modal-x" onclick="closeChat()">✕</button></div>
 <div class="modal-body" id="chatBody" style="height:380px"></div>
 <div class="modal-foot"><div class="chat-i"><input id="chatInput" placeholder="Ask about GTO strategy..." onkeydown="if(event.key==='Enter')sendMsg()"><button onclick="sendMsg()">\u27a4</button></div></div>
 </div></div>
@@ -79,14 +79,14 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 <!-- SHOP MODAL -->
 <div class="modal-bg" id="shopModal">
 <div class="modal" style="max-width:420px">
-<div class="modal-head"><strong id="shopTitle">Shop</strong><button class="modal-x" onclick="closeShop()">\u2715</button></div>
+<div class="modal-head"><strong id="shopTitle">Shop</strong><button class="modal-x" onclick="closeShop()">✕</button></div>
 <div class="modal-body" id="shopBody"></div>
 </div></div>
 
 <!-- QUIZ MODAL -->
 <div class="modal-bg" id="quizModal">
 <div class="modal" style="max-width:560px;max-height:90vh">
-<div class="modal-head"><strong id="quizTitle">Quiz</strong><button class="modal-x" onclick="confirmCloseQuiz()">\u2715</button></div>
+<div class="modal-head"><strong id="quizTitle">Quiz</strong><button class="modal-x" onclick="confirmCloseQuiz()">✕</button></div>
 <div class="modal-body" id="quizBody"></div>
 </div></div>
 
@@ -118,7 +118,7 @@ const isPro=data.structure.pro.includes(cur);const isElite=data.structure.elite.
 const locked=(isPro||isElite)&&!tester;const i=data.order.indexOf(cur);const prev=data.order[i-1],next=data.order[i+1];
 const bodyKey='body_'+lang;const body=ch[bodyKey]||ch.body_en||ch.body_it||'';
 let html=`<div class="hero"><div class="ey">${ch.eyebrow||''}</div><h1>${clabel(cur)}</h1></div>`;
-html+=`<div class="ai" onclick="openChat()"><div class="ai-i">\u2728</div><div><strong>${tr('aiBanner')}</strong><span>${tr('aiDesc')}</span></div></div>`;
+html+=`<div class="ai" onclick="openChat()"><div class="ai-i">✨</div><div><strong>${tr('aiBanner')}</strong><span>${tr('aiDesc')}</span></div></div>`;
 if(locked){const tier=isPro?'PRO':'ELITE';html+=`<div class="lock"><h3>${tier}</h3><p>${isPro?tr('proPack'):tr('elitePack')}</p><button class="ub" onclick="openShop()">${isPro?tr('unlockPro'):tr('unlockElite')}</button></div>`}
 else{html+=`<div class="sec open"><div class="sec-h" onclick="this.parentElement.classList.toggle('open')"><div class="sec-i">01</div><div class="sec-t">${clabel(cur)}</div><div class="sec-a">\u2304</div></div><div class="sec-b"><div class="art">${body}</div>`;
 if(quizChapters.includes(cur)){const done=quizDone[cur];html+=`<div class="quiz-btn ${done?'done':''}" onclick="startQuiz()">${done?tr('quizDone'):'\ud83d\udcdd '+tr('quiz')}</div>`}
