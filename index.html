@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>The Poker Guide</title>
+<link rel="manifest" href="manifest.json">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+:root{--bg:oklch(98.5% .004 235);--bg2:oklch(95.7% .008 235);--sf:oklch(99.6% .003 235);--sf2:oklch(97% .006 235);--tx:oklch(18% .014 235);--tx2:oklch(42% .01 235);--tx3:oklch(60% .008 235);--ac:oklch(61% .15 235);--ac2:oklch(92% .04 235);--bd:oklch(90% .014 235);--bd2:oklch(94% .008 235);--ok:oklch(55% .14 150);--shadow:0 12px 34px oklch(15% .01 235/.06)}
+[data-theme="dark"]{--bg:oklch(11% .012 235);--bg2:oklch(15.5% .014 235);--sf:oklch(13.5% .01 235);--sf2:oklch(18% .012 235);--tx:oklch(93% .005 235);--tx2:oklch(72% .008 235);--tx3:oklch(54% .006 235);--ac:oklch(69% .14 235);--ac2:oklch(22% .05 235);--bd:oklch(22% .02 235);--bd2:oklch(18% .015 235);--shadow:none}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.7;-webkit-font-smoothing:antialiased}
+button,select,input{font:inherit}a{text-decoration:none;color:inherit}
+.hdr{position:fixed;top:0;left:0;right:0;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 16px;backdrop-filter:blur(16px);background:color-mix(in oklch,var(--sf) 87%,transparent);border-bottom:1px solid var(--bd2);z-index:60}
+.hdr-row1{display:flex;align-items:center;gap:10px;width:100%}.hdr-row2{display:none;width:100%;align-items:center;gap:8px;padding-top:6px;border-top:1px solid var(--bd2)}
+.menu{display:none}.logo{display:flex;align-items:center;gap:8px;font-weight:700;letter-spacing:-.02em;font-size:1rem}.logo-b{width:28px;height:28px;border-radius:8px;background:var(--ac);display:grid;place-items:center;color:#fff;font-size:.72rem}
+.hdr-r{margin-left:auto;display:flex;align-items:center;gap:8px}.ghost{padding:6px 10px;border:1px solid var(--bd);background:var(--sf);border-radius:999px;font-size:.72rem;color:var(--tx3)}.cred{padding:7px 12px;border-radius:999px;background:var(--ac2);border:1px solid transparent;color:var(--ac);font-size:.75rem;font-weight:700;cursor:pointer}.cred:hover{border-color:var(--ac)}.sel,.icon{border:1px solid var(--bd);background:var(--sf);color:var(--tx);border-radius:10px}.sel{padding:7px 10px;font-size:.76rem;cursor:pointer}.icon{width:36px;height:36px;display:grid;place-items:center;cursor:pointer}
+.prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:61;pointer-events:none}.bar{height:100%;width:0;background:var(--ac)}
+.app{display:grid;grid-template-columns:260px 1fr;padding-top:60px}.side{position:sticky;top:60px;height:calc(100vh - 60px);overflow:auto;border-right:1px solid var(--bd2);padding:16px 10px;background:var(--sf)}
+.lbl{padding:6px 10px 4px;color:var(--ac);font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.nav{display:flex;align-items:center;gap:8px;padding:10px 11px;border-radius:10px;color:var(--tx2);cursor:pointer;font-size:.84rem;margin-bottom:1px}.nav:hover{background:var(--bg2);color:var(--tx)}.nav.on{background:var(--ac2);color:var(--ac);font-weight:700}.nav .lk{margin-left:auto;opacity:.5}
+.wrap{display:flex;justify-content:center}.main{width:min(100%,920px);padding:24px 28px 90px}.hero{text-align:center;padding:14px 0 18px}.ey{font:500 .68rem 'JetBrains Mono',monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--ac);margin-bottom:6px}.hero h1{font-size:clamp(1.9rem,4vw,3rem);line-height:1.05;letter-spacing:-.05em}
+.ai{display:flex;align-items:center;gap:12px;padding:15px 16px;background:var(--ac2);border:1px solid color-mix(in oklch,var(--ac) 18%,var(--bd));border-radius:16px;margin:18px auto 24px;max-width:760px;cursor:pointer}.ai:hover{border-color:var(--ac)}.ai-i{width:40px;height:40px;border-radius:50%;background:var(--ac);display:grid;place-items:center;color:#fff;flex-shrink:0}.ai strong{display:block;font-size:.9rem}.ai span{font-size:.82rem;color:var(--tx2)}
+.sec{background:var(--sf);border:1px solid var(--bd);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}.sec-h{display:flex;align-items:center;gap:10px;padding:15px 16px;cursor:pointer}.sec-h:hover{background:var(--sf2)}.sec-i{min-width:30px;height:30px;border-radius:8px;background:var(--ac2);color:var(--ac);display:grid;place-items:center;font:700 .72rem 'JetBrains Mono',monospace}.sec-t{font-weight:700;font-size:.94rem;flex:1}.sec-a{transition:transform .2s;color:var(--tx3)}.sec.open .sec-a{transform:rotate(180deg)}.sec-b{display:none;padding:0 16px 18px}.sec.open .sec-b{display:block}
+.art h2{font-size:1.28rem;letter-spacing:-.02em;margin:22px 0 10px;text-align:center}.art h3{font-size:1rem;margin:16px 0 8px;text-align:center}.art p{max-width:72ch;margin:0 auto 14px;text-align:center;color:var(--tx2)}.art strong{color:var(--tx)}.art ul,.art ol{max-width:64ch;margin:0 auto 14px;padding-left:20px;color:var(--tx2);text-align:left}.art li{margin-bottom:6px}
+.lock{max-width:720px;margin:0 auto;padding:34px 18px;background:var(--sf2);border:1px dashed var(--bd);border-radius:18px;text-align:center}.lock h3{font-size:1.1rem;margin-bottom:5px}.lock p{max-width:42ch;margin:0 auto 14px;color:var(--tx2)}.ub{border:none;background:var(--ac);color:#fff;padding:12px 24px;border-radius:999px;font:700 .88rem inherit;cursor:pointer}
+.quiz-btn{display:flex;align-items:center;justify-content:center;gap:8px;margin:22px auto 0;max-width:360px;padding:14px 20px;border:1px solid var(--bd);background:var(--sf);border-radius:12px;color:var(--tx2);cursor:pointer;font-weight:500}.quiz-btn:hover{border-color:var(--ac);color:var(--ac);background:var(--ac2)}.quiz-btn.done{border-color:var(--ok);color:var(--ok);background:oklch(95% .03 150)}
+.navb{display:flex;gap:10px;margin-top:22px}.navb button{flex:1;border:1px solid var(--bd);background:var(--sf);padding:12px;border-radius:12px;text-align:left;cursor:pointer;color:var(--tx)}.navb button span{display:block;color:var(--tx3);font-size:.68rem;text-transform:uppercase;letter-spacing:.08em}.navb button strong{display:block;margin-top:2px;font-size:.88rem}
+.fab{position:fixed;right:18px;bottom:18px;width:56px;height:56px;border:none;border-radius:50%;background:var(--ac);color:#fff;box-shadow:0 8px 24px color-mix(in oklch,var(--ac) 30%,transparent);cursor:pointer;z-index:45;font-size:1.2rem}
+/* Modals */
+.modal-bg{position:fixed;inset:0;background:oklch(10% .01 235/.6);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:16px;z-index:80}.modal-bg.open{display:flex}
+.modal-bg.bottom{align-items:flex-end}
+.modal{width:min(100%,460px);max-height:82vh;background:var(--sf);border:1px solid var(--bd);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.modal-head{padding:16px 18px;border-bottom:1px solid var(--bd2);display:flex;align-items:center;gap:10px}.modal-head strong{flex:1}.modal-x{width:28px;height:28px;border:none;background:var(--bg2);border-radius:50%;cursor:pointer;color:var(--tx2)}
+.modal-body{flex:1;overflow:auto;padding:18px}
+.modal-foot{padding:14px 18px;border-top:1px solid var(--bd2)}
+/* Chat */
+.chat-i{display:flex;gap:8px}.chat-i input{flex:1;border:1px solid var(--bd);background:var(--bg);padding:10px 12px;border-radius:999px;color:var(--tx);outline:none}.chat-i input:focus{border-color:var(--ac)}.chat-i button{width:36px;height:36px;border:none;border-radius:50%;background:var(--ac);color:#fff;cursor:pointer}
+.m{max-width:84%;margin-bottom:10px}.m.bot{margin-right:auto}.m.u{margin-left:auto}.bb{padding:10px 12px;border-radius:12px;font-size:.82rem;line-height:1.5}.m.bot .bb{background:var(--bg2)}.m.u .bb{background:var(--ac);color:#fff}
+/* Shop */
+.sl{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);font-weight:700;margin:14px 0 8px}.si{display:flex;align-items:center;justify-content:space-between;padding:12px;border:1px solid var(--bd);border-radius:12px;margin-bottom:8px;cursor:pointer;transition:.15s}.si:hover{border-color:var(--ac);background:var(--ac2)}.si .a{font-size:.86rem;font-weight:500}.si .a small{display:block;color:var(--tx3);font-size:.72rem;margin-top:1px}.si .p{font:700 .85rem 'JetBrains Mono',monospace;color:var(--ac)}
+/* Quiz modal */
+.quiz-q{margin-bottom:16px;padding:14px;border:1px solid var(--bd);border-radius:12px}.quiz-q p{margin:0 0 10px;font-weight:600;color:var(--tx)}.quiz-o{display:block;width:100%;text-align:left;padding:10px 12px;border:1px solid var(--bd);border-radius:8px;margin-bottom:6px;background:var(--sf);color:var(--tx2);cursor:pointer;transition:.12s}.quiz-o:hover{border-color:var(--ac);background:var(--ac2)}.quiz-o.correct{border-color:var(--ok);background:oklch(95% .03 150);color:var(--ok)}.quiz-o.wrong{border-color:oklch(55% .15 25);background:oklch(95% .03 25);color:oklch(55% .15 25)}
+.confirm-box{text-align:center;padding:20px}.confirm-box p{margin-bottom:16px;color:var(--tx2)}.confirm-box button{padding:10px 20px;border-radius:999px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);cursor:pointer;margin:0 6px}.confirm-box button.primary{background:var(--ac);color:#fff;border-color:var(--ac)}
+.mob{display:none;position:fixed;inset:0;top:0;background:oklch(10% .01 235/.4);z-index:54}
+@media(max-width:900px){.app{grid-template-columns:1fr;padding-top:100px}.hdr{flex-wrap:wrap;padding:8px 12px}.hdr-row2{display:flex}.side{position:fixed;left:0;top:100px;bottom:0;width:260px;transform:translateX(-100%);transition:transform .22s;z-index:55}.side.open{transform:translateX(0)}.mob.open{display:block}.main{padding:18px 14px 88px}.menu{display:grid}.ghost{display:none}.prog{top:100px}}
+</style>
+</head>
+<body>
+<header class="hdr">
+<div class="hdr-row1">
+<button class="icon menu" onclick="toggleSide()">☰</button>
+<div class="logo"><div class="logo-b">♠</div><span>The Poker Guide</span></div>
+<div class="hdr-r">
+<select class="sel" id="langSel" onchange="setLang(this.value)"><option value="en">🇬🇧 EN</option><option value="it">🇮🇹 IT</option><option value="es">🇪🇸 ES</option><option value="de">🇩🇪 DE</option><option value="fr">🇫🇷 FR</option></select>
+<button class="icon" onclick="toggleTheme()">◐</button>
+</div></div>
+<div class="hdr-row2">
+<div class="ghost" id="costLabel">1 credit = 1 question</div>
+<div style="margin-left:auto"><div class="cred" onclick="openShop()"><span id="credTop">5 credits</span></div></div>
+</div>
+</header>
+<div class="prog"><div class="bar" id="bar"></div></div>
+<div class="mob" id="mob" onclick="toggleSide()"></div>
+<div class="app">
+<aside class="side" id="side"></aside>
+<div class="wrap"><main class="main" id="main"><div style="padding:50px;text-align:center;color:var(--tx3)">Loading...</div></main></div>
+</div>
+<button class="fab" onclick="openChat()">✨</button>
+
+<!-- CHAT MODAL -->
+<div class="modal-bg bottom" id="chatModal">
+<div class="modal" style="border-radius:20px 20px 14px 14px">
+<div class="modal-head"><strong id="chatTitle">AI poker GTO coach</strong><span class="ghost" id="chatCost">1 credit = 1 question</span><span class="cred" style="margin-left:8px">5</span><button class="modal-x" onclick="closeChat()">✕</button></div>
+<div class="modal-body" id="chatBody" style="height:380px"></div>
+<div class="modal-foot"><div class="chat-i"><input id="chatInput" placeholder="Ask about GTO strategy..." onkeydown="if(event.key==='Enter')sendMsg()"><button onclick="sendMsg()">➤</button></div></div>
+</div></div>
+
+<!-- SHOP MODAL -->
+<div class="modal-bg" id="shopModal">
+<div class="modal" style="max-width:420px">
+<div class="modal-head"><strong id="shopTitle">Shop</strong><button class="modal-x" onclick="closeShop()">✕</button></div>
+<div class="modal-body" id="shopBody"></div>
+</div></div>
+
+<!-- QUIZ MODAL -->
+<div class="modal-bg" id="quizModal">
+<div class="modal" style="max-width:560px;max-height:90vh">
+<div class="modal-head"><strong id="quizTitle">Quiz</strong><button class="modal-x" onclick="confirmCloseQuiz()">✕</button></div>
+<div class="modal-body" id="quizBody"></div>
+</div></div>
+
+<script>
+// === STATE ===
+let lang=localStorage.getItem('lang')||'en',cur='fondamentali',tester=false,data=null;
+const quizDone=JSON.parse(localStorage.getItem('quizDone')||'{}');
+
+// === TRANSLATIONS ===
+const T={en:{free:'free',pro:'pro',elite:'elite',extra:'extra',cost:'1 credit = 1 question',credits:'credits',prev:'previous',next:'next',quiz:'Quiz: test your knowledge',quizDone:'\u2713 Completed (repeat?)',quizConfirm:'You are about to start the quiz. If you close it before finishing, you will have to start over. Continue?',quizYes:'Start',quizNo:'Cancel',shopTitle:'Shop',unlockPro:'Unlock PRO',unlockElite:'Unlock ELITE',unlockAll:'PRO + ELITE Bundle',proPack:'6 advanced chapters',elitePack:'5 elite chapters',allPack:'All chapters unlocked',proCredits:'+10 AI credits',eliteCredits:'+20 AI credits',allCredits:'+40 AI credits',creditsPack:'AI Credits (launch offer)',close:'Close',aiBanner:'AI poker GTO coach',aiDesc:'Something unclear? Our AI is trained exclusively on advanced GTO strategy. Ask it to explain this topic.',shopAlert:'Simulated purchase. Final version uses Microsoft Store.',glossary:'Glossary'},it:{free:'gratuito',pro:'pro',elite:'elite',extra:'extra',cost:'1 credito = 1 domanda',credits:'crediti',prev:'precedente',next:'successivo',quiz:'Quiz: verifica le tue conoscenze',quizDone:'\u2713 Completato (ripeti?)',quizConfirm:'Stai per iniziare il quiz. Se chiudi prima di finire, dovrai ricominciare da capo. Continuare?',quizYes:'Inizia',quizNo:'Annulla',shopTitle:'Shop',unlockPro:'Sblocca PRO',unlockElite:'Sblocca ELITE',unlockAll:'Bundle PRO + ELITE',proPack:'6 capitoli avanzati',elitePack:'5 capitoli elite',allPack:'Tutto sbloccato',proCredits:'+10 crediti AI',eliteCredits:'+20 crediti AI',allCredits:'+40 crediti AI',creditsPack:'Crediti AI (offerta lancio)',close:'Chiudi',aiBanner:'AI poker GTO coach',aiDesc:'Non hai capito qualcosa? La nostra AI \u00e8 allenata esclusivamente sulla strategia GTO avanzata. Chiedile di spiegarti questo argomento.',shopAlert:'Acquisto simulato. Versione finale via Microsoft Store.',glossary:'Glossario'},es:{free:'gratis',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dito = 1 pregunta',credits:'cr\u00e9ditos',prev:'anterior',next:'siguiente',quiz:'Quiz: pon a prueba tus conocimientos',quizDone:'\u2713 Completado (repetir?)',quizConfirm:'Vas a iniciar el quiz. Si lo cierras antes de terminar, tendr\u00e1s que empezar de nuevo. \u00bfContinuar?',quizYes:'Empezar',quizNo:'Cancelar',shopTitle:'Tienda',unlockPro:'Desbloquear PRO',unlockElite:'Desbloquear ELITE',unlockAll:'Pack PRO + ELITE',proPack:'6 cap\u00edtulos avanzados',elitePack:'5 cap\u00edtulos elite',allPack:'Todo desbloqueado',proCredits:'+10 cr\u00e9ditos IA',eliteCredits:'+20 cr\u00e9ditos IA',allCredits:'+40 cr\u00e9ditos IA',creditsPack:'Cr\u00e9ditos IA (oferta lanzamiento)',close:'Cerrar',aiBanner:'AI poker GTO coach',aiDesc:'\u00bfAlgo no est\u00e1 claro? Nuestra IA est\u00e1 entrenada exclusivamente en estrategia GTO avanzada.',shopAlert:'Compra simulada. Versi\u00f3n final via Microsoft Store.',glossary:'Glosario'},de:{free:'kostenlos',pro:'pro',elite:'elite',extra:'extra',cost:'1 Credit = 1 Frage',credits:'Credits',prev:'zur\u00fcck',next:'weiter',quiz:'Quiz: teste dein Wissen',quizDone:'\u2713 Abgeschlossen (wiederholen?)',quizConfirm:'Du startest jetzt das Quiz. Wenn du es vorher schlie\u00dft, musst du von vorne beginnen. Fortfahren?',quizYes:'Starten',quizNo:'Abbrechen',shopTitle:'Shop',unlockPro:'PRO freischalten',unlockElite:'ELITE freischalten',unlockAll:'PRO + ELITE Bundle',proPack:'6 fortgeschrittene Kapitel',elitePack:'5 Elite-Kapitel',allPack:'Alles freigeschaltet',proCredits:'+10 KI-Credits',eliteCredits:'+20 KI-Credits',allCredits:'+40 KI-Credits',creditsPack:'KI-Credits (Launch-Angebot)',close:'Schlie\u00dfen',aiBanner:'AI poker GTO coach',aiDesc:'Etwas unklar? Unsere KI ist ausschlie\u00dflich auf fortgeschrittene GTO-Strategie trainiert.',shopAlert:'Simulierter Kauf. Finalversion via Microsoft Store.',glossary:'Glossar'},fr:{free:'gratuit',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dit = 1 question',credits:'cr\u00e9dits',prev:'pr\u00e9c\u00e9dent',next:'suivant',quiz:'Quiz : teste tes connaissances',quizDone:'\u2713 Compl\u00e9t\u00e9 (refaire?)',quizConfirm:'Tu vas commencer le quiz. Si tu le fermes avant la fin, tu devras recommencer. Continuer ?',quizYes:'Commencer',quizNo:'Annuler',shopTitle:'Boutique',unlockPro:'D\u00e9bloquer PRO',unlockElite:'D\u00e9bloquer ELITE',unlockAll:'Pack PRO + ELITE',proPack:'6 chapitres avanc\u00e9s',elitePack:'5 chapitres elite',allPack:'Tout d\u00e9bloqu\u00e9',proCredits:'+10 cr\u00e9dits IA',eliteCredits:'+20 cr\u00e9dits IA',allCredits:'+40 cr\u00e9dits IA',creditsPack:'Cr\u00e9dits IA (offre lancement)',close:'Fermer',aiBanner:'AI poker GTO coach',aiDesc:"Quelque chose n'est pas clair ? Notre IA est entra\u00een\u00e9e exclusivement sur la strat\u00e9gie GTO avanc\u00e9e.",shopAlert:'Achat simul\u00e9. Version finale via Microsoft Store.',glossary:'Glossaire'}};
+function tr(k){return(T[lang]&&T[lang][k])||T.en[k]||k}
+function clabel(key){if(!data||!data.chapters[key])return key;const ch=data.chapters[key];return(ch.label&&(ch.label[lang]||ch.label.en||ch.label.it))||key}
+
+// Chapters with quiz (large chapters only)
+const quizChapters=['fondamentali','preflop','potodds','3bet','flat','postflop','stackdepth','bvb_avanzato','icm','pko','exploit'];
+
+// === RENDER ===
+function renderSide(){if(!data)return;let h='';h+=`<div class="lbl">${tr('free')}</div>`;data.structure.free.forEach(k=>h+=`<div class="nav ${cur===k?'on':''}" onclick="go('${k}')">${clabel(k)}</div>`);
+h+=`<div class="lbl" style="margin-top:12px">${tr('pro')}</div>`;data.structure.pro.forEach(k=>h+=`<div class="nav ${cur===k?'on':''}" onclick="go('${k}')">${clabel(k)}${tester?'':'<span class="lk">\ud83d\udd12</span>'}</div>`);
+h+=`<div class="lbl" style="margin-top:12px">${tr('elite')}</div>`;data.structure.elite.forEach(k=>h+=`<div class="nav ${cur===k?'on':''}" onclick="go('${k}')">${clabel(k)}${tester?'':'<span class="lk">\ud83d\udd12</span>'}</div>`);
+h+=`<div class="lbl" style="margin-top:12px">${tr('extra')}</div>`;
+h+=`<div class="nav" onclick="openShop()">\ud83d\uded2 ${tr('shopTitle')}</div>`;
+h+=`<div class="nav" onclick="showGlossary()">\ud83d\udcda ${tr('glossary')}</div>`;
+h+=`<div class="nav" style="color:var(--ok)" onclick="toggleTester()">${tester?'\u2713 tester on':'\ud83d\udd13 tester'}</div>`;
+document.getElementById('side').innerHTML=h}
+
+function render(){if(!data)return;const ch=data.chapters[cur];if(!ch)return;
+const isPro=data.structure.pro.includes(cur);const isElite=data.structure.elite.includes(cur);
+const locked=(isPro||isElite)&&!tester;const i=data.order.indexOf(cur);const prev=data.order[i-1],next=data.order[i+1];
+const bodyKey='body_'+lang;const body=ch[bodyKey]||ch.body_en||ch.body_it||'';
+let html=`<div class="hero"><div class="ey">${ch.eyebrow||''}</div><h1>${clabel(cur)}</h1></div>`;
+html+=`<div class="ai" onclick="openChat()"><div class="ai-i">✨</div><div><strong>${tr('aiBanner')}</strong><span>${tr('aiDesc')}</span></div></div>`;
+if(locked){const tier=isPro?'PRO':'ELITE';html+=`<div class="lock"><h3>${tier}</h3><p>${isPro?tr('proPack'):tr('elitePack')}</p><button class="ub" onclick="openShop()">${isPro?tr('unlockPro'):tr('unlockElite')}</button></div>`}
+else{html+=`<div class="sec open"><div class="sec-h" onclick="this.parentElement.classList.toggle('open')"><div class="sec-i">01</div><div class="sec-t">${clabel(cur)}</div><div class="sec-a">\u2304</div></div><div class="sec-b"><div class="art">${body}</div>`;
+if(quizChapters.includes(cur)){const done=quizDone[cur];html+=`<div class="quiz-btn ${done?'done':''}" onclick="startQuiz()">${done?tr('quizDone'):'\ud83d\udcdd '+tr('quiz')}</div>`}
+html+=`</div></div>`}
+html+=`<div class="navb"><button ${!prev?'disabled style="opacity:.4;cursor:default"':'onclick="go(\''+prev+'\')"'}><span>${tr('prev')}</span><strong>${prev?clabel(prev):'\u2014'}</strong></button><button ${!next?'disabled style="opacity:.4;cursor:default"':'onclick="go(\''+next+'\')"'}><span>${tr('next')}</span><strong>${next?clabel(next):'\u2014'}</strong></button></div>`;
+document.getElementById('main').innerHTML=html}
+
+// === LANGUAGE ===
+function setLang(v){lang=v;localStorage.setItem('lang',v);applyUI()}
+function applyUI(){document.getElementById('costLabel').textContent=tr('cost');document.getElementById('credTop').textContent='5 '+tr('credits');document.getElementById('chatTitle').textContent=tr('aiBanner');document.getElementById('chatCost').textContent=tr('cost');document.getElementById('chatInput').placeholder=lang==='it'?'Chiedi sulla strategia GTO...':'Ask about GTO strategy...';document.getElementById('chatBody').innerHTML=`<div class="m bot"><div class="bb">${lang==='it'?'Ciao, sono AI poker GTO coach. Chiedimi qualsiasi cosa.':'Hi, I am AI poker GTO coach. Ask me anything about GTO strategy.'}</div></div>`;renderSide();render()}
+
+// === THEME ===
+function toggleTheme(){const d=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',d?'':'dark');localStorage.setItem('theme',d?'light':'dark')}
+(function(){const s=localStorage.getItem('theme');if(s==='dark'||(!s&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')})();
+
+// === NAV ===
+function go(k){cur=k;renderSide();render();scrollTo({top:0,behavior:'smooth'});closeSide()}
+function toggleTester(){tester=!tester;renderSide();render()}
+function toggleSide(){document.getElementById('side').classList.toggle('open');document.getElementById('mob').classList.toggle('open')}
+function closeSide(){document.getElementById('side').classList.remove('open');document.getElementById('mob').classList.remove('open')}
+
+// === CHAT ===
+function openChat(){document.getElementById('chatModal').classList.add('open')}
+function closeChat(){document.getElementById('chatModal').classList.remove('open')}
+function sendMsg(){const inp=document.getElementById('chatInput'),v=inp.value.trim();if(!v)return;const b=document.getElementById('chatBody');b.innerHTML+=`<div class="m u"><div class="bb">${v}</div></div>`;inp.value='';setTimeout(()=>{b.innerHTML+=`<div class="m bot"><div class="bb">${lang==='it'?'Demo: nella versione finale risponder\u00f2 con expertise GTO avanzata.':'Demo: in the final version I will answer with advanced GTO expertise contextual to the current chapter.'}</div></div>`;b.scrollTop=b.scrollHeight},450)}
+
+// === SHOP ===
+function openShop(){let h=`<div class="sl">${tr('unlockPro')}</div><div class="si" onclick="fakeBuy()"><div class="a">${tr('proPack')}<small>${tr('proCredits')}</small></div><div class="p">\u20ac1,49</div></div>`;h+=`<div class="sl">${tr('unlockElite')}</div><div class="si" onclick="fakeBuy()"><div class="a">${tr('elitePack')}<small>${tr('eliteCredits')}</small></div><div class="p">\u20ac2,99</div></div>`;h+=`<div class="sl">${tr('unlockAll')}</div><div class="si" onclick="fakeBuy()"><div class="a">${tr('allPack')}<small>${tr('allCredits')}</small></div><div class="p">\u20ac3,99</div></div>`;h+=`<div class="sl">${tr('creditsPack')}</div><div class="si" onclick="fakeBuy()"><div class="a">15 ${tr('credits')}<small>Launch</small></div><div class="p">\u20ac0,49</div></div><div class="si" onclick="fakeBuy()"><div class="a">40 ${tr('credits')}<small>Best value</small></div><div class="p">\u20ac0,99</div></div><div class="si" onclick="fakeBuy()"><div class="a">120 ${tr('credits')}<small>Pro pack</small></div><div class="p">\u20ac2,49</div></div>`;document.getElementById('shopBody').innerHTML=h;document.getElementById('shopTitle').textContent=tr('shopTitle');document.getElementById('shopModal').classList.add('open')}
+function closeShop(){document.getElementById('shopModal').classList.remove('open')}
+function fakeBuy(){alert(tr('shopAlert'))}
+
+// === GLOSSARY ===
+function showGlossary(){if(!data||!data.glossary)return;const g=data.glossary[lang]||data.glossary.en||data.glossary.it||[];let h=g.map(([t,d])=>`<div class="quiz-q"><p>${t}</p><div style="color:var(--tx2);font-size:.84rem">${d}</div></div>`).join('');document.getElementById('quizBody').innerHTML=`<div style="margin-bottom:12px;font-weight:600">${tr('glossary')} (${g.length})</div>${h}`;document.getElementById('quizTitle').textContent=tr('glossary');document.getElementById('quizModal').classList.add('open')}
+
+// === QUIZ ===
+let quizActive=false,quizQs=[],quizIdx=0,quizScore=0;
+function startQuiz(){if(quizActive)return;
+const ch=data.chapters[cur];if(!ch||!ch.quiz)return;
+document.getElementById('quizBody').innerHTML='<div class="confirm-box"><p>'+tr('quizConfirm')+'</p><button onclick="closeQuiz()">'+tr('quizNo')+'</button><button class="primary" onclick="launchQuiz()">'+tr('quizYes')+'</button></div>';
+document.getElementById('quizTitle').textContent=tr('quiz');document.getElementById('quizModal').classList.add('open')}
+function launchQuiz(){quizActive=true;quizScore=0;quizIdx=0;
+const ch=data.chapters[cur];if(!ch||!ch.quiz)return;
+const pool=ch.quiz[lang]||ch.quiz.en||[];
+const shuffled=[...pool].sort(()=>Math.random()-.5);
+quizQs=shuffled.slice(0,4).map(q=>{
+const entries=Object.entries(q.options);
+const shuffledOpts=[...entries].sort(()=>Math.random()-.5);
+return{question:q.question,options:shuffledOpts,correct:q.correct,correctText:q.options[q.correct]}});
+showQuizQuestion()}
+function showQuizQuestion(){if(quizIdx>=quizQs.length){completeQuiz();return}
+const q=quizQs[quizIdx];const num=quizIdx+1;
+let h='<p style="text-align:center;color:var(--tx3);margin-bottom:14px">'+num+' / '+quizQs.length+'</p>';
+h+='<div class="quiz-q"><p>'+q.question+'</p>';
+q.options.forEach(([key,text])=>{h+='<button class="quiz-o" data-key="'+key+'" onclick="answerQuiz(this,\''+key+'\')">' +text+'</button>'});
+h+='</div>';document.getElementById('quizBody').innerHTML=h}
+function answerQuiz(btn,key){const q=quizQs[quizIdx];
+document.querySelectorAll('.quiz-o').forEach(b=>{b.onclick=null;b.style.pointerEvents='none';
+const k=b.dataset.key;
+if(k===q.correct)b.classList.add('correct');
+else if(k===key)b.classList.add('wrong')});
+if(key===q.correct)quizScore++;
+setTimeout(()=>{quizIdx++;showQuizQuestion()},1200)}
+function completeQuiz(){quizDone[cur]=true;localStorage.setItem('quizDone',JSON.stringify(quizDone));
+const pct=Math.round((quizScore/quizQs.length)*100);
+const emoji=pct>=75?String.fromCodePoint(0x1F389):pct>=50?String.fromCodePoint(0x1F44D):String.fromCodePoint(0x1F4AA);
+let msg=pct>=75?(lang==='it'?'Ottimo lavoro!':'Great job!'):(lang==='it'?'Continua a studiare!':'Keep studying!');
+document.getElementById('quizBody').innerHTML='<div class="confirm-box"><p style="font-size:2rem">'+emoji+'</p><p><strong>'+quizScore+'/'+quizQs.length+'</strong> ('+pct+'%)</p><p style="color:var(--tx3)">'+msg+'</p><button class="primary" onclick="quizActive=false;closeQuiz();render()">'+tr('close')+'</button></div>';
+quizActive=false;render()}
+function confirmCloseQuiz(){if(quizActive){if(confirm(lang==='it'?'Sei sicuro? Dovrai ricominciare da capo.':'Are you sure? You will have to start over.')){quizActive=false;closeQuiz()}}else closeQuiz()}
+function closeQuiz(){document.getElementById('quizModal').classList.remove('open')}
+
+// === SCROLL ===
+addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('bar').style.width=Math.min(100,(d.scrollTop/(d.scrollHeight-d.clientHeight))*100)+'%'});
+
+// === MODALS CLOSE ON BG CLICK ===
+document.querySelectorAll('.modal-bg').forEach(el=>{el.addEventListener('click',e=>{if(e.target===el){if(el.id==='quizModal')confirmCloseQuiz();else el.classList.remove('open')}})});
+
+// === BOOT ===
+async function boot(){try{const r=await fetch('chapters.json');data=await r.json();cur=data.order[0];applyUI()}catch(e){document.getElementById('main').innerHTML='<div style="padding:50px;text-align:center;color:var(--tx3)">Error loading chapters.json</div>'}}
+if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
+boot();
+</script>
+</body>
+</html>
