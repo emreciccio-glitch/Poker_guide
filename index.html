@@ -440,25 +440,14 @@ function quizAnswer(btn,qi){
     b.style.pointerEvents='none';
     if(b.getAttribute('data-correct')==='true')b.classList.add('correct');
   });
-  if(!isCorrect)btn.classList.add('wrong');
+  if(!isCorrect){btn.classList.add('wrong');quizActive=false;setTimeout(()=>{document.getElementById('quizBody').innerHTML='<div class="confirm-box"><p>'+(lang==='it'?'Risposta sbagliata! Devi ricominciare.':'Wrong answer! You must start over.')+'</p><button class="primary" onclick="startQuiz(\''+window._quizState.chapter+'\')">'+tr('quizYes')+'</button><button onclick="document.getElementById(\'quizModal\').classList.remove(\'open\')">'+tr('close')+'</button></div>';},800);return;}
 
   const state=window._quizState;
   if(isCorrect)state.score++;
   state.answered++;
 
   // Quiz complete?
-  if(state.answered>=state.total){
-    quizActive=false;
-    const pct=Math.round(state.score/state.total*100);
-    const emoji=pct>=75?'\ud83c\udf89':pct>=50?'\ud83d\udc4d':'\ud83d\udcaa';
-    const msg=pct>=75?'Excellent!':pct>=50?'Good job!':'Keep studying!';
-    const result=`<div style="text-align:center;padding:18px;margin-top:14px;border:1px solid var(--bd);border-radius:12px;background:var(--sf2)"><strong style="font-size:1.2rem">${state.score}/${state.total} (${pct}%)</strong><p style="color:var(--tx2);margin-top:6px">${emoji} ${msg}</p></div>`;
-    document.getElementById('quizBody').innerHTML+=result;
-    // Mark done
-    quizDone[state.chapter]=true;
-    localStorage.setItem('quizDone',JSON.stringify(quizDone));
-    render();
-  }
+  if(state.answered>=state.total&&state.score===state.total){quizActive=false;quizDone[state.chapter]=true;localStorage.setItem('quizDone',JSON.stringify(quizDone));document.getElementById('quizBody').innerHTML+='<div style="text-align:center;padding:18px;margin-top:14px;border:1px solid var(--bd);border-radius:12px;background:var(--sf2)"><strong style="font-size:1.2rem">'+state.total+'/'+state.total+' \ud83c\udfaf</strong><p style="color:var(--tx2);margin-top:6px">'+(lang==='it'?'Perfetto! Capitolo completato.':'Perfect! Chapter completed.')+'</p></div>';render();}
 }
 
 // === INIT ===
