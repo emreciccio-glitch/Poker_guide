@@ -1,6 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<!-- skill:chrome -->
+<style>
+/* Credit line — bottom-right */
+.design-ui-credit {
+  position: fixed;
+  bottom: 12px;
+  right: 12px;
+  font: 11px/1 system-ui, sans-serif;
+  color: rgba(128,128,128,0.5);
+  pointer-events: none;
+  z-index: 2147483647;
+  transition: opacity 0.4s ease;
+  user-select: none;
+  letter-spacing: 0.02em;
+}
+
+/* Hide chrome on touch devices */
+@media (hover: none) {
+  .design-ui-credit { display: none; }
+}
+
+/* Print fixes */
+@media print {
+  * {
+    transition: none !important;
+    animation: none !important;
+    box-shadow: none !important;
+  }
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+  .design-ui-credit { display: none !important; }
+}
+
+</style>
+<script>
+(function () {
+    // Design-ui pages are single compositions, so the whole body is editable.
+    function markEditable() {
+        document.body.classList.add('artifact-editable');
+    }
+
+    // Credit badge with idle-fade. Hover devices only.
+    function initChromeUI() {
+        if (!matchMedia('(hover: hover)').matches) return;
+
+        var credit = document.createElement('div');
+        credit.className = 'design-ui-credit';
+        credit.setAttribute('aria-hidden', 'true');
+        credit.innerHTML = '\u{1F49C} by ClickUp Brain';
+        document.body.appendChild(credit);
+
+        var timer = null;
+        var fade = function (out) { credit.style.opacity = out ? '0' : ''; };
+        fade(true);
+        var show = function () {
+            fade(false);
+            clearTimeout(timer);
+            timer = setTimeout(function () { fade(true); }, 3000);
+        };
+        document.addEventListener('mousemove', show);
+        show();
+    }
+
+    function init() {
+        markEditable();
+        initChromeUI();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', init);
+    } else {
+        init();
+    }
+})();
+
+</script>
+<!-- /skill:chrome -->
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>The Poker Guide</title>
@@ -35,8 +114,13 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 .modal-body{flex:1;overflow:auto;padding:18px}
 .modal-foot{padding:14px 18px;border-top:1px solid var(--bd2)}
 /* Chat */
-.chat-i{display:flex;gap:8px}.chat-i input{flex:1;border:1px solid var(--bd);background:var(--bg);padding:10px 12px;border-radius:999px;color:var(--tx);outline:none}.chat-i input:focus{border-color:var(--ac)}.chat-i button{width:36px;height:36px;border:none;border-radius:50%;background:var(--ac);color:#fff;cursor:pointer}
+.chat-i{display:flex;gap:8px}.chat-i input{flex:1;border:1px solid var(--bd);background:var(--bg);padding:10px 12px;border-radius:999px;color:var(--tx);outline:none}.chat-i input:focus{border-color:var(--ac)}.chat-i button{width:36px;height:36px;border:none;border-radius:50%;background:var(--ac);color:#fff;cursor:pointer}.chat-i button:disabled{opacity:.5;cursor:not-allowed}
 .m{max-width:84%;margin-bottom:10px}.m.bot{margin-right:auto}.m.u{margin-left:auto}.bb{padding:10px 12px;border-radius:12px;font-size:.82rem;line-height:1.5}.m.bot .bb{background:var(--bg2)}.m.u .bb{background:var(--ac);color:#fff}
+/* Typing indicator */
+.typing{display:inline-flex;gap:4px;align-items:center;height:20px}.typing span{width:6px;height:6px;border-radius:50%;background:var(--tx3);animation:tblink 1.2s infinite}.typing span:nth-child(2){animation-delay:.2s}.typing span:nth-child(3){animation-delay:.4s}
+@keyframes tblink{0%,60%,100%{opacity:.3}30%{opacity:1}}
+/* No credits */
+.no-cred-msg{text-align:center;padding:12px;margin:8px 0;font-size:.8rem;color:oklch(55% .15 25);border:1px dashed oklch(55% .15 25/.3);border-radius:10px;cursor:pointer}.no-cred-msg:hover{background:oklch(55% .15 25/.06)}
 /* Shop */
 .sl{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);font-weight:700;margin:14px 0 8px}.si{display:flex;align-items:center;justify-content:space-between;padding:12px;border:1px solid var(--bd);border-radius:12px;margin-bottom:8px;cursor:pointer;transition:.15s}.si:hover{border-color:var(--ac);background:var(--ac2)}.si .a{font-size:.86rem;font-weight:500}.si .a small{display:block;color:var(--tx3);font-size:.72rem;margin-top:1px}.si .p{font:700 .85rem 'JetBrains Mono',monospace;color:var(--ac)}
 /* Quiz modal */
@@ -49,11 +133,11 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 <body>
 <header class="hdr">
 <div class="hdr-row1">
-<button class="icon menu" onclick="toggleSide()">☰</button>
-<div class="logo"><div class="logo-b">♠</div><span>The Poker Guide</span></div>
+<button class="icon menu" onclick="toggleSide()">&#9776;</button>
+<div class="logo"><div class="logo-b">&#9824;</div><span>The Poker Guide</span></div>
 <div class="hdr-r">
-<select class="sel" id="langSel" onchange="setLang(this.value)"><option value="en">🇬🇧 EN</option><option value="it">🇮🇹 IT</option><option value="es">🇪🇸 ES</option><option value="de">🇩🇪 DE</option><option value="fr">🇫🇷 FR</option></select>
-<button class="icon" onclick="toggleTheme()">◐</button>
+<select class="sel" id="langSel" onchange="setLang(this.value)"><option value="en">&#127468;&#127463; EN</option><option value="it">&#127470;&#127481; IT</option><option value="es">&#127466;&#127480; ES</option><option value="de">&#127465;&#127466; DE</option><option value="fr">&#127467;&#127479; FR</option></select>
+<button class="icon" onclick="toggleTheme()">&#9684;</button>
 </div></div>
 <div class="hdr-row2">
 <div class="ghost" id="costLabel">1 credit = 1 question</div>
@@ -66,27 +150,27 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 <aside class="side" id="side"></aside>
 <div class="wrap"><main class="main" id="main"><div style="padding:50px;text-align:center;color:var(--tx3)">Loading...</div></main></div>
 </div>
-<button class="fab" onclick="openChat()">✨</button>
+<button class="fab" onclick="openChat()">&#10024;</button>
 
 <!-- CHAT MODAL -->
 <div class="modal-bg bottom" id="chatModal">
 <div class="modal" style="border-radius:20px 20px 14px 14px">
-<div class="modal-head"><strong id="chatTitle">AI poker GTO coach</strong><span class="ghost" id="chatCost">1 credit = 1 question</span><span class="cred" style="margin-left:8px">5</span><button class="modal-x" onclick="closeChat()">✕</button></div>
+<div class="modal-head"><strong id="chatTitle">AI poker GTO coach</strong><span class="ghost" id="chatCost">1 credit = 1 question</span><span class="cred" id="chatCredBadge" style="margin-left:8px" onclick="openShop()">5</span><button class="modal-x" onclick="closeChat()">&#10005;</button></div>
 <div class="modal-body" id="chatBody" style="height:380px"></div>
-<div class="modal-foot"><div class="chat-i"><input id="chatInput" placeholder="Ask about GTO strategy..." onkeydown="if(event.key==='Enter')sendMsg()"><button onclick="sendMsg()">➤</button></div></div>
+<div class="modal-foot"><div class="chat-i"><input id="chatInput" placeholder="Ask about GTO strategy..." onkeydown="if(event.key==='Enter')sendMsg()"><button id="chatSendBtn" onclick="sendMsg()">&#10148;</button></div></div>
 </div></div>
 
 <!-- SHOP MODAL -->
 <div class="modal-bg" id="shopModal">
 <div class="modal" style="max-width:420px">
-<div class="modal-head"><strong id="shopTitle">Shop</strong><button class="modal-x" onclick="closeShop()">✕</button></div>
+<div class="modal-head"><strong id="shopTitle">Shop</strong><button class="modal-x" onclick="closeShop()">&#10005;</button></div>
 <div class="modal-body" id="shopBody"></div>
 </div></div>
 
 <!-- QUIZ MODAL -->
 <div class="modal-bg" id="quizModal">
 <div class="modal" style="max-width:560px;max-height:90vh">
-<div class="modal-head"><strong id="quizTitle">Quiz</strong><button class="modal-x" onclick="confirmCloseQuiz()">✕</button></div>
+<div class="modal-head"><strong id="quizTitle">Quiz</strong><button class="modal-x" onclick="confirmCloseQuiz()">&#10005;</button></div>
 <div class="modal-body" id="quizBody"></div>
 </div></div>
 
@@ -95,12 +179,25 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 let lang=localStorage.getItem('lang')||'en',cur='fondamentali',tester=false,data=null;
 const quizDone=JSON.parse(localStorage.getItem('quizDone')||'{}');
 
+// === CREDITS SYSTEM (localStorage beta) ===
+let credits=parseInt(localStorage.getItem('aiCredits')??'5');
+if(isNaN(credits)){credits=5;localStorage.setItem('aiCredits','5')}
+let chatHistory=[];
+let chatLoading=false;
+
+function setCredits(n){credits=Math.max(0,n);localStorage.setItem('aiCredits',String(credits));updateCreditsUI()}
+function updateCreditsUI(){
+  const label=credits+' '+tr('credits');
+  document.getElementById('credTop').textContent=label;
+  document.getElementById('chatCredBadge').textContent=String(credits);
+}
+
 // === TRANSLATIONS ===
-const T={en:{free:'free',pro:'pro',elite:'elite',extra:'extra',cost:'1 credit = 1 question',credits:'credits',prev:'previous',next:'next',quiz:'Quiz: test your knowledge',quizDone:'\u2713 Completed (repeat?)',quizConfirm:'You are about to start the quiz. If you close it before finishing, you will have to start over. Continue?',quizYes:'Start',quizNo:'Cancel',shopTitle:'Shop',unlockPro:'Unlock PRO',unlockElite:'Unlock ELITE',unlockAll:'PRO + ELITE Bundle',proPack:'6 advanced chapters',elitePack:'5 elite chapters',allPack:'All chapters unlocked',proCredits:'+10 AI credits',eliteCredits:'+20 AI credits',allCredits:'+40 AI credits',creditsPack:'AI Credits (launch offer)',close:'Close',aiBanner:'AI poker GTO coach',aiDesc:'Something unclear? Our AI is trained exclusively on advanced GTO strategy. Ask it to explain this topic.',shopAlert:'Simulated purchase. Final version uses Microsoft Store.',glossary:'Glossary'},it:{free:'gratuito',pro:'pro',elite:'elite',extra:'extra',cost:'1 credito = 1 domanda',credits:'crediti',prev:'precedente',next:'successivo',quiz:'Quiz: verifica le tue conoscenze',quizDone:'\u2713 Completato (ripeti?)',quizConfirm:'Stai per iniziare il quiz. Se chiudi prima di finire, dovrai ricominciare da capo. Continuare?',quizYes:'Inizia',quizNo:'Annulla',shopTitle:'Shop',unlockPro:'Sblocca PRO',unlockElite:'Sblocca ELITE',unlockAll:'Bundle PRO + ELITE',proPack:'6 capitoli avanzati',elitePack:'5 capitoli elite',allPack:'Tutto sbloccato',proCredits:'+10 crediti AI',eliteCredits:'+20 crediti AI',allCredits:'+40 crediti AI',creditsPack:'Crediti AI (offerta lancio)',close:'Chiudi',aiBanner:'AI poker GTO coach',aiDesc:'Non hai capito qualcosa? La nostra AI \u00e8 allenata esclusivamente sulla strategia GTO avanzata. Chiedile di spiegarti questo argomento.',shopAlert:'Acquisto simulato. Versione finale via Microsoft Store.',glossary:'Glossario'},es:{free:'gratis',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dito = 1 pregunta',credits:'cr\u00e9ditos',prev:'anterior',next:'siguiente',quiz:'Quiz: pon a prueba tus conocimientos',quizDone:'\u2713 Completado (repetir?)',quizConfirm:'Vas a iniciar el quiz. Si lo cierras antes de terminar, tendr\u00e1s que empezar de nuevo. \u00bfContinuar?',quizYes:'Empezar',quizNo:'Cancelar',shopTitle:'Tienda',unlockPro:'Desbloquear PRO',unlockElite:'Desbloquear ELITE',unlockAll:'Pack PRO + ELITE',proPack:'6 cap\u00edtulos avanzados',elitePack:'5 cap\u00edtulos elite',allPack:'Todo desbloqueado',proCredits:'+10 cr\u00e9ditos IA',eliteCredits:'+20 cr\u00e9ditos IA',allCredits:'+40 cr\u00e9ditos IA',creditsPack:'Cr\u00e9ditos IA (oferta lanzamiento)',close:'Cerrar',aiBanner:'AI poker GTO coach',aiDesc:'\u00bfAlgo no est\u00e1 claro? Nuestra IA est\u00e1 entrenada exclusivamente en estrategia GTO avanzada.',shopAlert:'Compra simulada. Versi\u00f3n final via Microsoft Store.',glossary:'Glosario'},de:{free:'kostenlos',pro:'pro',elite:'elite',extra:'extra',cost:'1 Credit = 1 Frage',credits:'Credits',prev:'zur\u00fcck',next:'weiter',quiz:'Quiz: teste dein Wissen',quizDone:'\u2713 Abgeschlossen (wiederholen?)',quizConfirm:'Du startest jetzt das Quiz. Wenn du es vorher schlie\u00dft, musst du von vorne beginnen. Fortfahren?',quizYes:'Starten',quizNo:'Abbrechen',shopTitle:'Shop',unlockPro:'PRO freischalten',unlockElite:'ELITE freischalten',unlockAll:'PRO + ELITE Bundle',proPack:'6 fortgeschrittene Kapitel',elitePack:'5 Elite-Kapitel',allPack:'Alles freigeschaltet',proCredits:'+10 KI-Credits',eliteCredits:'+20 KI-Credits',allCredits:'+40 KI-Credits',creditsPack:'KI-Credits (Launch-Angebot)',close:'Schlie\u00dfen',aiBanner:'AI poker GTO coach',aiDesc:'Etwas unklar? Unsere KI ist ausschlie\u00dflich auf fortgeschrittene GTO-Strategie trainiert.',shopAlert:'Simulierter Kauf. Finalversion via Microsoft Store.',glossary:'Glossar'},fr:{free:'gratuit',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dit = 1 question',credits:'cr\u00e9dits',prev:'pr\u00e9c\u00e9dent',next:'suivant',quiz:'Quiz : teste tes connaissances',quizDone:'\u2713 Compl\u00e9t\u00e9 (refaire?)',quizConfirm:'Tu vas commencer le quiz. Si tu le fermes avant la fin, tu devras recommencer. Continuer ?',quizYes:'Commencer',quizNo:'Annuler',shopTitle:'Boutique',unlockPro:'D\u00e9bloquer PRO',unlockElite:'D\u00e9bloquer ELITE',unlockAll:'Pack PRO + ELITE',proPack:'6 chapitres avanc\u00e9s',elitePack:'5 chapitres elite',allPack:'Tout d\u00e9bloqu\u00e9',proCredits:'+10 cr\u00e9dits IA',eliteCredits:'+20 cr\u00e9dits IA',allCredits:'+40 cr\u00e9dits IA',creditsPack:'Cr\u00e9dits IA (offre lancement)',close:'Fermer',aiBanner:'AI poker GTO coach',aiDesc:"Quelque chose n'est pas clair ? Notre IA est entra\u00een\u00e9e exclusivement sur la strat\u00e9gie GTO avanc\u00e9e.",shopAlert:'Achat simul\u00e9. Version finale via Microsoft Store.',glossary:'Glossaire'}};
+const T={en:{free:'free',pro:'pro',elite:'elite',extra:'extra',cost:'1 credit = 1 question',credits:'credits',prev:'previous',next:'next',quiz:'Quiz: test your knowledge',quizDone:'\u2713 Completed (repeat?)',quizConfirm:'You are about to start the quiz. If you close it before finishing, you will have to start over. Continue?',quizYes:'Start',quizNo:'Cancel',shopTitle:'Shop',unlockPro:'Unlock PRO',unlockElite:'Unlock ELITE',unlockAll:'PRO + ELITE Bundle',proPack:'6 advanced chapters',elitePack:'5 elite chapters',allPack:'All chapters unlocked',proCredits:'+10 AI credits',eliteCredits:'+20 AI credits',allCredits:'+40 AI credits',creditsPack:'AI Credits (launch offer)',close:'Close',aiBanner:'AI poker GTO coach',aiDesc:'Something unclear? Our AI is trained exclusively on advanced GTO strategy. Ask it to explain this topic.',shopAlert:'Simulated purchase. Final version uses Microsoft Store.',glossary:'Glossary',noCredits:'No credits left. Tap here to buy more.',errorMsg:'Connection error. Try again.',thinking:'Thinking...'},it:{free:'gratuito',pro:'pro',elite:'elite',extra:'extra',cost:'1 credito = 1 domanda',credits:'crediti',prev:'precedente',next:'successivo',quiz:'Quiz: verifica le tue conoscenze',quizDone:'\u2713 Completato (ripeti?)',quizConfirm:'Stai per iniziare il quiz. Se chiudi prima di finire, dovrai ricominciare da capo. Continuare?',quizYes:'Inizia',quizNo:'Annulla',shopTitle:'Shop',unlockPro:'Sblocca PRO',unlockElite:'Sblocca ELITE',unlockAll:'Bundle PRO + ELITE',proPack:'6 capitoli avanzati',elitePack:'5 capitoli elite',allPack:'Tutto sbloccato',proCredits:'+10 crediti AI',eliteCredits:'+20 crediti AI',allCredits:'+40 crediti AI',creditsPack:'Crediti AI (offerta lancio)',close:'Chiudi',aiBanner:'AI poker GTO coach',aiDesc:'Non hai capito qualcosa? La nostra AI \u00e8 allenata esclusivamente sulla strategia GTO avanzata. Chiedile di spiegarti questo argomento.',shopAlert:'Acquisto simulato. Versione finale via Microsoft Store.',glossary:'Glossario',noCredits:'Crediti esauriti. Tocca qui per acquistarne.',errorMsg:'Errore di connessione. Riprova.',thinking:'Sto pensando...'},es:{free:'gratis',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dito = 1 pregunta',credits:'cr\u00e9ditos',prev:'anterior',next:'siguiente',quiz:'Quiz: pon a prueba tus conocimientos',quizDone:'\u2713 Completado (repetir?)',quizConfirm:'Vas a iniciar el quiz. Si lo cierras antes de terminar, tendr\u00e1s que empezar de nuevo. \u00bfContinuar?',quizYes:'Empezar',quizNo:'Cancelar',shopTitle:'Tienda',unlockPro:'Desbloquear PRO',unlockElite:'Desbloquear ELITE',unlockAll:'Pack PRO + ELITE',proPack:'6 cap\u00edtulos avanzados',elitePack:'5 cap\u00edtulos elite',allPack:'Todo desbloqueado',proCredits:'+10 cr\u00e9ditos IA',eliteCredits:'+20 cr\u00e9ditos IA',allCredits:'+40 cr\u00e9ditos IA',creditsPack:'Cr\u00e9ditos IA (oferta lanzamiento)',close:'Cerrar',aiBanner:'AI poker GTO coach',aiDesc:'\u00bfAlgo no est\u00e1 claro? Nuestra IA est\u00e1 entrenada exclusivamente en estrategia GTO avanzada.',shopAlert:'Compra simulada. Versi\u00f3n final via Microsoft Store.',glossary:'Glosario',noCredits:'Sin cr\u00e9ditos. Toca aqu\u00ed para comprar.',errorMsg:'Error de conexi\u00f3n. Int\u00e9ntalo de nuevo.',thinking:'Pensando...'},de:{free:'kostenlos',pro:'pro',elite:'elite',extra:'extra',cost:'1 Credit = 1 Frage',credits:'Credits',prev:'zur\u00fcck',next:'weiter',quiz:'Quiz: teste dein Wissen',quizDone:'\u2713 Abgeschlossen (wiederholen?)',quizConfirm:'Du startest jetzt das Quiz. Wenn du es vorher schlie\u00dft, musst du von vorne beginnen. Fortfahren?',quizYes:'Starten',quizNo:'Abbrechen',shopTitle:'Shop',unlockPro:'PRO freischalten',unlockElite:'ELITE freischalten',unlockAll:'PRO + ELITE Bundle',proPack:'6 fortgeschrittene Kapitel',elitePack:'5 Elite-Kapitel',allPack:'Alles freigeschaltet',proCredits:'+10 KI-Credits',eliteCredits:'+20 KI-Credits',allCredits:'+40 KI-Credits',creditsPack:'KI-Credits (Launch-Angebot)',close:'Schlie\u00dfen',aiBanner:'AI poker GTO coach',aiDesc:'Etwas unklar? Unsere KI ist ausschlie\u00dflich auf fortgeschrittene GTO-Strategie trainiert.',shopAlert:'Simulierter Kauf. Finalversion via Microsoft Store.',glossary:'Glossar',noCredits:'Keine Credits. Tippe hier zum Kaufen.',errorMsg:'Verbindungsfehler. Erneut versuchen.',thinking:'Denke nach...'},fr:{free:'gratuit',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dit = 1 question',credits:'cr\u00e9dits',prev:'pr\u00e9c\u00e9dent',next:'suivant',quiz:'Quiz : teste tes connaissances',quizDone:'\u2713 Compl\u00e9t\u00e9 (refaire?)',quizConfirm:'Tu vas commencer le quiz. Si tu le fermes avant la fin, tu devras recommencer. Continuer ?',quizYes:'Commencer',quizNo:'Annuler',shopTitle:'Boutique',unlockPro:'D\u00e9bloquer PRO',unlockElite:'D\u00e9bloquer ELITE',unlockAll:'Pack PRO + ELITE',proPack:'6 chapitres avanc\u00e9s',elitePack:'5 chapitres elite',allPack:'Tout d\u00e9bloqu\u00e9',proCredits:'+10 cr\u00e9dits IA',eliteCredits:'+20 cr\u00e9dits IA',allCredits:'+40 cr\u00e9dits IA',creditsPack:'Cr\u00e9dits IA (offre lancement)',close:'Fermer',aiBanner:'AI poker GTO coach',aiDesc:"Quelque chose n'est pas clair ? Notre IA est entra\u00een\u00e9e exclusivement sur la strat\u00e9gie GTO avanc\u00e9e.",shopAlert:'Achat simul\u00e9. Version finale via Microsoft Store.',glossary:'Glossaire',noCredits:'Plus de cr\u00e9dits. Appuyez ici pour en acheter.',errorMsg:'Erreur de connexion. R\u00e9essayez.',thinking:'R\u00e9flexion...'}};
 function tr(k){return(T[lang]&&T[lang][k])||T.en[k]||k}
 function clabel(key){if(!data||!data.chapters[key])return key;const ch=data.chapters[key];return(ch.label&&(ch.label[lang]||ch.label.en||ch.label.it))||key}
 
-// Chapters with quiz (large chapters only)
+// Chapters with quiz
 const quizChapters=['fondamentali','preflop','potodds','3bet','flat','postflop','stackdepth','bvb_avanzato','icm','pko','exploit'];
 
 // === RENDER ===
@@ -118,17 +215,31 @@ const isPro=data.structure.pro.includes(cur);const isElite=data.structure.elite.
 const locked=(isPro||isElite)&&!tester;const i=data.order.indexOf(cur);const prev=data.order[i-1],next=data.order[i+1];
 const bodyKey='body_'+lang;const body=ch[bodyKey]||ch.body_en||ch.body_it||'';
 let html=`<div class="hero"><div class="ey">${ch.eyebrow||''}</div><h1>${clabel(cur)}</h1></div>`;
-html+=`<div class="ai" onclick="openChat()"><div class="ai-i">✨</div><div><strong>${tr('aiBanner')}</strong><span>${tr('aiDesc')}</span></div></div>`;
+html+=`<div class="ai" onclick="openChat()"><div class="ai-i">\u2728</div><div><strong>${tr('aiBanner')}</strong><span>${tr('aiDesc')}</span></div></div>`;
 if(locked){const tier=isPro?'PRO':'ELITE';html+=`<div class="lock"><h3>${tier}</h3><p>${isPro?tr('proPack'):tr('elitePack')}</p><button class="ub" onclick="openShop()">${isPro?tr('unlockPro'):tr('unlockElite')}</button></div>`}
 else{html+=`<div class="sec open"><div class="sec-h" onclick="this.parentElement.classList.toggle('open')"><div class="sec-i">01</div><div class="sec-t">${clabel(cur)}</div><div class="sec-a">\u2304</div></div><div class="sec-b"><div class="art">${body}</div>`;
-if(quizChapters.includes(cur)){const done=quizDone[cur];html+=`<div class="quiz-btn ${done?'done':''}" onclick="startQuiz()">${done?tr('quizDone'):'\ud83d\udcdd '+tr('quiz')}</div>`}
+if(quizChapters.includes(cur)){const done=quizDone[cur];html+=`<div class="quiz-btn${done?' done':''}" onclick="startQuiz('${cur}')">${done?tr('quizDone'):'\ud83d\udcdd '+tr('quiz')}</div>`}
 html+=`</div></div>`}
-html+=`<div class="navb"><button ${!prev?'disabled style="opacity:.4;cursor:default"':'onclick="go(\''+prev+'\')"'}><span>${tr('prev')}</span><strong>${prev?clabel(prev):'\u2014'}</strong></button><button ${!next?'disabled style="opacity:.4;cursor:default"':'onclick="go(\''+next+'\')"'}><span>${tr('next')}</span><strong>${next?clabel(next):'\u2014'}</strong></button></div>`;
+html+=`<div class="navb"><button onclick="${prev?`go('${prev}')`:'void 0'}"><span>${tr('prev')}</span><strong>${prev?clabel(prev):'\u2014'}</strong></button><button onclick="${next?`go('${next}')`:'void 0'}"><span>${tr('next')}</span><strong>${next?clabel(next):'\u2014'}</strong></button></div>`;
 document.getElementById('main').innerHTML=html}
 
 // === LANGUAGE ===
 function setLang(v){lang=v;localStorage.setItem('lang',v);applyUI()}
-function applyUI(){document.getElementById('costLabel').textContent=tr('cost');document.getElementById('credTop').textContent='5 '+tr('credits');document.getElementById('chatTitle').textContent=tr('aiBanner');document.getElementById('chatCost').textContent=tr('cost');document.getElementById('chatInput').placeholder=lang==='it'?'Chiedi sulla strategia GTO...':'Ask about GTO strategy...';document.getElementById('chatBody').innerHTML=`<div class="m bot"><div class="bb">${lang==='it'?'Ciao, sono AI poker GTO coach. Chiedimi qualsiasi cosa.':'Hi, I am AI poker GTO coach. Ask me anything about GTO strategy.'}</div></div>`;renderSide();render()}
+function applyUI(){
+  document.getElementById('costLabel').textContent=tr('cost');
+  updateCreditsUI();
+  document.getElementById('chatTitle').textContent=tr('aiBanner');
+  document.getElementById('chatCost').textContent=tr('cost');
+  document.getElementById('chatInput').placeholder=lang==='it'?'Chiedi sulla strategia GTO...':lang==='es'?'Pregunta sobre estrategia GTO...':lang==='de'?'Frage zur GTO-Strategie...':lang==='fr'?'Pose ta question GTO...':'Ask about GTO strategy...';
+  resetChatWelcome();
+  renderSide();render();
+}
+
+function resetChatWelcome(){
+  const msgs={it:'Ciao! Sono il tuo AI poker GTO coach. Chiedimi qualsiasi cosa sulla strategia GTO avanzata.',en:'Hi! I\'m your AI poker GTO coach. Ask me anything about advanced GTO strategy.',es:'\u00a1Hola! Soy tu AI poker GTO coach. Preg\u00fantame lo que quieras sobre estrategia GTO.',de:'Hi! Ich bin dein AI poker GTO coach. Frag mich alles \u00fcber GTO-Strategie.',fr:'Salut ! Je suis ton AI poker GTO coach. Pose-moi tes questions sur la strat\u00e9gie GTO.'};
+  document.getElementById('chatBody').innerHTML=`<div class="m bot"><div class="bb">${msgs[lang]||msgs.en}</div></div>`;
+  chatHistory=[];
+}
 
 // === THEME ===
 function toggleTheme(){const d=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',d?'':'dark');localStorage.setItem('theme',d?'light':'dark')}
@@ -140,66 +251,229 @@ function toggleTester(){tester=!tester;renderSide();render()}
 function toggleSide(){document.getElementById('side').classList.toggle('open');document.getElementById('mob').classList.toggle('open')}
 function closeSide(){document.getElementById('side').classList.remove('open');document.getElementById('mob').classList.remove('open')}
 
-// === CHAT ===
-function openChat(){document.getElementById('chatModal').classList.add('open')}
+// ============================================
+// === CHAT (LIVE - connected to Vercel) ===
+// ============================================
+const API_URL='https://poker-ai-coach-19wq.vercel.app/api/chat';
+
+function openChat(){
+  document.getElementById('chatModal').classList.add('open');
+  updateCreditsUI();
+  setTimeout(()=>document.getElementById('chatInput').focus(),100);
+}
 function closeChat(){document.getElementById('chatModal').classList.remove('open')}
-function sendMsg(){const inp=document.getElementById('chatInput'),v=inp.value.trim();if(!v)return;const b=document.getElementById('chatBody');b.innerHTML+=`<div class="m u"><div class="bb">${v}</div></div>`;inp.value='';setTimeout(()=>{b.innerHTML+=`<div class="m bot"><div class="bb">${lang==='it'?'Demo: nella versione finale risponder\u00f2 con expertise GTO avanzata.':'Demo: in the final version I will answer with advanced GTO expertise contextual to the current chapter.'}</div></div>`;b.scrollTop=b.scrollHeight},450)}
+
+async function sendMsg(){
+  if(chatLoading)return;
+  const inp=document.getElementById('chatInput');
+  const v=inp.value.trim();
+  if(!v)return;
+  const b=document.getElementById('chatBody');
+  const sendBtn=document.getElementById('chatSendBtn');
+
+  // === CHECK CREDITS ===
+  if(credits<=0){
+    b.innerHTML+=`<div class="no-cred-msg" onclick="closeChat();openShop()">${tr('noCredits')}</div>`;
+    b.scrollTop=b.scrollHeight;
+    return;
+  }
+
+  // Show user message
+  b.innerHTML+=`<div class="m u"><div class="bb">${escHtml(v)}</div></div>`;
+  inp.value='';
+  inp.disabled=true;
+  sendBtn.disabled=true;
+
+  // Show typing indicator
+  b.innerHTML+=`<div class="m bot" id="typingIndicator"><div class="bb"><div class="typing"><span></span><span></span><span></span></div></div></div>`;
+  b.scrollTop=b.scrollHeight;
+  chatLoading=true;
+
+  try{
+    const res=await fetch(API_URL,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({
+        message:v,
+        history:chatHistory.slice(-6)
+      })
+    });
+
+    // Remove typing indicator
+    const typ=document.getElementById('typingIndicator');
+    if(typ)typ.remove();
+
+    if(!res.ok){
+      const errData=await res.json().catch(()=>({error:'Server error'}));
+      throw new Error(errData.error||'HTTP '+res.status);
+    }
+
+    const json=await res.json();
+    const reply=json.reply||'...';
+
+    // Show bot reply with formatting
+    b.innerHTML+=`<div class="m bot"><div class="bb">${formatReply(reply)}</div></div>`;
+    b.scrollTop=b.scrollHeight;
+
+    // Update conversation history (keep last 6 for context)
+    chatHistory.push({role:'user',content:v});
+    chatHistory.push({role:'assistant',content:reply});
+
+    // Deduct 1 credit
+    setCredits(credits-1);
+
+  }catch(err){
+    // Remove typing indicator on error
+    const typ=document.getElementById('typingIndicator');
+    if(typ)typ.remove();
+
+    // Show error message in chat
+    b.innerHTML+=`<div class="m bot"><div class="bb" style="color:oklch(55% .15 25)">\u26a0\ufe0f ${tr('errorMsg')}</div></div>`;
+    b.scrollTop=b.scrollHeight;
+    console.error('[Chat Error]',err.message);
+  }finally{
+    chatLoading=false;
+    inp.disabled=false;
+    sendBtn.disabled=false;
+    inp.focus();
+  }
+}
+
+// === HELPERS ===
+function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+
+function formatReply(text){
+  // Escape HTML first, then apply lightweight markdown formatting
+  let h=text.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  // Bold
+  h=h.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  // Italic
+  h=h.replace(/\*(.+?)\*/g,'<em>$1</em>');
+  // Inline code
+  h=h.replace(/`(.+?)`/g,'<code style="background:var(--sf2);padding:1px 5px;border-radius:4px;font-size:.76rem;font-family:JetBrains Mono,monospace">$1</code>');
+  // Bullet lists (lines starting with - )
+  h=h.replace(/^- (.+)$/gm,'<span style="display:block;padding-left:12px">\u2022 $1</span>');
+  // Line breaks
+  h=h.replace(/\n/g,'<br>');
+  return h;
+}
 
 // === SHOP ===
-function openShop(){let h=`<div class="sl">${tr('unlockPro')}</div><div class="si" onclick="fakeBuy()"><div class="a">${tr('proPack')}<small>${tr('proCredits')}</small></div><div class="p">\u20ac1,49</div></div>`;h+=`<div class="sl">${tr('unlockElite')}</div><div class="si" onclick="fakeBuy()"><div class="a">${tr('elitePack')}<small>${tr('eliteCredits')}</small></div><div class="p">\u20ac2,99</div></div>`;h+=`<div class="sl">${tr('unlockAll')}</div><div class="si" onclick="fakeBuy()"><div class="a">${tr('allPack')}<small>${tr('allCredits')}</small></div><div class="p">\u20ac3,99</div></div>`;h+=`<div class="sl">${tr('creditsPack')}</div><div class="si" onclick="fakeBuy()"><div class="a">15 ${tr('credits')}<small>Launch</small></div><div class="p">\u20ac0,49</div></div><div class="si" onclick="fakeBuy()"><div class="a">40 ${tr('credits')}<small>Best value</small></div><div class="p">\u20ac0,99</div></div><div class="si" onclick="fakeBuy()"><div class="a">120 ${tr('credits')}<small>Pro pack</small></div><div class="p">\u20ac2,49</div></div>`;document.getElementById('shopBody').innerHTML=h;document.getElementById('shopTitle').textContent=tr('shopTitle');document.getElementById('shopModal').classList.add('open')}
+function openShop(){
+  let h=`<div class="sl">${tr('unlockPro')}</div>`;
+  h+=`<div class="si" onclick="fakeBuy()"><div class="a">${tr('unlockPro')}<small>${tr('proPack')} ${tr('proCredits')}</small></div><div class="p">\u20ac1,49</div></div>`;
+  h+=`<div class="si" onclick="fakeBuy()"><div class="a">${tr('unlockElite')}<small>${tr('elitePack')} ${tr('eliteCredits')}</small></div><div class="p">\u20ac2,99</div></div>`;
+  h+=`<div class="si" onclick="fakeBuy()"><div class="a">${tr('unlockAll')}<small>${tr('allPack')} ${tr('allCredits')}</small></div><div class="p">\u20ac3,99</div></div>`;
+  h+=`<div class="sl">${tr('creditsPack')}</div>`;
+  h+=`<div class="si" onclick="fakeBuy()"><div class="a">15 ${tr('credits')}<small>Launch</small></div><div class="p">\u20ac0,49</div></div>`;
+  h+=`<div class="si" onclick="fakeBuy()"><div class="a">40 ${tr('credits')}<small>Best value</small></div><div class="p">\u20ac0,99</div></div>`;
+  h+=`<div class="si" onclick="fakeBuy()"><div class="a">120 ${tr('credits')}<small>Pro pack</small></div><div class="p">\u20ac2,49</div></div>`;
+  document.getElementById('shopBody').innerHTML=h;
+  document.getElementById('shopTitle').textContent=tr('shopTitle');
+  document.getElementById('shopModal').classList.add('open');
+}
 function closeShop(){document.getElementById('shopModal').classList.remove('open')}
 function fakeBuy(){alert(tr('shopAlert'))}
 
 // === GLOSSARY ===
-function showGlossary(){if(!data||!data.glossary)return;const g=data.glossary[lang]||data.glossary.en||data.glossary.it||[];let h=g.map(([t,d])=>`<div class="quiz-q"><p>${t}</p><div style="color:var(--tx2);font-size:.84rem">${d}</div></div>`).join('');document.getElementById('quizBody').innerHTML=`<div style="margin-bottom:12px;font-weight:600">${tr('glossary')} (${g.length})</div>${h}`;document.getElementById('quizTitle').textContent=tr('glossary');document.getElementById('quizModal').classList.add('open')}
+function showGlossary(){
+  if(!data||!data.glossary)return;
+  const g=data.glossary[lang]||data.glossary.en||data.glossary.it||[];
+  let h=`<h3 style="margin-bottom:14px">${tr('glossary')} (${g.length})</h3>`;
+  h+=g.map(([t,d])=>`<div style="margin-bottom:10px"><strong style="color:var(--ac)">${t}</strong><br><span style="color:var(--tx2);font-size:.84rem">${d}</span></div>`).join('');
+  document.getElementById('quizBody').innerHTML=h;
+  document.getElementById('quizTitle').textContent=tr('glossary');
+  document.getElementById('quizModal').classList.add('open');
+}
 
 // === QUIZ ===
-let quizActive=false,quizQs=[],quizIdx=0,quizScore=0;
-function startQuiz(){if(quizActive)return;
-const ch=data.chapters[cur];if(!ch||!ch.quiz)return;
-document.getElementById('quizBody').innerHTML='<div class="confirm-box"><p>'+tr('quizConfirm')+'</p><button onclick="closeQuiz()">'+tr('quizNo')+'</button><button class="primary" onclick="launchQuiz()">'+tr('quizYes')+'</button></div>';
-document.getElementById('quizTitle').textContent=tr('quiz');document.getElementById('quizModal').classList.add('open')}
-function launchQuiz(){quizActive=true;quizScore=0;quizIdx=0;
-const ch=data.chapters[cur];if(!ch||!ch.quiz)return;
-const pool=ch.quiz[lang]||ch.quiz.en||[];
-const shuffled=[...pool].sort(()=>Math.random()-.5);
-quizQs=shuffled.slice(0,8).map(q=>{
-const entries=Object.entries(q.options);
-const shuffledOpts=[...entries].sort(()=>Math.random()-.5);
-return{question:q.question,options:shuffledOpts,correct:q.correct,correctText:q.options[q.correct]}});
-showQuizQuestion()}
-function showQuizQuestion(){if(quizIdx>=quizQs.length){completeQuiz();return}
-const q=quizQs[quizIdx];const num=quizIdx+1;
-let h='<p style="text-align:center;color:var(--tx3);margin-bottom:14px">'+num+' / '+quizQs.length+'</p>';
-h+='<div class="quiz-q"><p>'+q.question+'</p>';
-q.options.forEach(([key,text])=>{h+='<button class="quiz-o" data-key="'+key+'" onclick="answerQuiz(this,\''+key+'\')">' +text+'</button>'});
-h+='</div>';document.getElementById('quizBody').innerHTML=h}
-function answerQuiz(btn,key){const q=quizQs[quizIdx];
-document.querySelectorAll('.quiz-o').forEach(b=>{b.onclick=null;b.style.pointerEvents='none';
-const k=b.dataset.key;
-if(k===q.correct)b.classList.add('correct');
-else if(k===key)b.classList.add('wrong')});
-if(key===q.correct)quizScore++;
-setTimeout(()=>{quizIdx++;showQuizQuestion()},1200)}
-function completeQuiz(){quizDone[cur]=true;localStorage.setItem('quizDone',JSON.stringify(quizDone));
-const pct=Math.round((quizScore/quizQs.length)*100);
-const emoji=pct>=75?String.fromCodePoint(0x1F389):pct>=50?String.fromCodePoint(0x1F44D):String.fromCodePoint(0x1F4AA);
-let msg=pct>=75?(lang==='it'?'Ottimo lavoro!':'Great job!'):(lang==='it'?'Continua a studiare!':'Keep studying!');
-document.getElementById('quizBody').innerHTML='<div class="confirm-box"><p style="font-size:2rem">'+emoji+'</p><p><strong>'+quizScore+'/'+quizQs.length+'</strong> ('+pct+'%)</p><p style="color:var(--tx3)">'+msg+'</p><button class="primary" onclick="quizActive=false;closeQuiz();render()">'+tr('close')+'</button></div>';
-quizActive=false;render()}
-function confirmCloseQuiz(){if(quizActive){if(confirm(lang==='it'?'Sei sicuro? Dovrai ricominciare da capo.':'Are you sure? You will have to start over.')){quizActive=false;closeQuiz()}}else closeQuiz()}
-function closeQuiz(){document.getElementById('quizModal').classList.remove('open')}
+let quizActive=false,quizBackup='';
 
-// === SCROLL ===
-addEventListener('scroll',()=>{const d=document.documentElement;document.getElementById('bar').style.width=Math.min(100,(d.scrollTop/(d.scrollHeight-d.clientHeight))*100)+'%'});
+function confirmCloseQuiz(){
+  if(!quizActive){document.getElementById('quizModal').classList.remove('open');return}
+  const prev=document.getElementById('quizBody').innerHTML;
+  quizBackup=prev;
+  document.getElementById('quizBody').innerHTML=`<div class="confirm-box"><p>${tr('quizConfirm')}</p><button onclick="quizActive=false;document.getElementById('quizModal').classList.remove('open')">${tr('quizYes')}</button><button class="primary" onclick="document.getElementById('quizBody').innerHTML=quizBackup">${tr('quizNo')}</button></div>`;
+}
 
-// === MODALS CLOSE ON BG CLICK ===
-document.querySelectorAll('.modal-bg').forEach(el=>{el.addEventListener('click',e=>{if(e.target===el){if(el.id==='quizModal')confirmCloseQuiz();else el.classList.remove('open')}})});
+function startQuiz(chapter){
+  if(!data)return;
+  const quizData=data.quiz&&data.quiz[chapter];
+  if(!quizData)return;
+  const pool=quizData[lang]||quizData.en||quizData.it;
+  if(!pool||!pool.length)return;
 
-// === BOOT ===
-async function boot(){try{const r=await fetch('chapters.json');data=await r.json();cur=data.order[0];applyUI()}catch(e){document.getElementById('main').innerHTML='<div style="padding:50px;text-align:center;color:var(--tx3)">Error loading chapters.json</div>'}}
-if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js');
-boot();
+  // Pick 8 random questions from pool
+  const shuffled=[...pool].sort(()=>Math.random()-0.5);
+  const questions=shuffled.slice(0,Math.min(8,pool.length));
+
+  let h=`<p style="text-align:center;color:var(--tx3);font-size:.78rem;margin-bottom:14px">${clabel(chapter)} \u2022 ${questions.length} questions</p>`;
+  questions.forEach((q,qi)=>{
+    // Shuffle answer options
+    const correctAnswer=q.options[q.answer];
+    const opts=[...q.options].sort(()=>Math.random()-0.5);
+    h+=`<div class="quiz-q" id="qq${qi}"><p>${qi+1}. ${q.question}</p>`;
+    opts.forEach(opt=>{
+      const isCorrect=opt===correctAnswer;
+      h+=`<button class="quiz-o" data-correct="${isCorrect}" onclick="quizAnswer(this,${qi})">${opt}</button>`;
+    });
+    h+=`</div>`;
+  });
+
+  document.getElementById('quizBody').innerHTML=h;
+  document.getElementById('quizTitle').textContent='Quiz: '+clabel(chapter);
+  document.getElementById('quizModal').classList.add('open');
+  quizActive=true;
+
+  // Store state for scoring
+  window._quizState={chapter,total:questions.length,answered:0,score:0};
+}
+
+function quizAnswer(btn,qi){
+  const qq=document.getElementById('qq'+qi);
+  if(qq.classList.contains('answered'))return;
+  qq.classList.add('answered');
+
+  const isCorrect=btn.getAttribute('data-correct')==='true';
+  const buttons=qq.querySelectorAll('.quiz-o');
+  buttons.forEach(b=>{
+    b.style.pointerEvents='none';
+    if(b.getAttribute('data-correct')==='true')b.classList.add('correct');
+  });
+  if(!isCorrect)btn.classList.add('wrong');
+
+  const state=window._quizState;
+  if(isCorrect)state.score++;
+  state.answered++;
+
+  // Quiz complete?
+  if(state.answered>=state.total){
+    quizActive=false;
+    const pct=Math.round(state.score/state.total*100);
+    const emoji=pct>=75?'\ud83c\udf89':pct>=50?'\ud83d\udc4d':'\ud83d\udcaa';
+    const msg=pct>=75?'Excellent!':pct>=50?'Good job!':'Keep studying!';
+    const result=`<div style="text-align:center;padding:18px;margin-top:14px;border:1px solid var(--bd);border-radius:12px;background:var(--sf2)"><strong style="font-size:1.2rem">${state.score}/${state.total} (${pct}%)</strong><p style="color:var(--tx2);margin-top:6px">${emoji} ${msg}</p></div>`;
+    document.getElementById('quizBody').innerHTML+=result;
+    // Mark done
+    quizDone[state.chapter]=true;
+    localStorage.setItem('quizDone',JSON.stringify(quizDone));
+    render();
+  }
+}
+
+// === INIT ===
+async function init(){
+  try{
+    const res=await fetch('chapters.json');
+    data=await res.json();
+    document.getElementById('langSel').value=lang;
+    applyUI();
+  }catch(e){
+    document.getElementById('main').innerHTML='<p style="padding:40px;text-align:center;color:var(--tx3)">Error loading chapters.json</p>';
+    console.error(e);
+  }
+}
+init();
 </script>
 </body>
 </html>
