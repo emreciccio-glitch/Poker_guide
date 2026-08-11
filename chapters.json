@@ -6375,5 +6375,1019 @@
         "Wenn alle vor dem Big Blind folden und dieser den Pot kampflos gewinnt."
       ]
     ]
+  },
+  "quiz": {
+    "preflop": {
+      "en": [
+        {
+          "question": "What is an open raise in poker?",
+          "options": [
+            "The first raise made when no one has voluntarily entered the pot yet",
+            "The action of just calling the big blind (limping)",
+            "The third or fourth raise before the flop",
+            "The act of showing your cards to your opponents"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "In modern poker, what does the acronym GTO stand for?",
+          "options": [
+            "Game Theory Optimal",
+            "Game Table Organization",
+            "Good Texas Odds",
+            "Great Tournament Outplays"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "What is the main goal of mathematically balancing a preflop range?",
+          "options": [
+            "Mixing value hands and bluffs so as not to be predictable",
+            "Playing exclusively premium hands",
+            "Always moving all-in to steal the blinds",
+            "Playing 100% of hands to confuse opponents"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "What is the recommended opening size if you have a stack of less than 40 BB?",
+          "options": [
+            "2 BB",
+            "2.5 BB",
+            "3 BB",
+            "3.5 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "What opening size is recommended for an average stack of 50 BB?",
+          "options": [
+            "2.2 BB",
+            "2 BB",
+            "3 BB",
+            "3.5 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Which opening size should you use with an average stack of 80 BB?",
+          "options": [
+            "2.5 BB",
+            "2.2 BB",
+            "3 BB",
+            "4 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "If you have a stack larger than 100 BB, what is the recommended opening size?",
+          "options": [
+            "3 BB",
+            "2 BB",
+            "2.5 BB",
+            "4 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "In Blind vs Blind (BVB) situations, what opening size does the text suggest?",
+          "options": [
+            "3.5 BB",
+            "2 BB",
+            "2.2 BB",
+            "3 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "According to the author, is there an absolute mandatory opening size?",
+          "options": [
+            "No, it often needs to be adapted to the context",
+            "Yes, it is always exactly 3 BB",
+            "Yes, 2 BB for any tournament",
+            "Yes, but it depends entirely on the dealer"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "What approach should you take from early positions (UTG and UTG+1)?",
+          "options": [
+            "Extremely selective, limiting yourself to about 17% of hands",
+            "Aggressive, opening up to 50% of hands",
+            "Very passive, only limping in",
+            "Random, to balance your image"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Which of these hands belong in a typical UTG and UTG+1 opening range?",
+          "options": [
+            "Pairs 55+, A-J offsuit, and Q-J suited+",
+            "Any Ace and any King offsuit",
+            "Only pairs of Aces (AA) or Kings (KK)",
+            "Very low suited connectors like 4-3s"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Why is it crucial to play hands of undoubted value from early positions?",
+          "options": [
+            "To ease postflop decisions and induce uncertainty in opponents",
+            "To get called by the entire table",
+            "To immediately steal the blinds without ever playing postflop",
+            "To force the Big Blind to fold every time"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "How does the opening range change when moving to Middle Position (LJ - HJ)?",
+          "options": [
+            "It widens to about 20-28% of hands",
+            "It narrows to 10-15% of hands",
+            "It remains identical to the Early Position range",
+            "It reaches almost 100% of available hands"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "What categories of hands are introduced when opening from Middle Position?",
+          "options": [
+            "More speculative hands like suited connectors (e.g., 9-8s) and weak suited aces",
+            "Exclusively low-value broadway offsuit hands",
+            "Any combination of cards of the same suit",
+            "Only unconnected cards to run huge bluffs"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Which table positions are considered the most profitable overall?",
+          "options": [
+            "Button and CutOff (Late Position)",
+            "UTG and UTG+1 (Early Position)",
+            "The Small Blind and the Big Blind",
+            "Lojack and Hijack (Middle Position)"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Upon reaching Late Position, to what percentage does the opening range explode?",
+          "options": [
+            "40-50%",
+            "20-28%",
+            "17%",
+            "Over 70%"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Which marginal combinations can you aggressively open in Late Position?",
+          "options": [
+            "5-4 suited or K-9 offsuit",
+            "Only A-K and middle pairs",
+            "Exclusively any two suited cards",
+            "None, in Late Position you play strictly for value"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "What is a primary objective when raising from the Button or CutOff with marginal hands?",
+          "options": [
+            "The direct steal of the blinds",
+            "Creating a huge pot to comfortably fold on the flop",
+            "Waiting for an opponent's re-raise so you can fold",
+            "Inviting the blinds into a multi-way pot"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Besides aiming to steal the blinds, why do you raise wide from Late Position?",
+          "options": [
+            "To leverage your position and outplay opponents postflop",
+            "Because the rules forbid folding on the Button",
+            "To show the table you always hold strong cards",
+            "To end the hand quickly and move on to the next"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "If your stack is 150 BB and you are in Early Position, what is the correct action?",
+          "options": [
+            "Open about 17% of hands with a sizing of 3 BB",
+            "Open 40-50% of hands with a sizing of 2 BB",
+            "Open 17% of hands with a sizing of 3.5 BB",
+            "Open 20-28% of hands with a sizing of 2.5 BB"
+          ],
+          "answer": 0
+        }
+      ],
+      "it": [
+        {
+          "question": "Cos'è l'apertura (open raise) nel poker?",
+          "options": [
+            "Il primo rilancio effettuato quando nessuno è ancora entrato nel piatto",
+            "L'azione di chiamare il grande buio (limp)",
+            "Il terzo o quarto rilancio prima del flop",
+            "L'atto di mostrare le proprie carte agli avversari"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Nel poker moderno, cosa significa l'acronimo GTO?",
+          "options": [
+            "Game Theory Optimal",
+            "Game Table Organization",
+            "Good Texas Odds",
+            "Great Tournament Outplays"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Qual è l'obiettivo principale del bilanciamento matematico del range preflop?",
+          "options": [
+            "Mescolare mani di valore e bluff per non risultare prevedibili",
+            "Giocare esclusivamente le mani premium",
+            "Rilanciare sempre all-in per rubare i bui",
+            "Giocare il 100% delle mani per confondere i propri avversari"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Qual è la size di apertura consigliata se hai uno stack inferiore a 40 BB?",
+          "options": [
+            "2 BB",
+            "2.5 BB",
+            "3 BB",
+            "3.5 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Che size di apertura è raccomandata con uno stack medio di 50 BB?",
+          "options": [
+            "2.2 BB",
+            "2 BB",
+            "3 BB",
+            "3.5 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quale size di apertura dovresti usare con uno stack medio di 80 BB?",
+          "options": [
+            "2.5 BB",
+            "2.2 BB",
+            "3 BB",
+            "4 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Se possiedi uno stack maggiore di 100 BB, qual è la size consigliata per aprire?",
+          "options": [
+            "3 BB",
+            "2 BB",
+            "2.5 BB",
+            "4 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "In situazioni di guerra di bui (BVB), che size di apertura suggerisce il testo?",
+          "options": [
+            "3.5 BB",
+            "2 BB",
+            "2.2 BB",
+            "3 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Secondo l'autore, esiste una size di apertura obbligatoria in assoluto?",
+          "options": [
+            "No, spesso bisogna adattarla al contesto",
+            "Sì, è sempre e solo 3 BB",
+            "Sì, 2 BB per qualsiasi torneo",
+            "Sì, ma dipende unicamente dal volere del dealer"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Che approccio bisogna adottare dalle prime posizioni (UTG e UTG+1)?",
+          "options": [
+            "Estremamente selettivo, limitandosi a circa il 17% delle mani",
+            "Aggressivo, aprendo fino al 50% delle mani",
+            "Molto passivo, facendo solo limp",
+            "Casuale, per bilanciare la propria immagine"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quali tra queste mani rientrano nel range di apertura tipico da UTG e UTG+1?",
+          "options": [
+            "Coppie 55+, A-J offsuit e Q-J suited+",
+            "Qualsiasi Asso e qualsiasi Re offsuit",
+            "Solo le coppie d'Assi (AA) o di Re (KK)",
+            "Suited connectors molto bassi come 4-3s"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Perché è fondamentale giocare mani di indubbio valore dalle prime posizioni?",
+          "options": [
+            "Per facilitare le decisioni postflop e indurre incertezza negli avversari",
+            "Per essere chiamati da tutto il tavolo",
+            "Per rubare immediatamente i bui senza mai giocare il postflop",
+            "Per costringere il Big Blind a foldare sempre"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Come cambia il range di apertura passando al Middle Position (LJ - HJ)?",
+          "options": [
+            "Si allarga fino a circa il 20-28% delle mani",
+            "Si restringe al 10-15% delle mani",
+            "Rimane identico a quello dell'Early Position",
+            "Arriva quasi al 100% delle mani disponibili"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quali categorie di mani vengono introdotte quando si apre dal Middle Position?",
+          "options": [
+            "Mani più speculative come i suited connectors (es. 9-8s) e assi deboli suited",
+            "Esclusivamente broadway offsuit di basso valore",
+            "Qualsiasi combinazione di carte dello stesso colore",
+            "Solo carte non connesse per fare grandi bluff"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quali sono le posizioni al tavolo considerate le più profittevoli in assoluto?",
+          "options": [
+            "Bottone e CutOff (Late Position)",
+            "UTG e UTG+1 (Early Position)",
+            "Lo Small Blind e il Big Blind",
+            "Lojack e Hijack (Middle Position)"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Raggiungendo la Late Position, a quale percentuale esplode il range di apertura?",
+          "options": [
+            "40-50%",
+            "20-28%",
+            "17%",
+            "Oltre il 70%"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quali combinazioni marginali puoi permetterti di aprire aggressivamente in Late Position?",
+          "options": [
+            "5-4 suited o K-9 offsuit",
+            "Solo A-K e le coppie medie",
+            "Esclusivamente due carte dello stesso seme",
+            "Nessuna, in Late Position si gioca solo per valore"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Qual è uno degli obiettivi principali quando si rilancia da Bottone o CutOff con mani marginali?",
+          "options": [
+            "Lo steal (furto) diretto dei bui",
+            "Creare un piatto enorme per poter fare fold sereni al flop",
+            "Aspettare un re-raise avversario per poter foldare",
+            "Invitare i bui a un piatto multi-way"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Oltre a puntare al furto dei bui, perché si rilancia ampiamente dalle Late Position?",
+          "options": [
+            "Per sfruttare il posizionamento e outplayare gli avversari postflop",
+            "Perché le regole vietano di passare le carte sul Bottone",
+            "Per mostrare al tavolo che si hanno sempre carte forti",
+            "Per far terminare la mano rapidamente e passare alla successiva"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Se il tuo stack è di 150 BB e ti trovi in Early Position, qual è l'azione corretta?",
+          "options": [
+            "Aprire circa il 17% delle mani con una size di 3 BB",
+            "Aprire il 40-50% delle mani con una size di 2 BB",
+            "Aprire il 17% delle mani con una size di 3.5 BB",
+            "Aprire il 20-28% delle mani con una size di 2.5 BB"
+          ],
+          "answer": 0
+        }
+      ],
+      "es": [
+        {
+          "question": "¿Qué es una apertura (open raise) en el póker?",
+          "options": [
+            "La primera subida realizada cuando nadie ha entrado voluntariamente en el bote todavía",
+            "La acción de igualar la ciega grande (limp)",
+            "La tercera o cuarta subida antes del flop",
+            "El acto de mostrar tus cartas a los oponentes"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "En el póker moderno, ¿qué significan las siglas GTO?",
+          "options": [
+            "Game Theory Optimal",
+            "Game Table Organization",
+            "Good Texas Odds",
+            "Great Tournament Outplays"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Cuál es el objetivo principal de equilibrar matemáticamente el rango preflop?",
+          "options": [
+            "Mezclar manos de valor y faroles para no ser predecibles",
+            "Jugar exclusivamente las manos premium",
+            "Ir siempre all-in para robar las ciegas",
+            "Jugar el 100% de las manos para confundir a los rivales"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Cuál es el tamaño de apertura recomendado si tienes un stack inferior a 40 BB?",
+          "options": [
+            "2 BB",
+            "2.5 BB",
+            "3 BB",
+            "3.5 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Qué tamaño de apertura se recomienda con un stack medio de 50 BB?",
+          "options": [
+            "2.2 BB",
+            "2 BB",
+            "3 BB",
+            "3.5 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Qué tamaño de apertura deberías usar con un stack medio de 80 BB?",
+          "options": [
+            "2.5 BB",
+            "2.2 BB",
+            "3 BB",
+            "4 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si posees un stack mayor a 100 BB, ¿cuál es el tamaño sugerido para abrir?",
+          "options": [
+            "3 BB",
+            "2 BB",
+            "2.5 BB",
+            "4 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "En situaciones de guerra de ciegas (BVB), ¿qué tamaño de apertura sugiere el texto?",
+          "options": [
+            "3.5 BB",
+            "2 BB",
+            "2.2 BB",
+            "3 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Según el autor, ¿existe un tamaño de apertura obligatorio en absoluto?",
+          "options": [
+            "No, a menudo hay que adaptarlo al contexto",
+            "Sí, siempre es exactamente 3 BB",
+            "Sí, 2 BB para cualquier torneo",
+            "Sí, pero depende únicamente de la decisión del crupier"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Qué enfoque se debe adoptar desde las primeras posiciones (UTG y UTG+1)?",
+          "options": [
+            "Extremadamente selectivo, limitándose a cerca del 17% de las manos",
+            "Agresivo, abriendo hasta el 50% de las manos",
+            "Muy pasivo, haciendo solo limp",
+            "Aleatorio, para equilibrar la imagen en la mesa"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Cuáles de estas manos entran en el rango de apertura típico desde UTG y UTG+1?",
+          "options": [
+            "Parejas 55+, A-J offsuit y Q-J suited+",
+            "Cualquier As y cualquier Rey offsuit",
+            "Solo las parejas de Ases (AA) o Reyes (KK)",
+            "Conectores del mismo palo muy bajos como 4-3s"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Por qué es fundamental jugar manos de indudable valor desde las primeras posiciones?",
+          "options": [
+            "Para facilitar las decisiones postflop e inducir incertidumbre en los oponentes",
+            "Para que toda la mesa iguale la apuesta",
+            "Para robar de inmediato las ciegas sin jugar el postflop",
+            "Para obligar a la Ciega Grande a retirarse siempre"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Cómo cambia el rango de apertura al pasar a Middle Position (LJ - HJ)?",
+          "options": [
+            "Se amplía hasta aproximadamente un 20-28% de las manos",
+            "Se reduce a un 10-15% de las manos",
+            "Permanece idéntico al de Early Position",
+            "Alcanza casi el 100% de las manos disponibles"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Qué categorías de manos se introducen al abrir desde Middle Position?",
+          "options": [
+            "Manos más especulativas como los suited connectors (ej. 9-8s) y ases débiles del mismo palo",
+            "Exclusivamente broadways offsuit de bajo valor",
+            "Cualquier combinación de dos cartas del mismo color",
+            "Solo cartas no conectadas para hacer grandes faroles"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Cuáles son las posiciones en la mesa consideradas las más rentables?",
+          "options": [
+            "Botón y CutOff (Late Position)",
+            "UTG y UTG+1 (Early Position)",
+            "La Ciega Pequeña y la Ciega Grande",
+            "Lojack y Hijack (Middle Position)"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Al alcanzar Late Position, ¿a qué porcentaje explota el rango de apertura?",
+          "options": [
+            "40-50%",
+            "20-28%",
+            "17%",
+            "Más del 70%"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Qué combinaciones marginales te puedes permitir abrir agresivamente en Late Position?",
+          "options": [
+            "5-4 suited o K-9 offsuit",
+            "Solo A-K y las parejas medias",
+            "Exclusivamente cualquier par de cartas del mismo palo",
+            "Ninguna, en Late Position solo se juega por valor"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "¿Cuál es uno de los principales objetivos de subir en el Botón o CutOff con manos marginales?",
+          "options": [
+            "El robo (steal) directo de las ciegas",
+            "Crear un bote enorme para poder foldear cómodamente en el flop",
+            "Esperar una resubida rival para poder retirarse",
+            "Invitar a las ciegas a un bote multi-way"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Además de apuntar al robo de ciegas, ¿por qué se sube ampliamente desde Late Position?",
+          "options": [
+            "Para aprovechar el posicionamiento y superar a los oponentes postflop",
+            "Porque las reglas prohíben retirarse en el Botón",
+            "Para mostrar a la mesa que siempre se tienen cartas fuertes",
+            "Para terminar la mano rápidamente y pasar a la siguiente"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si tu stack es de 150 BB y estás en Early Position, ¿cuál es la acción correcta?",
+          "options": [
+            "Abrir alrededor del 17% de las manos con un tamaño de 3 BB",
+            "Abrir el 40-50% de las manos con un tamaño de 2 BB",
+            "Abrir el 17% de las manos con un tamaño de 3.5 BB",
+            "Abrir el 20-28% de las manos con un tamaño de 2.5 BB"
+          ],
+          "answer": 0
+        }
+      ],
+      "de": [
+        {
+          "question": "Was ist ein Open Raise beim Poker?",
+          "options": [
+            "Die erste Erhöhung, wenn noch niemand freiwillig in den Pot eingestiegen ist",
+            "Die Aktion, lediglich den Big Blind zu callen (Limp)",
+            "Die dritte oder vierte Erhöhung vor dem Flop",
+            "Das Zeigen der eigenen Karten gegenüber den Gegnern"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Wofür steht die Abkürzung GTO im modernen Poker?",
+          "options": [
+            "Game Theory Optimal",
+            "Game Table Organization",
+            "Good Texas Odds",
+            "Great Tournament Outplays"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Was ist das Hauptziel beim mathematischen Balancing der Preflop-Range?",
+          "options": [
+            "Das Mischen von Value-Händen und Bluffs, um unberechenbar zu sein",
+            "Das Spielen von ausschließlich Premium-Händen",
+            "Immer All-In zu gehen, um die Blinds zu stehlen",
+            "100% der Hände zu spielen, um die Gegner zu verwirren"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Welche Eröffnungsgröße wird bei einem Stack von weniger als 40 BB empfohlen?",
+          "options": [
+            "2 BB",
+            "2.5 BB",
+            "3 BB",
+            "3.5 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Welches Sizing wird bei einem durchschnittlichen Stack von 50 BB empfohlen?",
+          "options": [
+            "2.2 BB",
+            "2 BB",
+            "3 BB",
+            "3.5 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Welche Eröffnungsgröße solltest du bei einem Stack von 80 BB verwenden?",
+          "options": [
+            "2.5 BB",
+            "2.2 BB",
+            "3 BB",
+            "4 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Welche Größe wird zum Eröffnen empfohlen, wenn dein Stack größer als 100 BB ist?",
+          "options": [
+            "3 BB",
+            "2 BB",
+            "2.5 BB",
+            "4 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Welches Eröffnungs-Sizing schlägt der Text für Blind-vs-Blind-Situationen vor?",
+          "options": [
+            "3.5 BB",
+            "2 BB",
+            "2.2 BB",
+            "3 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Gibt es laut dem Autor eine absolut obligatorische Eröffnungsgröße?",
+          "options": [
+            "Nein, man muss sie oft an den Kontext anpassen",
+            "Ja, es sind immer genau 3 BB",
+            "Ja, 2 BB für jedes Turnier",
+            "Ja, aber das hängt allein vom Dealer ab"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Welcher Ansatz sollte in frühen Positionen (UTG und UTG+1) verfolgt werden?",
+          "options": [
+            "Extrem selektiv, beschränkt auf etwa 17% der Hände",
+            "Aggressiv, Eröffnung von bis zu 50% der Hände",
+            "Sehr passiv, nur Limping",
+            "Zufällig, um das eigene Image zu balancen"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Welche dieser Hände fallen in eine typische Eröffnungs-Range aus UTG und UTG+1?",
+          "options": [
+            "Paare 55+, A-J offsuit und Q-J suited+",
+            "Jedes Ass und jeder König offsuit",
+            "Nur Paar Asse (AA) oder Könige (KK)",
+            "Sehr niedrige Suited Connectors wie 4-3s"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Warum ist es so wichtig, aus frühen Positionen Hände von zweifellosem Wert zu spielen?",
+          "options": [
+            "Um Postflop-Entscheidungen zu erleichtern und Unsicherheit bei den Gegnern zu erzeugen",
+            "Um vom gesamten Tisch gecallt zu werden",
+            "Um sofort die Blinds zu stehlen, ohne jemals Postflop zu spielen",
+            "Um den Big Blind zu zwingen, jedes Mal zu folden"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Wie verändert sich die Eröffnungs-Range in der Middle Position (LJ - HJ)?",
+          "options": [
+            "Sie erweitert sich auf etwa 20-28% der Hände",
+            "Sie verengt sich auf 10-15% der Hände",
+            "Sie bleibt identisch mit der Early Position",
+            "Sie erreicht fast 100% der verfügbaren Hände"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Welche Kategorien von Händen kommen hinzu in der Middle Position?",
+          "options": [
+            "Spekulativere Hände wie Suited Connectors (z.B. 9-8s) und schwache Suited Aces",
+            "Ausschließlich Offsuit-Broadways von geringem Wert",
+            "Jede Kombination von zwei Karten derselben Farbe",
+            "Nur unverbundene Karten für große Bluffs"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Welche Positionen am Tisch gelten als die profitabelsten?",
+          "options": [
+            "Button und CutOff (Late Position)",
+            "UTG und UTG+1 (Early Position)",
+            "Der Small Blind und der Big Blind",
+            "Lojack und Hijack (Middle Position)"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Auf welchen Prozentsatz explodiert die Eröffnungs-Range in der Late Position?",
+          "options": [
+            "40-50%",
+            "20-28%",
+            "17%",
+            "Über 70%"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Welche marginalen Kombinationen kannst du in der Late Position aggressiv eröffnen?",
+          "options": [
+            "5-4 suited oder K-9 offsuit",
+            "Nur A-K und mittlere Paare",
+            "Ausschließlich beliebige zwei Suited-Karten",
+            "Keine, in der Late Position spielt man nur für Value"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Was ist eines der Hauptziele beim Raisen am Button oder CutOff mit marginalen Händen?",
+          "options": [
+            "Der direkte Steal der Blinds",
+            "Einen riesigen Pot zu kreieren, um am Flop beruhigt folden zu können",
+            "Auf einen Re-Raise des Gegners zu warten, um dann zu folden",
+            "Die Blinds in einen Multi-Way-Pot einzuladen"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Warum wird aus der Late Position so weit geraist, abgesehen vom Blinds stehlen?",
+          "options": [
+            "Um die Position zu nutzen und die Gegner Postflop auszuspielen",
+            "Weil die Regeln das Folden am Button verbieten",
+            "Um dem Tisch zu zeigen, dass man immer starke Karten hat",
+            "Um die Hand schnell zu beenden und zur nächsten überzugehen"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Wenn dein Stack 150 BB beträgt und du in Early Position bist, was ist die richtige Aktion?",
+          "options": [
+            "Etwa 17% der Hände mit einem Sizing von 3 BB eröffnen",
+            "40-50% der Hände mit einem Sizing von 2 BB eröffnen",
+            "17% der Hände mit einem Sizing von 3.5 BB eröffnen",
+            "20-28% der Hände mit einem Sizing von 2.5 BB eröffnen"
+          ],
+          "answer": 0
+        }
+      ],
+      "fr": [
+        {
+          "question": "Qu'est-ce qu'une ouverture (open raise) au poker ?",
+          "options": [
+            "La première relance effectuée lorsque personne n'est encore entré volontairement dans le pot",
+            "L'action de simplement suivre la grosse blinde (limp)",
+            "La troisième ou quatrième relance avant le flop",
+            "L'acte de montrer ses cartes aux adversaires"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Dans le poker moderne, que signifie l'acronyme GTO ?",
+          "options": [
+            "Game Theory Optimal",
+            "Game Table Organization",
+            "Good Texas Odds",
+            "Great Tournament Outplays"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quel est l'objectif principal de l'équilibrage mathématique de la range préflop ?",
+          "options": [
+            "Mélanger des mains de valeur et des bluffs pour ne pas être prévisible",
+            "Jouer exclusivement des mains premium",
+            "Toujours faire tapis pour voler les blindes",
+            "Jouer 100% de ses mains pour troubler ses adversaires"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quelle est la taille de relance conseillée avec un tapis inférieur à 40 BB ?",
+          "options": [
+            "2 BB",
+            "2.5 BB",
+            "3 BB",
+            "3.5 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quelle taille de relance est recommandée pour un tapis moyen de 50 BB ?",
+          "options": [
+            "2.2 BB",
+            "2 BB",
+            "3 BB",
+            "3.5 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quelle taille de relance devriez-vous utiliser avec un tapis moyen de 80 BB ?",
+          "options": [
+            "2.5 BB",
+            "2.2 BB",
+            "3 BB",
+            "4 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si vous avez un tapis supérieur à 100 BB, quelle est la taille de relance recommandée ?",
+          "options": [
+            "3 BB",
+            "2 BB",
+            "2.5 BB",
+            "4 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Dans les situations de bataille de blindes (BVB), quelle taille de relance suggère le texte ?",
+          "options": [
+            "3.5 BB",
+            "2 BB",
+            "2.2 BB",
+            "3 BB"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Selon l'auteur, existe-t-il une taille d'ouverture obligatoire dans l'absolu ?",
+          "options": [
+            "Non, il faut souvent l'adapter au contexte",
+            "Oui, c'est toujours exactement 3 BB",
+            "Oui, 2 BB pour tous les tournois",
+            "Oui, mais cela dépend uniquement du croupier"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quelle approche faut-il adopter dans les premières positions (UTG et UTG+1) ?",
+          "options": [
+            "Extrêmement sélective, en se limitant à environ 17% des mains",
+            "Agressive, en ouvrant jusqu'à 50% des mains",
+            "Très passive, en ne faisant que des limps",
+            "Aléatoire, pour équilibrer son image"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Parmi ces mains, lesquelles entrent dans une range d'ouverture typique depuis UTG et UTG+1 ?",
+          "options": [
+            "Paires 55+, A-J dépareillés et Q-J assortis+",
+            "N'importe quel As et n'importe quel Roi dépareillés",
+            "Uniquement les paires d'As (AA) ou de Rois (KK)",
+            "Des connecteurs assortis très bas comme 4-3s"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Pourquoi est-il fondamental de jouer des mains de valeur certaine depuis les premières positions ?",
+          "options": [
+            "Pour faciliter les décisions postflop et induire de l'incertitude chez les adversaires",
+            "Pour être payé par toute la table",
+            "Pour voler immédiatement les blindes sans jamais jouer postflop",
+            "Pour forcer la Grosse Blinde à se coucher à chaque fois"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Comment évolue la range d'ouverture en Middle Position (LJ - HJ) ?",
+          "options": [
+            "Elle s'élargit jusqu'à environ 20-28% des mains",
+            "Elle se réduit à 10-15% des mains",
+            "Elle reste identique à celle de l'Early Position",
+            "Elle atteint presque 100% des mains disponibles"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quelles catégories de mains sont introduites en Middle Position ?",
+          "options": [
+            "Des mains plus spéculatives comme les connecteurs assortis (ex. 9-8s) et les as faibles assortis",
+            "Exclusivement des broadways dépareillés de faible valeur",
+            "Toute combinaison de deux cartes de la même couleur",
+            "Uniquement des cartes non connectées pour faire d'énormes bluffs"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quelles sont les positions les plus rentables dans l'absolu ?",
+          "options": [
+            "Bouton et CutOff (Late Position)",
+            "UTG et UTG+1 (Early Position)",
+            "La Petite Blinde et la Grosse Blinde",
+            "Lojack et Hijack (Middle Position)"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "En atteignant la Late Position, à quel pourcentage explose la range d'ouverture ?",
+          "options": [
+            "40-50%",
+            "20-28%",
+            "17%",
+            "Plus de 70%"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quelles combinaisons marginales pouvez-vous ouvrir agressivement en Late Position ?",
+          "options": [
+            "5-4 assortis ou K-9 dépareillés",
+            "Seulement A-K et les paires moyennes",
+            "Exclusivement n'importe quelles deux cartes de la même couleur",
+            "Aucune, en Late Position on ne joue que pour la valeur"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Quel est l'un des principaux objectifs d'une relance au Bouton ou CutOff avec des mains marginales ?",
+          "options": [
+            "Le vol direct des blindes",
+            "Créer un énorme pot pour pouvoir se coucher sereinement au flop",
+            "Attendre une sur-relance adverse pour pouvoir se coucher",
+            "Inviter les blindes dans un pot multi-way"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Outre le vol des blindes, pourquoi relance-t-on largement depuis les Late Positions ?",
+          "options": [
+            "Pour tirer parti de la position et surpasser ses adversaires postflop",
+            "Parce que les règles interdisent de se coucher au Bouton",
+            "Pour montrer à la table qu'on a toujours des cartes fortes",
+            "Pour terminer la main rapidement et passer à la suivante"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Si votre tapis est de 150 BB en Early Position, quelle est la bonne action ?",
+          "options": [
+            "Ouvrir environ 17% des mains avec un sizing de 3 BB",
+            "Ouvrir 40-50% des mains avec un sizing de 2 BB",
+            "Ouvrir 17% des mains avec un sizing de 3.5 BB",
+            "Ouvrir 20-28% des mains avec un sizing de 2.5 BB"
+          ],
+          "answer": 0
+        }
+      ]
+    }
   }
 }
