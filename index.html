@@ -199,6 +199,7 @@ function clabel(key){if(!data||!data.chapters[key])return key;const ch=data.chap
 
 // Chapters with quiz
 const quizSize={preflop:6};
+const quizSize={preflop:6};
 const quizChapters=['fondamentali','preflop','potodds','3bet','flat','postflop','stackdepth','bvb_avanzato','icm','pko','exploit'];
 
 // === RENDER ===
@@ -398,61 +399,74 @@ function confirmCloseQuiz(){
 }
 
 function startQuiz(chapter){
-  if(!data)return;
-  const quizData=data.quiz&&data.quiz[chapter];
-  if(!quizData)return;
-  const pool=quizData[lang]||quizData.en||quizData.it;
-  if(!pool||!pool.length)return;
-
-  // Pick 8 random questions from pool
-  const shuffled=[...pool].sort(()=>Math.random()-0.5);
-  const questions=shuffled.slice(0,Math.min(8,pool.length));
-
-  let h=`<p style="text-align:center;color:var(--tx3);font-size:.78rem;margin-bottom:14px">${clabel(chapter)} \u2022 ${questions.length} questions</p>`;
-  questions.forEach((q,qi)=>{
-    // Shuffle answer options
-    const correctAnswer=q.options[q.answer];
-    const opts=[...q.options].sort(()=>Math.random()-0.5);
-    h+=`<div class="quiz-q" id="qq${qi}"><p>${qi+1}. ${q.question}</p>`;
-    opts.forEach(opt=>{
-      const isCorrect=opt===correctAnswer;
-      h+=`<button class="quiz-o" data-correct="${isCorrect}" onclick="quizAnswer(this,${qi})">${opt}</button>`;
-    });
-    h+=`</div>`;
-  });
-
-  document.getElementById('quizBody').innerHTML=h;
-  document.getElementById('quizTitle').textContent='Quiz: '+clabel(chapter);
-  document.getElementById('quizModal').classList.add('open');
-  quizActive=true;
-
-  // Store state for scoring
-  window._quizState={chapter,total:questions.length,answered:0,score:0};
+if(!data)return;
+const quizData=data.quiz&&data.quiz[chapter];
+if(!quizData)return;
+const pool=quizData[lang]||quizData.en||quizData.it;
+if(!pool||!pool.length)return;
+const numQ=(typeof quizSize!=='undefined'&&quizSize[chapter])||8;
+const shuffled=[...pool].sort(()=>Math.random()-0.5);
+const questions=shuffled.slice(0,Math.min(numQ,pool.length));
+window._quizState={chapter,questions,total:questions.length,current:0,score:0};
+quizActive=true;
+document.getElementById('quizTitle').textContent='Quiz: '+clabel(chapter);
+document.getElementById('quizModal').classList.add('open');
+showQuizQuestion();
 }
 
-function quizAnswer(btn,qi){
-  const qq=document.getElementById('qq'+qi);
-  if(qq.classList.contains('answered'))return;
-  qq.classList.add('answered');
-
-  const isCorrect=btn.getAttribute('data-correct')==='true';
-  const buttons=qq.querySelectorAll('.quiz-o');
-  buttons.forEach(b=>{
-    b.style.pointerEvents='none';
-    if(b.getAttribute('data-correct')==='true')b.classList.add('correct');
-  });
-  if(!isCorrect){btn.classList.add('wrong');quizActive=false;setTimeout(()=>{document.getElementById('quizBody').innerHTML='<div class="confirm-box"><p>'+(lang==='it'?'Risposta sbagliata! Devi ricominciare.':'Wrong answer! You must start over.')+'</p><button class="primary" onclick="startQuiz(\''+window._quizState.chapter+'\')">'+tr('quizYes')+'</button><button onclick="document.getElementById(\'quizModal\').classList.remove(\'open\')">'+tr('close')+'</button></div>';},800);return;}
-
-  const state=window._quizState;
-  if(isCorrect)state.score++;
-  state.answered++;
-
-  // Quiz complete?
-  if(state.answered>=state.total&&state.score===state.total){quizActive=false;if(state.score===state.total){quizDone[state.chapter]=true;}localStorage.setItem('quizDone',JSON.stringify(quizDone));document.getElementById('quizBody').innerHTML+='<div style="text-align:center;padding:18px;margin-top:14px;border:1px solid var(--bd);border-radius:12px;background:var(--sf2)"><strong style="font-size:1.2rem">'+state.total+'/'+state.total+' \ud83c\udfaf</strong><p style="color:var(--tx2);margin-top:6px">'+(lang==='it'?'Perfetto! Capitolo completato.':'Perfect! Chapter completed.')+'</p></div>';render();}
+function showQuizQuestion(){
+const state=window._quizState;
+if(!state)return;
+const qi=state.current;
+const q=state.questions[qi];
+const correctAnswer=q.options[q.answer];
+const opts=[...q.options].sort(()=>Math.random()-0.5);
+let h='<p style="text-align:center;color:var(--tx3);font-size:.76rem;margin-bottom:14px">'+(qi+1)+'/'+state.total+'</p>';
+h+='<div class="quiz-q"><p>'+q.question+'</p>';
+opts.forEach(opt=>{
+h+='<button class="quiz-o" data-correct="'+(opt===correctAnswer)+'" onclick="quizAnswer(this)">'+opt+'</button>';
+});
+h+='</div>';
+document.getElementById('quizBody').innerHTML=h;
 }
 
-// === INIT ===
-async function init(){
+function quizAnswer(btn){
+const state=window._quizState;
+if(!state)return;
+const qq=btn.parentElement;
+const isCorrect=btn.getAttribute('data-correct')==='true';
+const buttons=qq.querySelectorAll('.quiz-o');
+buttons.forEach(b=>{b.style.pointerEvents='none';if(b.getAttribute('data-correct')==='true')b.classList.add('correct');});
+
+if(!isCorrect){
+btn.classList.add('wrong');
+quizActive=false;
+setTimeout(()=>{
+const msg=lang==='it'?'Risposta sbagliata! Devi ricominciare.':lang==='es'?'Respuesta incorrecta! Debes empezar de nuevo.':lang==='de'?'Falsche Antwort! Von vorne beginnen.':lang==='fr'?'Mauvaise réponse ! Recommence.':'Wrong answer! Start over.';
+document.getElementById('quizBody').innerHTML='<div class="confirm-box"><p>'+msg+'</p><button class="primary" onclick="startQuiz(\''+state.chapter+'\')">'+tr('quizYes')+'</button><button onclick="document.getElementById(\'quizModal\').classList.remove(\'open\')">'+tr('close')+'</button></div>';
+},800);
+return;
+}
+
+btn.classList.add('correct');
+state.score++;
+state.current++;
+
+if(state.current>=state.total){
+quizActive=false;
+quizDone[state.chapter]=true;
+localStorage.setItem('quizDone',JSON.stringify(quizDone));
+const msg=lang==='it'?'Perfetto! Capitolo completato.':lang==='es'?'Perfecto! Capítulo completado.':lang==='de'?'Perfekt! Kapitel abgeschlossen.':lang==='fr'?'Parfait ! Chapitre terminé.':'Perfect! Chapter completed.';
+setTimeout(()=>{
+document.getElementById('quizBody').innerHTML='<div class="confirm-box"><p style="font-size:1.2rem;font-weight:700">'+state.total+'/'+state.total+' \ud83c\udfaf</p><p>'+msg+'</p><button class="primary" onclick="startQuiz(\''+state.chapter+'\')">\ud83d\udd01 '+(lang==='it'?'Ripeti':'Repeat')+'</button><button onclick="document.getElementById(\'quizModal\').classList.remove(\'open\')">'+tr('close')+'</button></div>';
+render();
+},600);
+}else{
+setTimeout(()=>showQuizQuestion(),600);
+}
+}
+
+function init(){
   try{
     const res=await fetch('chapters.json');
     data=await res.json();
