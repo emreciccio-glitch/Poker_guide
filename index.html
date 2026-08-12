@@ -108,6 +108,9 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 .sec{background:var(--sf);border:1px solid var(--bd);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}.sec-h{display:flex;align-items:center;gap:10px;padding:15px 16px;cursor:pointer}.sec-h:hover{background:var(--sf2)}.sec-i{min-width:30px;height:30px;border-radius:8px;background:var(--ac2);color:var(--ac);display:grid;place-items:center;font:700 .72rem 'JetBrains Mono',monospace}.sec-t{font-weight:700;font-size:.94rem;flex:1}.sec-a{transition:transform .2s;color:var(--tx3)}.sec.open .sec-a{transform:rotate(180deg)}.sec-b{display:none;padding:0 16px 18px}.sec.open .sec-b{display:block}
 .art h2{font-size:1.28rem;letter-spacing:-.02em;margin:22px 0 10px;text-align:center}.art h3{font-size:1rem;margin:16px 0 8px;text-align:center}.art p{max-width:72ch;margin:0 auto 14px;text-align:center;color:var(--tx2)}.art strong{color:var(--tx)}.art ul,.art ol{max-width:64ch;margin:0 auto 14px;padding-left:20px;color:var(--tx2);text-align:left}.art li{margin-bottom:6px}
 .art .tbl-wrap{max-width:100%;overflow-x:auto;margin:0 auto 18px}.art table.art-tbl{border-collapse:collapse;width:100%;min-width:520px;font-size:.82rem}.art table.art-tbl th,.art table.art-tbl td{border:1px solid var(--bd);padding:9px 11px;text-align:left;vertical-align:top;color:var(--tx2)}.art table.art-tbl th{background:var(--ac2);color:var(--ac);font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}.art table.art-tbl tbody tr:nth-child(even) td{background:var(--sf2)}
+.shop-link{text-align:center;font-size:.78rem;color:var(--ac);padding:12px 0 4px;cursor:pointer;font-weight:600}.shop-link:hover{text-decoration:underline}
+.shop-warn{margin-top:12px;padding:11px 12px;border:1px dashed var(--bd);border-radius:10px;font-size:.76rem;color:var(--tx3);text-align:center}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);max-width:min(90vw,380px);background:var(--tx);color:var(--bg);padding:12px 16px;border-radius:12px;font-size:.8rem;text-align:center;opacity:0;pointer-events:none;transition:.22s;z-index:120}.toast.on{opacity:1;transform:translate(-50%,0)}
 .si.owned{border-color:var(--ok);background:oklch(95% .03 150/.35);cursor:default}.si.owned .p{color:var(--ok)}.si.best{border-color:var(--ac)}.shop-note{font-size:.7rem;color:var(--tx3);text-align:center;margin:-2px 0 8px}
 
 .lock{max-width:720px;margin:0 auto;padding:34px 18px;background:var(--sf2);border:1px dashed var(--bd);border-radius:18px;text-align:center}.lock h3{font-size:1.1rem;margin-bottom:5px}.lock p{max-width:42ch;margin:0 auto 14px;color:var(--tx2)}.ub{border:none;background:var(--ac);color:#fff;padding:12px 24px;border-radius:999px;font:700 .88rem inherit;cursor:pointer}
@@ -184,7 +187,7 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 
 <script>
 // === STATE ===
-let lang=localStorage.getItem('lang')||'en',cur='fondamentali',tester=false,data=null;
+let lang=localStorage.getItem('lang')||'en',cur='fondamentali',data=null;
 const quizDone=JSON.parse(localStorage.getItem('quizDone')||'{}');
 
 // === CREDITS SYSTEM (localStorage beta) ===
@@ -193,6 +196,7 @@ if(isNaN(credits)){credits=5;localStorage.setItem('aiCredits','5')}
 let chatHistory=[];
 let chatLoading=false;
 
+// Display helper only: the balance that counts is the one returned by the server.
 function setCredits(n){credits=Math.max(0,n);localStorage.setItem('aiCredits',String(credits));updateCreditsUI()}
 function updateCreditsUI(){
   const label=credits+' '+tr('credits');
@@ -201,7 +205,7 @@ function updateCreditsUI(){
 }
 
 // === TRANSLATIONS ===
-const T={en:{free:'free',pro:'pro',elite:'elite',extra:'extra',cost:'1 credit = 1 question',credits:'credits',prev:'previous',next:'next',quiz:'Quiz: test your knowledge',quizDone:'\u2713 Completed (repeat?)',quizConfirm:'You are about to start the quiz. If you close it before finishing, you will have to start over. Continue?',quizYes:'Start',quizNo:'Cancel',shopTitle:'Shop',unlockPro:'Unlock PRO',unlockElite:'Unlock ELITE',unlockAll:'PRO + ELITE Bundle',proPack:'7 advanced chapters',elitePack:'6 elite chapters',allPack:'All chapters unlocked',proCredits:'+15 AI credits',eliteCredits:'+25 AI credits',allCredits:'+40 AI credits',creditsPack:'AI Credits (launch offer)',close:'Close',aiBanner:'AI poker GTO coach',aiDesc:'Something unclear? Our AI is trained exclusively on advanced GTO strategy. Ask it to explain this topic.',shopAlert:'Simulated purchase. Final version uses Microsoft Store.',glossary:'Glossary',noCredits:'No credits left. Tap here to buy more.',errorMsg:'Connection error. Try again.',thinking:'Thinking...'},it:{free:'gratuito',pro:'pro',elite:'elite',extra:'extra',cost:'1 credito = 1 domanda',credits:'crediti',prev:'precedente',next:'successivo',quiz:'Quiz: verifica le tue conoscenze',quizDone:'\u2713 Completato (ripeti?)',quizConfirm:'Stai per iniziare il quiz. Se chiudi prima di finire, dovrai ricominciare da capo. Continuare?',quizYes:'Inizia',quizNo:'Annulla',shopTitle:'Shop',unlockPro:'Sblocca PRO',unlockElite:'Sblocca ELITE',unlockAll:'Bundle PRO + ELITE',proPack:'7 capitoli avanzati',elitePack:'6 capitoli elite',allPack:'Tutto sbloccato',proCredits:'+15 crediti AI',eliteCredits:'+25 crediti AI',allCredits:'+40 crediti AI',creditsPack:'Crediti AI (offerta lancio)',close:'Chiudi',aiBanner:'AI poker GTO coach',aiDesc:'Non hai capito qualcosa? La nostra AI \u00e8 allenata esclusivamente sulla strategia GTO avanzata. Chiedile di spiegarti questo argomento.',shopAlert:'Acquisto simulato. Versione finale via Microsoft Store.',glossary:'Glossario',noCredits:'Crediti esauriti. Tocca qui per acquistarne.',errorMsg:'Errore di connessione. Riprova.',thinking:'Sto pensando...'},es:{free:'gratis',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dito = 1 pregunta',credits:'cr\u00e9ditos',prev:'anterior',next:'siguiente',quiz:'Quiz: pon a prueba tus conocimientos',quizDone:'\u2713 Completado (repetir?)',quizConfirm:'Vas a iniciar el quiz. Si lo cierras antes de terminar, tendr\u00e1s que empezar de nuevo. \u00bfContinuar?',quizYes:'Empezar',quizNo:'Cancelar',shopTitle:'Tienda',unlockPro:'Desbloquear PRO',unlockElite:'Desbloquear ELITE',unlockAll:'Pack PRO + ELITE',proPack:'7 cap\u00edtulos avanzados',elitePack:'6 cap\u00edtulos elite',allPack:'Todo desbloqueado',proCredits:'+15 cr\u00e9ditos IA',eliteCredits:'+25 cr\u00e9ditos IA',allCredits:'+40 cr\u00e9ditos IA',creditsPack:'Cr\u00e9ditos IA (oferta lanzamiento)',close:'Cerrar',aiBanner:'AI poker GTO coach',aiDesc:'\u00bfAlgo no est\u00e1 claro? Nuestra IA est\u00e1 entrenada exclusivamente en estrategia GTO avanzada.',shopAlert:'Compra simulada. Versi\u00f3n final via Microsoft Store.',glossary:'Glosario',noCredits:'Sin cr\u00e9ditos. Toca aqu\u00ed para comprar.',errorMsg:'Error de conexi\u00f3n. Int\u00e9ntalo de nuevo.',thinking:'Pensando...'},de:{free:'kostenlos',pro:'pro',elite:'elite',extra:'extra',cost:'1 Credit = 1 Frage',credits:'Credits',prev:'zur\u00fcck',next:'weiter',quiz:'Quiz: teste dein Wissen',quizDone:'\u2713 Abgeschlossen (wiederholen?)',quizConfirm:'Du startest jetzt das Quiz. Wenn du es vorher schlie\u00dft, musst du von vorne beginnen. Fortfahren?',quizYes:'Starten',quizNo:'Abbrechen',shopTitle:'Shop',unlockPro:'PRO freischalten',unlockElite:'ELITE freischalten',unlockAll:'PRO + ELITE Bundle',proPack:'7 fortgeschrittene Kapitel',elitePack:'6 Elite-Kapitel',allPack:'Alles freigeschaltet',proCredits:'+15 KI-Credits',eliteCredits:'+25 KI-Credits',allCredits:'+40 KI-Credits',creditsPack:'KI-Credits (Launch-Angebot)',close:'Schlie\u00dfen',aiBanner:'AI poker GTO coach',aiDesc:'Etwas unklar? Unsere KI ist ausschlie\u00dflich auf fortgeschrittene GTO-Strategie trainiert.',shopAlert:'Simulierter Kauf. Finalversion via Microsoft Store.',glossary:'Glossar',noCredits:'Keine Credits. Tippe hier zum Kaufen.',errorMsg:'Verbindungsfehler. Erneut versuchen.',thinking:'Denke nach...'},fr:{free:'gratuit',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dit = 1 question',credits:'cr\u00e9dits',prev:'pr\u00e9c\u00e9dent',next:'suivant',quiz:'Quiz : teste tes connaissances',quizDone:'\u2713 Compl\u00e9t\u00e9 (refaire?)',quizConfirm:'Tu vas commencer le quiz. Si tu le fermes avant la fin, tu devras recommencer. Continuer ?',quizYes:'Commencer',quizNo:'Annuler',shopTitle:'Boutique',unlockPro:'D\u00e9bloquer PRO',unlockElite:'D\u00e9bloquer ELITE',unlockAll:'Pack PRO + ELITE',proPack:'7 chapitres avanc\u00e9s',elitePack:'6 chapitres elite',allPack:'Tout d\u00e9bloqu\u00e9',proCredits:'+15 cr\u00e9dits IA',eliteCredits:'+25 cr\u00e9dits IA',allCredits:'+40 cr\u00e9dits IA',creditsPack:'Cr\u00e9dits IA (offre lancement)',close:'Fermer',aiBanner:'AI poker GTO coach',aiDesc:"Quelque chose n'est pas clair ? Notre IA est entra\u00een\u00e9e exclusivement sur la strat\u00e9gie GTO avanc\u00e9e.",shopAlert:'Achat simul\u00e9. Version finale via Microsoft Store.',glossary:'Glossaire',noCredits:'Plus de cr\u00e9dits. Appuyez ici pour en acheter.',errorMsg:'Erreur de connexion. R\u00e9essayez.',thinking:'R\u00e9flexion...'}};
+const T={en:{free:'free',pro:'pro',elite:'elite',extra:'extra',cost:'1 credit = 1 question',credits:'credits',prev:'previous',next:'next',quiz:'Quiz: test your knowledge',quizDone:'\u2713 Completed (repeat?)',quizConfirm:'You are about to start the quiz. If you close it before finishing, you will have to start over. Continue?',quizYes:'Start',quizNo:'Cancel',shopTitle:'Shop',unlockPro:'Unlock PRO',unlockElite:'Unlock ELITE',unlockAll:'PRO + ELITE Bundle',proPack:'7 advanced chapters',elitePack:'6 elite chapters',allPack:'All chapters unlocked',proCredits:'+15 AI credits',eliteCredits:'+25 AI credits',allCredits:'+40 AI credits',creditsPack:'AI Credits (launch offer)',close:'Close',aiBanner:'AI poker GTO coach',aiDesc:'Something unclear? Our AI is trained exclusively on advanced GTO strategy. Ask it to explain this topic.',glossary:'Glossary',noCredits:'No credits left. Tap here to buy more.',errorMsg:'Connection error. Try again.',thinking:'Thinking...'},it:{free:'gratuito',pro:'pro',elite:'elite',extra:'extra',cost:'1 credito = 1 domanda',credits:'crediti',prev:'precedente',next:'successivo',quiz:'Quiz: verifica le tue conoscenze',quizDone:'\u2713 Completato (ripeti?)',quizConfirm:'Stai per iniziare il quiz. Se chiudi prima di finire, dovrai ricominciare da capo. Continuare?',quizYes:'Inizia',quizNo:'Annulla',shopTitle:'Shop',unlockPro:'Sblocca PRO',unlockElite:'Sblocca ELITE',unlockAll:'Bundle PRO + ELITE',proPack:'7 capitoli avanzati',elitePack:'6 capitoli elite',allPack:'Tutto sbloccato',proCredits:'+15 crediti AI',eliteCredits:'+25 crediti AI',allCredits:'+40 crediti AI',creditsPack:'Crediti AI (offerta lancio)',close:'Chiudi',aiBanner:'AI poker GTO coach',aiDesc:'Non hai capito qualcosa? La nostra AI \u00e8 allenata esclusivamente sulla strategia GTO avanzata. Chiedile di spiegarti questo argomento.',glossary:'Glossario',noCredits:'Crediti esauriti. Tocca qui per acquistarne.',errorMsg:'Errore di connessione. Riprova.',thinking:'Sto pensando...'},es:{free:'gratis',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dito = 1 pregunta',credits:'cr\u00e9ditos',prev:'anterior',next:'siguiente',quiz:'Quiz: pon a prueba tus conocimientos',quizDone:'\u2713 Completado (repetir?)',quizConfirm:'Vas a iniciar el quiz. Si lo cierras antes de terminar, tendr\u00e1s que empezar de nuevo. \u00bfContinuar?',quizYes:'Empezar',quizNo:'Cancelar',shopTitle:'Tienda',unlockPro:'Desbloquear PRO',unlockElite:'Desbloquear ELITE',unlockAll:'Pack PRO + ELITE',proPack:'7 cap\u00edtulos avanzados',elitePack:'6 cap\u00edtulos elite',allPack:'Todo desbloqueado',proCredits:'+15 cr\u00e9ditos IA',eliteCredits:'+25 cr\u00e9ditos IA',allCredits:'+40 cr\u00e9ditos IA',creditsPack:'Cr\u00e9ditos IA (oferta lanzamiento)',close:'Cerrar',aiBanner:'AI poker GTO coach',aiDesc:'\u00bfAlgo no est\u00e1 claro? Nuestra IA est\u00e1 entrenada exclusivamente en estrategia GTO avanzada.',glossary:'Glosario',noCredits:'Sin cr\u00e9ditos. Toca aqu\u00ed para comprar.',errorMsg:'Error de conexi\u00f3n. Int\u00e9ntalo de nuevo.',thinking:'Pensando...'},de:{free:'kostenlos',pro:'pro',elite:'elite',extra:'extra',cost:'1 Credit = 1 Frage',credits:'Credits',prev:'zur\u00fcck',next:'weiter',quiz:'Quiz: teste dein Wissen',quizDone:'\u2713 Abgeschlossen (wiederholen?)',quizConfirm:'Du startest jetzt das Quiz. Wenn du es vorher schlie\u00dft, musst du von vorne beginnen. Fortfahren?',quizYes:'Starten',quizNo:'Abbrechen',shopTitle:'Shop',unlockPro:'PRO freischalten',unlockElite:'ELITE freischalten',unlockAll:'PRO + ELITE Bundle',proPack:'7 fortgeschrittene Kapitel',elitePack:'6 Elite-Kapitel',allPack:'Alles freigeschaltet',proCredits:'+15 KI-Credits',eliteCredits:'+25 KI-Credits',allCredits:'+40 KI-Credits',creditsPack:'KI-Credits (Launch-Angebot)',close:'Schlie\u00dfen',aiBanner:'AI poker GTO coach',aiDesc:'Etwas unklar? Unsere KI ist ausschlie\u00dflich auf fortgeschrittene GTO-Strategie trainiert.',glossary:'Glossar',noCredits:'Keine Credits. Tippe hier zum Kaufen.',errorMsg:'Verbindungsfehler. Erneut versuchen.',thinking:'Denke nach...'},fr:{free:'gratuit',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dit = 1 question',credits:'cr\u00e9dits',prev:'pr\u00e9c\u00e9dent',next:'suivant',quiz:'Quiz : teste tes connaissances',quizDone:'\u2713 Compl\u00e9t\u00e9 (refaire?)',quizConfirm:'Tu vas commencer le quiz. Si tu le fermes avant la fin, tu devras recommencer. Continuer ?',quizYes:'Commencer',quizNo:'Annuler',shopTitle:'Boutique',unlockPro:'D\u00e9bloquer PRO',unlockElite:'D\u00e9bloquer ELITE',unlockAll:'Pack PRO + ELITE',proPack:'7 chapitres avanc\u00e9s',elitePack:'6 chapitres elite',allPack:'Tout d\u00e9bloqu\u00e9',proCredits:'+15 cr\u00e9dits IA',eliteCredits:'+25 cr\u00e9dits IA',allCredits:'+40 cr\u00e9dits IA',creditsPack:'Cr\u00e9dits IA (offre lancement)',close:'Fermer',aiBanner:'AI poker GTO coach',aiDesc:"Quelque chose n'est pas clair ? Notre IA est entra\u00een\u00e9e exclusivement sur la strat\u00e9gie GTO avanc\u00e9e.",glossary:'Glossaire',noCredits:'Plus de cr\u00e9dits. Appuyez ici pour en acheter.',errorMsg:'Erreur de connexion. R\u00e9essayez.',thinking:'R\u00e9flexion...'}};
 function tr(k){return(T[lang]&&T[lang][k])||T.en[k]||k}
 function clabel(key){if(!data||!data.chapters[key])return key;const ch=data.chapters[key];return(ch.label&&(ch.label[lang]||ch.label.en||ch.label.it))||key}
 
@@ -213,6 +217,24 @@ const T2={
  fr:{chapterPacks:'Packs de chapitres',owned:'\u2713 Achet\u00e9',ownedAll:'Tous les chapitres d\u00e9bloqu\u00e9s',bundleNote:'Pack disponible uniquement avant l\u2019achat de PRO ou ELITE',freeTier:'FREE: 8 chapitres + 5 cr\u00e9dits'}
 };
 Object.keys(T2).forEach(l=>Object.assign(T[l],T2[l]));
+
+const T3={
+ en:{restore:'Restore purchases',restoreOk:'Purchases restored',restoreNone:'No purchases to restore',storeOnly:'Purchases are available in the app from Google Play or the Microsoft Store.',purchaseFailed:'Purchase not completed. Nothing was charged.'},
+ it:{restore:'Ripristina acquisti',restoreOk:'Acquisti ripristinati',restoreNone:'Nessun acquisto da ripristinare',storeOnly:'Gli acquisti sono disponibili nell\u2019app da Google Play o Microsoft Store.',purchaseFailed:'Acquisto non completato. Non \u00e8 stato addebitato nulla.'},
+ es:{restore:'Restaurar compras',restoreOk:'Compras restauradas',restoreNone:'No hay compras que restaurar',storeOnly:'Las compras est\u00e1n disponibles en la app de Google Play o Microsoft Store.',purchaseFailed:'Compra no completada. No se ha cobrado nada.'},
+ de:{restore:'K\u00e4ufe wiederherstellen',restoreOk:'K\u00e4ufe wiederhergestellt',restoreNone:'Keine K\u00e4ufe zum Wiederherstellen',storeOnly:'K\u00e4ufe sind in der App aus Google Play oder dem Microsoft Store verf\u00fcgbar.',purchaseFailed:'Kauf nicht abgeschlossen. Es wurde nichts berechnet.'},
+ fr:{restore:'Restaurer les achats',restoreOk:'Achats restaur\u00e9s',restoreNone:'Aucun achat \u00e0 restaurer',storeOnly:'Les achats sont disponibles dans l\u2019app depuis Google Play ou le Microsoft Store.',purchaseFailed:'Achat non finalis\u00e9. Rien n\u2019a \u00e9t\u00e9 factur\u00e9.'}
+};
+Object.keys(T3).forEach(l=>Object.assign(T[l],T3[l]));
+
+const T4={
+ en:{loading:'Loading chapter...',needNet:'Connection needed to open this chapter.',slowDown:'Too many questions in a row. Try again in a moment.',receiptUsed:'This purchase is already linked to another account.'},
+ it:{loading:'Caricamento capitolo...',needNet:'Serve la connessione per aprire questo capitolo.',slowDown:'Troppe domande di fila. Riprova tra un attimo.',receiptUsed:'Questo acquisto \u00e8 gi\u00e0 collegato a un altro account.'},
+ es:{loading:'Cargando cap\u00edtulo...',needNet:'Se necesita conexi\u00f3n para abrir este cap\u00edtulo.',slowDown:'Demasiadas preguntas seguidas. Int\u00e9ntalo en un momento.',receiptUsed:'Esta compra ya est\u00e1 vinculada a otra cuenta.'},
+ de:{loading:'Kapitel wird geladen...',needNet:'F\u00fcr dieses Kapitel wird eine Verbindung ben\u00f6tigt.',slowDown:'Zu viele Fragen hintereinander. Versuche es gleich erneut.',receiptUsed:'Dieser Kauf ist bereits mit einem anderen Konto verkn\u00fcpft.'},
+ fr:{loading:'Chargement du chapitre...',needNet:'Une connexion est n\u00e9cessaire pour ouvrir ce chapitre.',slowDown:'Trop de questions d\u2019affil\u00e9e. R\u00e9essaie dans un instant.',receiptUsed:'Cet achat est d\u00e9j\u00e0 li\u00e9 \u00e0 un autre compte.'}
+};
+Object.keys(T4).forEach(l=>Object.assign(T[l],T4[l]));
 
 // Chapters with quiz
 const quizSize={preflop:6};
@@ -234,13 +256,14 @@ h+=`<div class="lbl" style="margin-top:12px">${tr('elite')}</div>`;data.structur
 h+=`<div class="lbl" style="margin-top:12px">${tr('extra')}</div>`;
 h+=`<div class="nav" onclick="openShop()">\ud83d\uded2 ${tr('shopTitle')}</div>`;
 h+=`<div class="nav" onclick="showGlossary()">\ud83d\udcda ${tr('glossary')}</div>`;
-h+=`<div class="nav" style="color:var(--ok)" onclick="toggleTester()">${tester?'\u2713 tester on':'\ud83d\udd13 tester'}</div>`;
 document.getElementById('side').innerHTML=h}
 
 function render(){if(!data)return;const ch=data.chapters[cur];if(!ch)return;
 const isPro=data.structure.pro.includes(cur);const isElite=data.structure.elite.includes(cur);
 const locked=!hasAccess(cur);const i=data.order.indexOf(cur);const prev=data.order[i-1],next=data.order[i+1];
-const bodyKey='body_'+lang;const body=ch[bodyKey]||ch.body_en||ch.body_it||'';
+const bodyKey='body_'+lang;let body=ch[bodyKey]||ch.body_en||ch.body_it||'';
+// Paid chapter: the text arrives from the backend, never from the public JSON
+if(ch.paid&&!locked){const cached=paidBody(cur);if(cached){body=cached}else{body='<p style="text-align:center;color:var(--tx3);padding:26px">'+tr('loading')+'</p>';fetchPaidBody(cur)}}
 let html=`<div class="hero"><div class="ey">${ch.eyebrow||''}</div><h1>${clabel(cur)}</h1></div>`;
 html+=`<div class="ai" onclick="openChat()"><div class="ai-i">\u2728</div><div><strong>${tr('aiBanner')}</strong><span>${tr('aiDesc')}</span></div></div>`;
 if(locked){const tier=isPro?'PRO':'ELITE';html+=`<div class="lock"><h3>${tier}</h3><p>${isPro?tr('proPack'):tr('elitePack')}</p><button class="ub" onclick="openShop()">${isPro?tr('unlockPro'):tr('unlockElite')}</button></div>`}
@@ -274,14 +297,12 @@ function toggleTheme(){const d=document.documentElement.getAttribute('data-theme
 
 // === NAV ===
 function go(k){cur=k;renderSide();render();scrollTo({top:0,behavior:'smooth'});closeSide()}
-function toggleTester(){tester=!tester;renderSide();render()}
 function toggleSide(){document.getElementById('side').classList.toggle('open');document.getElementById('mob').classList.toggle('open')}
 function closeSide(){document.getElementById('side').classList.remove('open');document.getElementById('mob').classList.remove('open')}
 
 // ============================================
 // === CHAT (LIVE - connected to Vercel) ===
 // ============================================
-const API_URL='https://poker-ai-coach-19wq.vercel.app/api/chat';
 
 function openChat(){
   document.getElementById('chatModal').classList.add('open');
@@ -317,26 +338,15 @@ async function sendMsg(){
   chatLoading=true;
 
   try{
-    const res=await fetch(API_URL,{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({
-        message:v,
-        history:chatHistory.slice(-6)
-      })
-    });
+    // The credit is charged server side, inside this call
+    const json=await api('chat',{message:v,history:chatHistory.slice(-6)});
 
     // Remove typing indicator
     const typ=document.getElementById('typingIndicator');
     if(typ)typ.remove();
 
-    if(!res.ok){
-      const errData=await res.json().catch(()=>({error:'Server error'}));
-      throw new Error(errData.error||'HTTP '+res.status);
-    }
-
-    const json=await res.json();
     const reply=json.reply||'...';
+    if(typeof json.credits==='number')setCredits(json.credits);
 
     // Show bot reply with formatting
     b.innerHTML+=`<div class="m bot"><div class="bb">${formatReply(reply)}</div></div>`;
@@ -346,18 +356,23 @@ async function sendMsg(){
     chatHistory.push({role:'user',content:v});
     chatHistory.push({role:'assistant',content:reply});
 
-    // Deduct 1 credit
-    setCredits(credits-1);
 
   }catch(err){
     // Remove typing indicator on error
     const typ=document.getElementById('typingIndicator');
     if(typ)typ.remove();
 
-    // Show error message in chat
-    b.innerHTML+=`<div class="m bot"><div class="bb" style="color:oklch(55% .15 25)">\u26a0\ufe0f ${tr('errorMsg')}</div></div>`;
+    // 402 = credits finished, 429 = too many requests, anything else = generic error
+    if(err&&err.status===402){
+      if(typeof err.data.credits==='number')setCredits(err.data.credits);
+      b.innerHTML+=`<div class="no-cred-msg" onclick="closeChat();openShop()">${tr('noCredits')}</div>`;
+    }else if(err&&err.status===429){
+      b.innerHTML+=`<div class="m bot"><div class="bb" style="color:oklch(55% .15 25)">${tr('slowDown')}</div></div>`;
+    }else{
+      b.innerHTML+=`<div class="m bot"><div class="bb" style="color:oklch(55% .15 25)">\u26a0\ufe0f ${tr('errorMsg')}</div></div>`;
+    }
     b.scrollTop=b.scrollHeight;
-    console.error('[Chat Error]',err.message);
+    console.error('[Chat]',err.message);
   }finally{
     chatLoading=false;
     inp.disabled=false;
@@ -385,54 +400,257 @@ function formatReply(text){
   return h;
 }
 
-// === SHOP / OWNERSHIP ===
-// Price list: FREE 8 ch + 5 credits | PRO 7 ch \u20ac4,99 +15 | ELITE 6 ch \u20ac8,99 +25 | BUNDLE \u20ac11,99 +40
-const PRICE={pro:'\u20ac4,99',elite:'\u20ac8,99',bundle:'\u20ac11,99',c15:'\u20ac0,49',c40:'\u20ac0,99',c120:'\u20ac2,49'};
-const CREDIT_BONUS={pro:15,elite:25,bundle:40};
+// ==========================================================
+// === ACCOUNT, BILLING AND CREDITS (server side) ===
+// ==========================================================
+// The browser is never trusted: credits and entitlements live on the backend.
+// localStorage only mirrors them so the UI can render offline.
+
+const API_BASE='https://poker-ai-coach-19wq.vercel.app/api';
+
+// Product IDs. Must match Play Console and Partner Center character by character.
+const SKU={pro:'pro_unlock',elite:'elite_unlock',bundle:'bundle_pro_elite',c15:'credits_15',c40:'credits_40',c120:'credits_120'};
+const CONSUMABLES=[SKU.c15,SKU.c40,SKU.c120];
+// Display only. The real amounts are granted by the server.
+const PRICE_FALLBACK={[SKU.pro]:'\u20ac4,99',[SKU.elite]:'\u20ac8,99',[SKU.bundle]:'\u20ac11,99',[SKU.c15]:'\u20ac0,49',[SKU.c40]:'\u20ac0,99',[SKU.c120]:'\u20ac2,49'};
+const BONUS_LABEL={[SKU.pro]:15,[SKU.elite]:25,[SKU.bundle]:40};
+
+const STORES=[
+  {store:'play',method:'https://play.google.com/billing'},
+  {store:'microsoft',method:'https://store.microsoft.com/billing'}
+];
+
+const billing={service:null,method:null,store:null,ready:false,price:{},online:false};
+
+// Anonymous, per-install identifier. Paired server side with an account id.
+function installId(){
+  let v=localStorage.getItem('installId');
+  if(!v){
+    v=(self.crypto&&crypto.randomUUID)?crypto.randomUUID():(Date.now().toString(36)+Math.random().toString(36).slice(2,12));
+    localStorage.setItem('installId',v);
+  }
+  return v;
+}
+let sid=localStorage.getItem('sid')||'';
+
+async function api(path,payload){
+  const res=await fetch(API_BASE+'/'+path,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify(Object.assign({sid},payload||{}))
+  });
+  const json=await res.json().catch(()=>({}));
+  if(!res.ok){const e=new Error(json.error||('http '+res.status));e.status=res.status;e.data=json;throw e}
+  return json;
+}
+
+// Entitlements: authoritative copy is on the server, this is the offline cache.
 const owned=Object.assign({pro:false,elite:false},JSON.parse(localStorage.getItem('owned')||'{}'));
 function saveOwned(){localStorage.setItem('owned',JSON.stringify(owned))}
+
 function hasAccess(k){
-  if(tester)return true;
   if(!data)return false;
   if(data.structure.pro.includes(k))return owned.pro;
   if(data.structure.elite.includes(k))return owned.elite;
   return true;
 }
-// The PRO+ELITE bundle disappears as soon as PRO (or ELITE) has been purchased
+// The PRO+ELITE bundle disappears as soon as PRO or ELITE has been purchased
 function bundleAvailable(){return !owned.pro && !owned.elite}
+function priceOf(sku){return billing.price[sku]||PRICE_FALLBACK[sku]||''}
 
+function applyServerState(j){
+  if(typeof j.credits==='number'){
+    credits=j.credits;
+    localStorage.setItem('aiCredits',String(credits)); // cache for offline display only
+  }
+  if('pro' in j)owned.pro=!!j.pro;
+  if('elite' in j)owned.elite=!!j.elite;
+  saveOwned();updateCreditsUI();renderSide();render();
+}
+
+// Your own test unlock: open the app once with ?test=YOURCODE (the code you set
+// in TEST_UNLOCK_CODE on the backend). It is stored locally and reused. Users
+// cannot guess it, and without it nothing can be unlocked for free.
+function testCode(){
+  const q=new URLSearchParams(location.search);
+  if(q.has('test')){
+    const v=q.get('test');
+    if(v)localStorage.setItem('testCode',v); else localStorage.removeItem('testCode');
+  }
+  return localStorage.getItem('testCode')||'';
+}
+
+async function startSession(){
+  try{
+    const j=await api('session',{installId:installId(),testCode:testCode()});
+    if(j.sid){sid=j.sid;localStorage.setItem('sid',sid)}
+    billing.online=true;
+    applyServerState(j);
+  }catch(e){
+    // Offline or backend down: keep the cached entitlements so paid chapters
+    // already downloaded stay readable. Credits cannot be spent without network.
+    billing.online=false;
+    console.warn('session unavailable',e.message);
+  }
+}
+
+async function initBilling(){
+  await startSession();
+  if(typeof window.getDigitalGoodsService==='function'){
+    for(const st of STORES){
+      try{
+        const svc=await window.getDigitalGoodsService(st.method);
+        if(svc){billing.service=svc;billing.method=st.method;billing.store=st.store;break}
+      }catch(e){/* not the store hosting this app */}
+    }
+  }
+  if(billing.service){
+    await loadStorePrices();
+    await restorePurchases(true);
+  }
+  billing.ready=true;
+  renderSide();render();
+}
+
+// Real localized prices from the store listing
+async function loadStorePrices(){
+  try{
+    const items=await billing.service.getDetails(Object.values(SKU));
+    items.forEach(it=>{
+      try{
+        billing.price[it.itemId]=new Intl.NumberFormat(navigator.language||'en',{style:'currency',currency:it.price.currency}).format(Number(it.price.value));
+      }catch(e){billing.price[it.itemId]=it.price.value+' '+it.price.currency}
+    });
+  }catch(e){console.warn('getDetails failed',e)}
+}
+
+// Sends every receipt held by the store account to the backend. Idempotent:
+// the server grants credits only on the first redemption of each receipt.
+async function restorePurchases(silent){
+  if(!billing.service){if(!silent)toast(tr('storeOnly'));return}
+  let restored=0,rejected=false;
+  try{
+    const purchases=await billing.service.listPurchases();
+    for(const pur of purchases){
+      try{
+        const j=await api('redeem',{store:billing.store,itemId:pur.itemId,purchaseToken:pur.purchaseToken});
+        applyServerState(j);
+        if(j.granted)restored++;
+        // Consumable already credited: consume it so it can be bought again
+        if(CONSUMABLES.includes(pur.itemId)){
+          try{await billing.service.consume(pur.purchaseToken)}catch(e){console.warn('consume failed',e)}
+        }
+      }catch(e){
+        if(e.status===409)rejected=true; // receipt bound to another account
+        else console.warn('redeem failed',e.message);
+      }
+    }
+  }catch(e){console.warn('listPurchases failed',e)}
+  if(!silent)toast(rejected?tr('receiptUsed'):(restored?tr('restoreOk'):tr('restoreNone')));
+  if(document.getElementById('shopModal').classList.contains('open'))openShop();
+}
+
+async function purchase(key){
+  const sku=SKU[key];
+  if(!sku)return;
+  if(!billing.service||!window.PaymentRequest)return toast(tr('storeOnly'));
+  if(!sid)await startSession();
+  if(!sid)return toast(tr('needNet'));
+  try{
+    const request=new PaymentRequest(
+      [{supportedMethods:billing.method,data:{sku}}],
+      {total:{label:'Total',amount:{currency:'EUR',value:'0'}}} // the store applies its own price
+    );
+    if(request.canMakePayment && !(await request.canMakePayment()))return toast(tr('storeOnly'));
+    const response=await request.show();
+    const token=(response.details&&(response.details.token||response.details.purchaseToken))||'';
+    let ok=false;
+    try{
+      // The server validates the receipt with the store, binds it to this account
+      // and only then grants credits or unlocks chapters.
+      const j=await api('redeem',{store:billing.store,itemId:sku,purchaseToken:token});
+      ok=true;
+      applyServerState(j);
+      if(CONSUMABLES.includes(sku)&&token){
+        try{await billing.service.consume(token)}catch(e){console.warn('consume failed',e)}
+      }
+    }catch(e){
+      toast(e.status===409?tr('receiptUsed'):tr('purchaseFailed'));
+    }
+    await response.complete(ok?'success':'fail');
+    if(ok)openShop();
+  }catch(e){
+    // AbortError = the user closed the store sheet, not an error
+    if(e&&e.name!=='AbortError'){console.warn(e);toast(tr('purchaseFailed'))}
+  }
+}
+
+// === SHOP UI ===
 function openShop(){
   let h=`<div class="sl">${tr('chapterPacks')}</div>`;
   if(owned.pro&&owned.elite){
     h+=`<div class="si owned"><div class="a">${tr('ownedAll')}<small>${tr('freeTier')}</small></div><div class="p">${tr('owned')}</div></div>`;
   }else{
     if(owned.pro){h+=`<div class="si owned"><div class="a">${tr('unlockPro')}<small>${tr('proPack')}</small></div><div class="p">${tr('owned')}</div></div>`}
-    else{h+=`<div class="si" onclick="buyTier('pro')"><div class="a">${tr('unlockPro')}<small>${tr('proPack')} ${tr('proCredits')}</small></div><div class="p">${PRICE.pro}</div></div>`}
+    else{h+=`<div class="si" onclick="purchase('pro')"><div class="a">${tr('unlockPro')}<small>${tr('proPack')} ${tr('proCredits')}</small></div><div class="p">${priceOf(SKU.pro)}</div></div>`}
     if(owned.elite){h+=`<div class="si owned"><div class="a">${tr('unlockElite')}<small>${tr('elitePack')}</small></div><div class="p">${tr('owned')}</div></div>`}
-    else{h+=`<div class="si" onclick="buyTier('elite')"><div class="a">${tr('unlockElite')}<small>${tr('elitePack')} ${tr('eliteCredits')}</small></div><div class="p">${PRICE.elite}</div></div>`}
+    else{h+=`<div class="si" onclick="purchase('elite')"><div class="a">${tr('unlockElite')}<small>${tr('elitePack')} ${tr('eliteCredits')}</small></div><div class="p">${priceOf(SKU.elite)}</div></div>`}
     if(bundleAvailable()){
-      h+=`<div class="si best" onclick="buyTier('bundle')"><div class="a">${tr('unlockAll')}<small>${tr('allPack')} ${tr('allCredits')}</small></div><div class="p">${PRICE.bundle}</div></div>`;
+      h+=`<div class="si best" onclick="purchase('bundle')"><div class="a">${tr('unlockAll')}<small>${tr('allPack')} ${tr('allCredits')}</small></div><div class="p">${priceOf(SKU.bundle)}</div></div>`;
       h+=`<div class="shop-note">${tr('bundleNote')}</div>`;
     }
   }
   h+=`<div class="sl">${tr('creditsPack')}</div>`;
-  h+=`<div class="si" onclick="buyCredits(15)"><div class="a">15 ${tr('credits')}<small>Launch</small></div><div class="p">${PRICE.c15}</div></div>`;
-  h+=`<div class="si" onclick="buyCredits(40)"><div class="a">40 ${tr('credits')}<small>Best value</small></div><div class="p">${PRICE.c40}</div></div>`;
-  h+=`<div class="si" onclick="buyCredits(120)"><div class="a">120 ${tr('credits')}<small>Pro pack</small></div><div class="p">${PRICE.c120}</div></div>`;
+  h+=`<div class="si" onclick="purchase('c15')"><div class="a">15 ${tr('credits')}<small>Launch</small></div><div class="p">${priceOf(SKU.c15)}</div></div>`;
+  h+=`<div class="si" onclick="purchase('c40')"><div class="a">40 ${tr('credits')}<small>Best value</small></div><div class="p">${priceOf(SKU.c40)}</div></div>`;
+  h+=`<div class="si" onclick="purchase('c120')"><div class="a">120 ${tr('credits')}<small>Pro pack</small></div><div class="p">${priceOf(SKU.c120)}</div></div>`;
+  if(billing.service)h+=`<div class="shop-link" onclick="restorePurchases(false)">${tr('restore')}</div>`;
+  else if(billing.ready)h+=`<div class="shop-warn">${tr('storeOnly')}</div>`;
   document.getElementById('shopBody').innerHTML=h;
   document.getElementById('shopTitle').textContent=tr('shopTitle');
   document.getElementById('shopModal').classList.add('open');
 }
 function closeShop(){document.getElementById('shopModal').classList.remove('open')}
-function buyTier(t){
-  if(t==='bundle'){owned.pro=true;owned.elite=true}else{owned[t]=true}
-  saveOwned();
-  setCredits(credits+(CREDIT_BONUS[t]||0));
-  alert(tr('shopAlert'));
-  renderSide();render();openShop();
+
+function toast(msg){
+  let t=document.getElementById('toast');
+  if(!t){t=document.createElement('div');t.id='toast';t.className='toast';document.body.appendChild(t)}
+  t.textContent=msg;t.classList.add('on');
+  clearTimeout(window._toastT);
+  window._toastT=setTimeout(()=>t.classList.remove('on'),3200);
 }
-function buyCredits(n){setCredits(credits+n);alert(tr('shopAlert'));openShop()}
-function fakeBuy(){alert(tr('shopAlert'))}
+
+// ==========================================================
+// === PAID CHAPTER CONTENT (served only to owners) ===
+// ==========================================================
+// Paid bodies are not in the public chapters.json. They are fetched per chapter
+// after the server checks the entitlement, then cached for offline reading.
+const paidCache=JSON.parse(localStorage.getItem('paidBodies')||'{}');
+let paidLoading=null;
+
+function paidBody(id){return paidCache[id+':'+lang]||null}
+
+async function fetchPaidBody(id){
+  if(paidLoading===id+':'+lang)return;
+  paidLoading=id+':'+lang;
+  try{
+    if(!sid)await startSession();
+    const j=await api('chapter',{id,lang});
+    paidCache[id+':'+lang]=j.body;
+    if(j.quiz){
+      if(!data.quiz)data.quiz={};
+      data.quiz[id]=data.quiz[id]||{};
+      data.quiz[id][lang]=j.quiz;
+    }
+    try{localStorage.setItem('paidBodies',JSON.stringify(paidCache))}catch(e){/* quota */}
+  }catch(e){
+    console.warn('chapter load failed',e.message);
+    paidCache[id+':'+lang]='<p style="text-align:center;color:var(--tx3)">'+tr('needNet')+'</p>';
+  }finally{
+    paidLoading=null;
+    render();
+  }
+}
 
 // === GLOSSARY ===
 function showGlossary(){
@@ -540,6 +758,7 @@ async function init(){
     data=await res.json();
     document.getElementById('langSel').value=lang;
     applyUI();
+    initBilling();
   }catch(e){
     document.getElementById('main').innerHTML='<p style="padding:40px;text-align:center;color:var(--tx3)">Error loading chapters.json</p>';
     console.error(e);

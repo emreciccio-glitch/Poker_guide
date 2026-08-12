@@ -1,6 +1,6 @@
 // The Poker Guide - service worker
 // IMPORTANT: bump VERSION on every deploy. It clears the old cache automatically.
-const VERSION = 'v4-2026-08-12';
+const VERSION = 'v5-2026-08-12-secure';
 const CACHE_NAME = 'poker-guide-' + VERSION;
 
 // Relative paths: on GitHub Pages the app lives under /Poker_guide/, not at /
