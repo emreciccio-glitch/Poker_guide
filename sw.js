@@ -1,5 +1,5 @@
 // The Poker Guide - service worker
-// Bump VERSION on every deploy: it wipes the old cache automatically.
+// IMPORTANT: bump VERSION on every deploy. It clears the old cache automatically.
 const VERSION = 'v4-2026-08-12';
 const CACHE_NAME = 'poker-guide-' + VERSION;
 
@@ -13,7 +13,7 @@ const ASSETS = [
   './icons/icon-512.png'
 ];
 
-// Files that must always be fresh when the user is online
+// Files that must always be fresh while the user is online
 const FRESH = ['index.html', 'chapters.json', 'manifest.json'];
 
 self.addEventListener('install', (event) => {
@@ -43,7 +43,7 @@ self.addEventListener('fetch', (event) => {
   if (req.method !== 'GET') return;
 
   const url = new URL(req.url);
-  // Google Fonts and the AI coach API live on other origins: leave them to the browser
+  // Google Fonts and the AI coach API are on other origins: leave them to the browser
   if (url.origin !== self.location.origin) return;
 
   const isFresh = req.mode === 'navigate' ||
@@ -51,7 +51,7 @@ self.addEventListener('fetch', (event) => {
                   FRESH.some((f) => url.pathname.endsWith(f));
 
   // Network-first for app content: new chapters and prices show up right away,
-  // cache is only the offline fallback.
+  // the cache is only the offline fallback.
   if (isFresh) {
     event.respondWith(
       fetch(req)

@@ -216,7 +216,16 @@ Object.keys(T2).forEach(l=>Object.assign(T[l],T2[l]));
 
 // Chapters with quiz
 const quizSize={preflop:6};
-const quizChapters=['fondamentali','preflop','potodds','3bet','flat','postflop','stackdepth','bvb_avanzato','icm','pko','exploit'];
+// The quiz button appears only where chapters.json actually contains questions.
+// Add a chapter to "quiz" in chapters.json and the button shows up by itself.
+// Short chapters simply have no quiz entry, so no button.
+function quizPool(k){
+  const q=data&&data.quiz&&data.quiz[k];
+  if(!q)return null;
+  const pool=q[lang]||q.en||q.it;
+  return (pool&&pool.length)?pool:null;
+}
+function hasQuiz(k){return !!quizPool(k)}
 
 // === RENDER ===
 function renderSide(){if(!data)return;let h='';h+=`<div class="lbl">${tr('free')}</div>`;data.structure.free.forEach(k=>h+=`<div class="nav ${cur===k?'on':''}" onclick="go('${k}')">${clabel(k)}</div>`);
@@ -236,7 +245,7 @@ let html=`<div class="hero"><div class="ey">${ch.eyebrow||''}</div><h1>${clabel(
 html+=`<div class="ai" onclick="openChat()"><div class="ai-i">\u2728</div><div><strong>${tr('aiBanner')}</strong><span>${tr('aiDesc')}</span></div></div>`;
 if(locked){const tier=isPro?'PRO':'ELITE';html+=`<div class="lock"><h3>${tier}</h3><p>${isPro?tr('proPack'):tr('elitePack')}</p><button class="ub" onclick="openShop()">${isPro?tr('unlockPro'):tr('unlockElite')}</button></div>`}
 else{html+=`<div class="sec open"><div class="sec-h" onclick="this.parentElement.classList.toggle('open')"><div class="sec-i">01</div><div class="sec-t">${clabel(cur)}</div><div class="sec-a">\u2304</div></div><div class="sec-b"><div class="art">${body}</div>`;
-if(quizChapters.includes(cur)){const done=quizDone[cur];html+=`<div class="quiz-btn${done?' done':''}" onclick="startQuiz('${cur}')">${done?tr('quizDone'):'\ud83d\udcdd '+tr('quiz')}</div>`}
+if(hasQuiz(cur)){const done=quizDone[cur];html+=`<div class="quiz-btn${done?' done':''}" onclick="startQuiz('${cur}')">${done?tr('quizDone'):'\ud83d\udcdd '+tr('quiz')}</div>`}
 html+=`</div></div>`}
 html+=`<div class="navb"><button onclick="${prev?`go('${prev}')`:'void 0'}"><span>${tr('prev')}</span><strong>${prev?clabel(prev):'\u2014'}</strong></button><button onclick="${next?`go('${next}')`:'void 0'}"><span>${tr('next')}</span><strong>${next?clabel(next):'\u2014'}</strong></button></div>`;
 document.getElementById('main').innerHTML=html}
@@ -460,10 +469,8 @@ function confirmCloseQuiz(){
 
 function startQuiz(chapter){
   if(!data)return;
-  const quizData=data.quiz&&data.quiz[chapter];
-  if(!quizData)return;
-  const pool=quizData[lang]||quizData.en||quizData.it;
-  if(!pool||!pool.length)return;
+  const pool=quizPool(chapter);
+  if(!pool)return;
   const numQ=quizSize[chapter]||8;
   const shuffled=[...pool].sort(()=>Math.random()-0.5);
   const questions=shuffled.slice(0,Math.min(numQ,pool.length));
@@ -545,7 +552,6 @@ init();
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', function () {
     navigator.serviceWorker.register('sw.js').then(function (reg) {
-      // A new deploy activates immediately, no double reload for the user
       reg.addEventListener('updatefound', function () {
         var sw = reg.installing;
         if (sw) sw.addEventListener('statechange', function () {
@@ -554,9 +560,9 @@ if ('serviceWorker' in navigator) {
       });
     }).catch(function () { /* offline mode unavailable, the app still works online */ });
   });
-  var reloaded = false;
+  var swReloaded = false;
   navigator.serviceWorker.addEventListener('controllerchange', function () {
-    if (reloaded) return; reloaded = true; location.reload();
+    if (swReloaded) return; swReloaded = true; location.reload();
   });
 }
 </script>
