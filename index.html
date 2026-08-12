@@ -475,7 +475,7 @@ function testCode(){
   const q=new URLSearchParams(location.search);
   if(q.has('test')){
     const v=q.get('test');
-    if(v)localStorage.setItem('testCode',v); else localStorage.removeItem('testCode');
+    if(v)localStorage.setItem('testCode',v); else localStorage.removeItem('testCode');\n    // Drop the stored session so the code is applied to a fresh one\n    localStorage.removeItem('sid');sid='';
   }
   return localStorage.getItem('testCode')||'';
 }
