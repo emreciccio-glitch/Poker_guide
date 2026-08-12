@@ -84,6 +84,11 @@
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>The Poker Guide</title>
 <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f7fafc" media="(prefers-color-scheme: light)">
+<link rel="apple-touch-icon" href="icons/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="description" content="The Poker Guide: interactive Texas Hold’em strategy guide with an AI poker GTO coach.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
 <style>
@@ -534,6 +539,26 @@ async function init(){
   }
 }
 init();
+</script>
+<script>
+// Service worker. Relative path so it also works under /Poker_guide/ on GitHub Pages.
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').then(function (reg) {
+      // A new deploy activates immediately, no double reload for the user
+      reg.addEventListener('updatefound', function () {
+        var sw = reg.installing;
+        if (sw) sw.addEventListener('statechange', function () {
+          if (sw.state === 'installed' && navigator.serviceWorker.controller) sw.postMessage('skipWaiting');
+        });
+      });
+    }).catch(function () { /* offline mode unavailable, the app still works online */ });
+  });
+  var reloaded = false;
+  navigator.serviceWorker.addEventListener('controllerchange', function () {
+    if (reloaded) return; reloaded = true; location.reload();
+  });
+}
 </script>
 </body>
 </html>
