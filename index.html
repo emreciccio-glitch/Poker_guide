@@ -102,9 +102,11 @@ html,body{max-width:100%;overflow-x:hidden}
 html{scroll-behavior:smooth}body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.7;-webkit-font-smoothing:antialiased}
 button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 .hdr{position:fixed;top:0;left:0;right:0;display:flex;flex-wrap:wrap;align-items:center;gap:10px;padding:10px 16px;backdrop-filter:blur(16px);background:color-mix(in oklch,var(--sf) 87%,transparent);border-bottom:1px solid var(--bd2);z-index:60}
-.hdr-row1{display:flex;align-items:center;gap:10px;width:100%}.hdr-row2{display:none;width:100%;align-items:center;gap:8px;padding-top:6px;border-top:1px solid var(--bd2)}
+.hdr-row1{display:flex;align-items:center;gap:10px;width:100%}
 .menu{display:none}.logo{display:flex;align-items:center;gap:8px;font-weight:700;letter-spacing:-.02em;font-size:1rem}.logo-b{width:28px;height:28px;border-radius:8px;background:var(--ac);display:grid;place-items:center;color:#fff;font-size:.72rem}
 .hdr-r{margin-left:auto;display:flex;align-items:center;gap:8px}.ghost{padding:6px 10px;border:1px solid var(--bd);background:var(--sf);border-radius:999px;font-size:.72rem;color:var(--tx3)}.cred{padding:7px 12px;border-radius:999px;background:var(--ac2);border:1px solid transparent;color:var(--ac);font-size:.75rem;font-weight:700;cursor:pointer}.cred:hover{border-color:var(--ac)}.sel,.icon{border:1px solid var(--bd);background:var(--sf);color:var(--tx);border-radius:10px}.sel{padding:7px 10px;font-size:.76rem;cursor:pointer}.icon{width:36px;height:36px;display:grid;place-items:center;cursor:pointer}
+.cred-dot{min-width:30px;height:30px;padding:0 9px;border-radius:999px;background:var(--ac2);color:var(--ac);border:1px solid transparent;display:grid;place-items:center;font:700 .78rem 'JetBrains Mono',monospace;cursor:pointer;flex-shrink:0}
+.cred-dot:hover{border-color:var(--ac)}
 .prog{position:fixed;top:0;left:0;right:0;height:3px;z-index:61;pointer-events:none}.bar{height:100%;width:0;background:var(--ac)}
 .app{display:grid;grid-template-columns:260px 1fr;padding-top:60px}.side{position:sticky;top:60px;height:calc(100vh - 60px);overflow:auto;border-right:1px solid var(--bd2);padding:16px 10px;background:var(--sf)}
 .lbl{padding:6px 10px 4px;color:var(--ac);font-size:.63rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.nav{display:flex;align-items:center;gap:8px;padding:10px 11px;border-radius:10px;color:var(--tx2);cursor:pointer;font-size:.84rem;margin-bottom:1px}.nav:hover{background:var(--bg2);color:var(--tx)}.nav.on{background:var(--ac2);color:var(--ac);font-weight:700}.nav .lk{margin-left:auto;opacity:.5}
@@ -146,22 +148,19 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 .quiz-q{margin-bottom:16px;padding:14px;border:1px solid var(--bd);border-radius:12px}.quiz-q p{margin:0 0 10px;font-weight:600;color:var(--tx)}.quiz-o{display:block;width:100%;text-align:left;padding:10px 12px;border:1px solid var(--bd);border-radius:8px;margin-bottom:6px;background:var(--sf);color:var(--tx2);cursor:pointer;transition:.12s}.quiz-o:hover{border-color:var(--ac);background:var(--ac2)}.quiz-o.correct{border-color:var(--ok);background:oklch(95% .03 150);color:var(--ok)}.quiz-o.wrong{border-color:oklch(55% .15 25);background:oklch(95% .03 25);color:oklch(55% .15 25)}
 .confirm-box{text-align:center;padding:20px}.confirm-box p{margin-bottom:16px;color:var(--tx2)}.confirm-box button{padding:10px 20px;border-radius:999px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);cursor:pointer;margin:0 6px}.confirm-box button.primary{background:var(--ac);color:#fff;border-color:var(--ac)}
 .mob{display:none;position:fixed;inset:0;top:0;background:oklch(10% .01 235/.4);z-index:54}
-@media(max-width:900px){.art table.art-tbl{min-width:0;font-size:.76rem}.art table.art-tbl th,.art table.art-tbl td{padding:7px 8px}.main{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}.hdr{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}.app{grid-template-columns:1fr;padding-top:100px}.hdr{flex-wrap:wrap;padding:8px 12px}.hdr-row2{display:flex}.side{position:fixed;left:0;top:100px;bottom:0;width:260px;transform:translateX(-100%);transition:transform .22s;z-index:55}.side.open{transform:translateX(0)}.mob.open{display:block}.main{padding:18px 14px 88px}.menu{display:grid}.ghost{display:none}.prog{top:100px}}
+@media(max-width:900px){.art table.art-tbl{min-width:0;font-size:.76rem}.art table.art-tbl th,.art table.art-tbl td{padding:7px 8px}.main{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}.hdr{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}.app{grid-template-columns:1fr;padding-top:60px}.hdr{padding:8px 12px}.side{position:fixed;left:0;top:60px;bottom:0;width:260px;transform:translateX(-100%);transition:transform .22s;z-index:55;padding-bottom:calc(38px + env(safe-area-inset-bottom));-webkit-overflow-scrolling:touch}.side.open{transform:translateX(0)}.mob.open{display:block}.main{padding:18px 14px 88px}.menu{display:grid}.ghost{display:none}.prog{top:60px}}
 </style>
 </head>
 <body>
 <header class="hdr">
 <div class="hdr-row1">
 <button class="icon menu" onclick="toggleSide()">&#9776;</button>
-<div class="logo"><div class="logo-b">&#9824;</div><span>The Poker Guide</span></div>
+<div class="logo"><div class="logo-b">&#9824;</div><span>Poker Guide</span></div>
 <div class="hdr-r">
+<div class="cred-dot" id="credTop" onclick="openShop()" title="">5</div>
 <select class="sel" id="langSel" onchange="setLang(this.value)"><option value="en">&#127468;&#127463; EN</option><option value="it">&#127470;&#127481; IT</option><option value="es">&#127466;&#127480; ES</option><option value="de">&#127465;&#127466; DE</option><option value="fr">&#127467;&#127479; FR</option></select>
 <button class="icon" onclick="toggleTheme()">&#9684;</button>
 </div></div>
-<div class="hdr-row2">
-<div class="ghost" id="costLabel">1 credit = 1 question</div>
-<div style="margin-left:auto"><div class="cred" onclick="openShop()"><span id="credTop">5 credits</span></div></div>
-</div>
 </header>
 <div class="prog"><div class="bar" id="bar"></div></div>
 <div class="mob" id="mob" onclick="toggleSide()"></div>
@@ -207,8 +206,9 @@ let chatLoading=false;
 // Display helper only: the balance that counts is the one returned by the server.
 function setCredits(n){credits=Math.max(0,n);localStorage.setItem('aiCredits',String(credits));updateCreditsUI()}
 function updateCreditsUI(){
-  const label=credits+' '+tr('credits');
-  document.getElementById('credTop').textContent=label;
+  const dot=document.getElementById('credTop');
+  dot.textContent=String(credits);
+  dot.title=credits+' '+tr('credits')+' · '+tr('cost');
   document.getElementById('chatCredBadge').textContent=String(credits);
 }
 
@@ -284,7 +284,6 @@ document.getElementById('main').innerHTML=html}
 // === LANGUAGE ===
 function setLang(v){lang=v;localStorage.setItem('lang',v);applyUI()}
 function applyUI(){
-  document.getElementById('costLabel').textContent=tr('cost');
   updateCreditsUI();
   document.getElementById('chatTitle').textContent=tr('aiBanner');
   document.getElementById('chatCost').textContent=tr('cost');
@@ -294,7 +293,7 @@ function applyUI(){
 }
 
 function resetChatWelcome(){
-  const msgs={it:'Ciao! Sono il tuo AI poker GTO coach. Chiedimi qualsiasi cosa sulla strategia GTO avanzata.',en:'Hi! I\'m your AI poker GTO coach. Ask me anything about advanced GTO strategy.',es:'\u00a1Hola! Soy tu AI poker GTO coach. Preg\u00fantame lo que quieras sobre estrategia GTO.',de:'Hi! Ich bin dein AI poker GTO coach. Frag mich alles \u00fcber GTO-Strategie.',fr:'Salut ! Je suis ton AI poker GTO coach. Pose-moi tes questions sur la strat\u00e9gie GTO.'};
+  const msgs={it:'Ciao! Sono il tuo AI poker coach. Se non hai capito qualcosa..sono qui ;)',en:'Hi! I\'m your AI poker coach. If something is not clear.. I\'m here ;)',es:'\u00a1Hola! Soy tu AI poker coach. Si algo no te ha quedado claro..estoy aqu\u00ed ;)',de:'Hi! Ich bin dein AI poker coach. Wenn etwas unklar ist..ich bin da ;)',fr:'Salut ! Je suis ton AI poker coach. Si quelque chose n\'est pas clair..je suis l\u00e0 ;)'};
   document.getElementById('chatBody').innerHTML=`<div class="m bot"><div class="bb">${msgs[lang]||msgs.en}</div></div>`;
   chatHistory=[];
 }
