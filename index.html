@@ -323,6 +323,9 @@ function clearChat(){
   chatHistory=[];
   saveChat();
   renderChat();
+  // Wipe the server side context too, otherwise the "deleted" conversation keeps
+  // shaping the next answers.
+  if(sid)api('session',{clearChat:true}).catch(()=>{});
 }
 
 // === THEME ===
@@ -468,14 +471,25 @@ function installId(){
 }
 let sid=localStorage.getItem('sid')||'';
 
-async function api(path,payload){
+async function api(path,payload,retried){
   const res=await fetch(API_BASE+'/'+path,{
     method:'POST',
     headers:{'Content-Type':'application/json'},
-    body:JSON.stringify(Object.assign({sid},payload||{}))
+    // installId travels with every call: the session token is bound to this device,
+    // so a copied token is useless somewhere else.
+    body:JSON.stringify(Object.assign({sid,installId:installId()},payload||{}))
   });
   const json=await res.json().catch(()=>({}));
-  if(!res.ok){const e=new Error(json.error||('http '+res.status));e.status=res.status;e.data=json;throw e}
+  if(!res.ok){
+    // A rejected session is recoverable: build a new one and try again once.
+    // Happens after the binding was introduced, or when a token is revoked.
+    if(res.status===401&&!retried&&path!=='session'){
+      sid='';localStorage.removeItem('sid');
+      await startSession();
+      if(sid)return api(path,payload,true);
+    }
+    const e=new Error(json.error||('http '+res.status));e.status=res.status;e.data=json;throw e;
+  }
   return json;
 }
 
