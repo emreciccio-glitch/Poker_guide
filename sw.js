@@ -1,6 +1,6 @@
 // The Poker Guide - service worker
 // IMPORTANT: bump VERSION on every deploy. It clears the old cache automatically.
-const VERSION = 'v5-2026-08-12-secure';
+const VERSION = 'v6-2026-08-15-chapters21';
 const CACHE_NAME = 'poker-guide-' + VERSION;
 
 // Relative paths: on GitHub Pages the app lives under /Poker_guide/, not at /
@@ -47,8 +47,8 @@ self.addEventListener('fetch', (event) => {
   if (url.origin !== self.location.origin) return;
 
   const isFresh = req.mode === 'navigate' ||
-                  url.pathname.endsWith('/') ||
-                  FRESH.some((f) => url.pathname.endsWith(f));
+    url.pathname.endsWith('/') ||
+    FRESH.some((f) => url.pathname.endsWith(f));
 
   // Network-first for app content: new chapters and prices show up right away,
   // the cache is only the offline fallback.

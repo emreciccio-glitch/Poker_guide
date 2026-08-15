@@ -108,6 +108,9 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 .sec{background:var(--sf);border:1px solid var(--bd);border-radius:18px;box-shadow:var(--shadow);overflow:hidden;margin-bottom:14px}.sec-h{display:flex;align-items:center;gap:10px;padding:15px 16px;cursor:pointer}.sec-h:hover{background:var(--sf2)}.sec-i{min-width:30px;height:30px;border-radius:8px;background:var(--ac2);color:var(--ac);display:grid;place-items:center;font:700 .72rem 'JetBrains Mono',monospace}.sec-t{font-weight:700;font-size:.94rem;flex:1}.sec-a{transition:transform .2s;color:var(--tx3)}.sec.open .sec-a{transform:rotate(180deg)}.sec-b{display:none;padding:0 16px 18px}.sec.open .sec-b{display:block}
 .art h2{font-size:1.28rem;letter-spacing:-.02em;margin:22px 0 10px;text-align:center}.art h3{font-size:1rem;margin:16px 0 8px;text-align:center}.art p{max-width:72ch;margin:0 auto 14px;text-align:center;color:var(--tx2)}.art strong{color:var(--tx)}.art ul,.art ol{max-width:64ch;margin:0 auto 14px;padding-left:20px;color:var(--tx2);text-align:left}.art li{margin-bottom:6px}
 .art .tbl-wrap{max-width:100%;overflow-x:auto;margin:0 auto 18px}.art table.art-tbl{border-collapse:collapse;width:100%;min-width:520px;font-size:.82rem}.art table.art-tbl th,.art table.art-tbl td{border:1px solid var(--bd);padding:9px 11px;text-align:left;vertical-align:top;color:var(--tx2)}.art table.art-tbl th{background:var(--ac2);color:var(--ac);font-weight:700;font-size:.74rem;text-transform:uppercase;letter-spacing:.05em}.art table.art-tbl tbody tr:nth-child(even) td{background:var(--sf2)}
+.art .art-pre{max-width:72ch;margin:0 auto 16px;padding:13px 15px;background:var(--sf2);border:1px solid var(--bd);border-radius:12px;font:500 .8rem/1.6 'JetBrains Mono',monospace;color:var(--tx);overflow-x:auto;white-space:pre;text-align:left}
+.art .art-q{max-width:70ch;margin:0 auto 16px;padding:11px 16px;border-left:3px solid var(--ac);background:var(--ac2);border-radius:0 10px 10px 0;color:var(--tx2);font-style:italic;text-align:left}
+.art code{background:var(--sf2);border:1px solid var(--bd2);border-radius:5px;padding:1px 5px;font:500 .84em 'JetBrains Mono',monospace;color:var(--ac)}
 .shop-link{text-align:center;font-size:.78rem;color:var(--ac);padding:12px 0 4px;cursor:pointer;font-weight:600}.shop-link:hover{text-decoration:underline}
 .shop-warn{margin-top:12px;padding:11px 12px;border:1px dashed var(--bd);border-radius:10px;font-size:.76rem;color:var(--tx3);text-align:center}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);max-width:min(90vw,380px);background:var(--tx);color:var(--bg);padding:12px 16px;border-radius:12px;font-size:.8rem;text-align:center;opacity:0;pointer-events:none;transition:.22s;z-index:120}.toast.on{opacity:1;transform:translate(-50%,0)}
@@ -237,7 +240,7 @@ const T4={
 Object.keys(T4).forEach(l=>Object.assign(T[l],T4[l]));
 
 // Chapters with quiz
-const quizSize={preflop:6};
+const quizSize={};  // quante domande estrarre per capitolo; vuoto = 8 (default)
 // The quiz button appears only where chapters.json actually contains questions.
 // Add a chapter to "quiz" in chapters.json and the button shows up by itself.
 // Short chapters simply have no quiz entry, so no button.
@@ -412,7 +415,7 @@ const API_BASE='https://poker-ai-coach-19wq.vercel.app/api';
 const SKU={pro:'pro_unlock',elite:'elite_unlock',bundle:'bundle_pro_elite',c15:'credits_15',c40:'credits_40',c120:'credits_120'};
 const CONSUMABLES=[SKU.c15,SKU.c40,SKU.c120];
 // Display only. The real amounts are granted by the server.
-const PRICE_FALLBACK={[SKU.pro]:'\u20ac4,99',[SKU.elite]:'\u20ac8,99',[SKU.bundle]:'\u20ac11,99',[SKU.c15]:'\u20ac0,49',[SKU.c40]:'\u20ac0,99',[SKU.c120]:'\u20ac2,49'};
+const PRICE_FALLBACK={[SKU.pro]:'\u20ac4,99',[SKU.elite]:'\u20ac7,99',[SKU.bundle]:'\u20ac9,99',[SKU.c15]:'\u20ac0,49',[SKU.c40]:'\u20ac0,99',[SKU.c120]:'\u20ac2,49'};
 const BONUS_LABEL={[SKU.pro]:15,[SKU.elite]:25,[SKU.bundle]:40};
 
 const STORES=[
