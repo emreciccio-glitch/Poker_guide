@@ -494,6 +494,12 @@ function bundleAvailable(){return !owned.pro && !owned.elite}
 function priceOf(sku){return billing.price[sku]||PRICE_FALLBACK[sku]||''}
 
 function applyServerState(j){
+  // The server can hand back a different account: it happens when a permanent
+  // receipt proves this device already paid, after a wipe or on a new phone.
+  if(j.sid&&j.sid!==sid){
+    sid=j.sid;
+    try{localStorage.setItem('sid',sid)}catch(e){/* quota */}
+  }
   if(typeof j.credits==='number'){
     credits=j.credits;
     localStorage.setItem('aiCredits',String(credits)); // cache for offline display only
@@ -565,14 +571,15 @@ async function loadStorePrices(){
 // the server grants credits only on the first redemption of each receipt.
 async function restorePurchases(silent){
   if(!billing.service){if(!silent)toast(tr('storeOnly'));return}
-  let restored=0,rejected=false;
+  let restored=0,rejected=false,recovered=false;
   try{
     const purchases=await billing.service.listPurchases();
     for(const pur of purchases){
       try{
-        const j=await api('redeem',{store:billing.store,itemId:pur.itemId,purchaseToken:pur.purchaseToken});
+        const j=await api('redeem',{store:billing.store,itemId:pur.itemId,purchaseToken:pur.purchaseToken,installId:installId()});
         applyServerState(j);
         if(j.granted)restored++;
+        if(j.recovered)recovered=true;
         // Consumable already credited: consume it so it can be bought again
         if(CONSUMABLES.includes(pur.itemId)){
           try{await billing.service.consume(pur.purchaseToken)}catch(e){console.warn('consume failed',e)}
@@ -583,7 +590,7 @@ async function restorePurchases(silent){
       }
     }
   }catch(e){console.warn('listPurchases failed',e)}
-  if(!silent)toast(rejected?tr('receiptUsed'):(restored?tr('restoreOk'):tr('restoreNone')));
+  if(!silent)toast(recovered?tr('restoreOk'):(rejected?tr('receiptUsed'):(restored?tr('restoreOk'):tr('restoreNone'))));
   if(document.getElementById('shopModal').classList.contains('open'))openShop();
 }
 
@@ -605,7 +612,7 @@ async function purchase(key){
     try{
       // The server validates the receipt with the store, binds it to this account
       // and only then grants credits or unlocks chapters.
-      const j=await api('redeem',{store:billing.store,itemId:sku,purchaseToken:token});
+      const j=await api('redeem',{store:billing.store,itemId:sku,purchaseToken:token,installId:installId()});
       ok=true;
       applyServerState(j);
       if(CONSUMABLES.includes(sku)&&token){
