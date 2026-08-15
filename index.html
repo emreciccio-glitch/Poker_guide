@@ -121,6 +121,14 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 .art .art-pre{max-width:72ch;margin:0 auto 16px;padding:13px 15px;background:var(--sf2);border:1px solid var(--bd);border-radius:12px;font:500 .82rem/1.65 'JetBrains Mono',monospace;font-variant-numeric:tabular-nums;color:var(--tx);overflow-x:auto;white-space:pre-wrap;overflow-wrap:break-word;word-break:break-word;text-align:left;min-width:0}
 .art .art-q{max-width:70ch;margin:0 auto 18px;padding:14px 18px;border:1px solid var(--bd);background:var(--sf2);border-radius:12px;color:var(--tx2);text-align:left}.art .art-q em,.art .art-q i{font-style:normal;color:var(--tx)}
 .art code{background:var(--sf2);border:1px solid var(--bd2);border-radius:5px;padding:1px 5px;font:500 .84em 'JetBrains Mono',monospace;color:var(--ac)}
+/* Paid chapters: make casual copying awkward. Selection, drag and the long-press
+   menu are off. Free chapters stay fully selectable, and so do the AI answers, so
+   nothing a reader legitimately needs is taken away. */
+.art-paid,.art-paid *{-webkit-user-select:none;user-select:none;-webkit-touch-callout:none}
+.art-paid img{pointer-events:none;-webkit-user-drag:none}
+/* Formulas stay selectable: copying "50 / 200 = 25%" into a calculator is using
+   the guide, not stealing it. */
+.art-paid .art-pre,.art-paid .art-pre *,.art-paid code{-webkit-user-select:text;user-select:text;-webkit-touch-callout:default}
 .shop-link{text-align:center;font-size:.78rem;color:var(--ac);padding:12px 0 4px;cursor:pointer;font-weight:600}.shop-link:hover{text-decoration:underline}
 .shop-warn{margin-top:12px;padding:11px 12px;border:1px dashed var(--bd);border-radius:10px;font-size:.76rem;color:var(--tx3);text-align:center}
 .toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);max-width:min(90vw,380px);background:var(--tx);color:var(--bg);padding:12px 16px;border-radius:12px;font-size:.8rem;text-align:center;opacity:0;pointer-events:none;transition:opacity .22s var(--ease),transform .22s var(--ease);z-index:120}.toast.on{opacity:1;transform:translate(-50%,0)}
@@ -282,7 +290,7 @@ if(ch.paid&&!locked){const cached=paidBody(cur);const notice=paidNotice(cur);if(
 let html=`<div class="hero"><div class="ey">${ch.eyebrow||''}</div><h1>${clabel(cur)}</h1></div>`;
 html+=`<div class="ai" onclick="openChat()"><div class="ai-i">\u2728</div><div><strong>${tr('aiBanner')}</strong><span>${tr('aiDesc')}</span></div></div>`;
 if(locked){const tier=isPro?'PRO':'ELITE';html+=`<div class="lock"><h3>${tier}</h3><p>${isPro?tr('proPack'):tr('elitePack')}</p><button class="ub" onclick="openShop()">${isPro?tr('unlockPro'):tr('unlockElite')}</button></div>`}
-else{html+=`<div class="sec open"><div class="sec-h" onclick="this.parentElement.classList.toggle('open')"><div class="sec-i">01</div><div class="sec-t">${clabel(cur)}</div><div class="sec-a">\u2304</div></div><div class="sec-b"><div class="art">${body}</div>`;
+else{html+=`<div class="sec open"><div class="sec-h" onclick="this.parentElement.classList.toggle('open')"><div class="sec-i">01</div><div class="sec-t">${clabel(cur)}</div><div class="sec-a">\u2304</div></div><div class="sec-b"><div class="art${ch.paid?' art-paid':''}">${body}</div>`;
 if(hasQuiz(cur)){const done=quizDone[cur];html+=`<div class="quiz-btn${done?' done':''}" onclick="startQuiz('${cur}')">${done?tr('quizDone'):'\ud83d\udcdd '+tr('quiz')}</div>`}
 html+=`</div></div>`}
 html+=`<div class="navb"><button onclick="${prev?`go('${prev}')`:'void 0'}"><span>${tr('prev')}</span><strong>${prev?clabel(prev):'\u2014'}</strong></button><button onclick="${next?`go('${next}')`:'void 0'}"><span>${tr('next')}</span><strong>${next?clabel(next):'\u2014'}</strong></button></div>`;
@@ -329,6 +337,21 @@ function clearChat(){
 }
 
 // === THEME ===
+// The CSS stops selection; these also stop the right-click menu and any copy that
+// slips through (desktop keyboard shortcuts, accessibility tooling).
+document.addEventListener('contextmenu',(e)=>{
+  if(e.target&&e.target.closest&&e.target.closest('.art-paid'))e.preventDefault();
+});
+document.addEventListener('copy',(e)=>{
+  const sel=document.getSelection();
+  if(!sel||!sel.rangeCount)return;
+  const node=sel.getRangeAt(0).commonAncestorContainer;
+  const el=node.nodeType===1?node:node.parentElement;
+  if(!el||!el.closest||!el.closest('.art-paid'))return;
+  if(el.closest('.art-pre')||el.closest('code'))return;  // formulas are exempt
+  e.preventDefault();
+});
+
 function toggleTheme(){const d=document.documentElement.getAttribute('data-theme')==='dark';document.documentElement.setAttribute('data-theme',d?'':'dark');localStorage.setItem('theme',d?'light':'dark')}
 (function(){const s=localStorage.getItem('theme');if(s==='dark'||(!s&&matchMedia('(prefers-color-scheme:dark)').matches))document.documentElement.setAttribute('data-theme','dark')})();
 
