@@ -373,7 +373,7 @@ async function sendMsg(){
 
   try{
     // The credit is charged server side, inside this call
-    const json=await api('chat',{message:v,history:chatHistory.slice(-6),lang,chapter:cur});
+    const json=await api('chat',{message:v,lang,chapter:cur});
 
     // Remove typing indicator
     const typ=document.getElementById('typingIndicator');
