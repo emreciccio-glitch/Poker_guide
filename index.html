@@ -266,7 +266,7 @@ const isPro=data.structure.pro.includes(cur);const isElite=data.structure.elite.
 const locked=!hasAccess(cur);const i=data.order.indexOf(cur);const prev=data.order[i-1],next=data.order[i+1];
 const bodyKey='body_'+lang;let body=ch[bodyKey]||ch.body_en||ch.body_it||'';
 // Paid chapter: the text arrives from the backend, never from the public JSON
-if(ch.paid&&!locked){const cached=paidBody(cur);if(cached){body=cached}else{body='<p style="text-align:center;color:var(--tx3);padding:26px">'+tr('loading')+'</p>';fetchPaidBody(cur)}}
+if(ch.paid&&!locked){const cached=paidBody(cur);const notice=paidNotice(cur);if(cached){body=cached}else if(notice){body=notice}else{body='<p style="text-align:center;color:var(--tx3);padding:26px">'+tr('loading')+'</p>';fetchPaidBody(cur)}}
 let html=`<div class="hero"><div class="ey">${ch.eyebrow||''}</div><h1>${clabel(cur)}</h1></div>`;
 html+=`<div class="ai" onclick="openChat()"><div class="ai-i">\u2728</div><div><strong>${tr('aiBanner')}</strong><span>${tr('aiDesc')}</span></div></div>`;
 if(locked){const tier=isPro?'PRO':'ELITE';html+=`<div class="lock"><h3>${tier}</h3><p>${isPro?tr('proPack'):tr('elitePack')}</p><button class="ub" onclick="openShop()">${isPro?tr('unlockPro'):tr('unlockElite')}</button></div>`}
@@ -633,7 +633,9 @@ function toast(msg){
 const paidCache=JSON.parse(localStorage.getItem('paidBodies')||'{}');
 let paidLoading=null;
 
+const paidError={};
 function paidBody(id){return paidCache[id+':'+lang]||null}
+function paidNotice(id){const k=id+':'+lang;const m=paidError[k];if(!m)return null;delete paidError[k];return '<p style="text-align:center;color:var(--tx3);padding:26px">'+m+'</p>'}
 
 async function fetchPaidBody(id){
   if(paidLoading===id+':'+lang)return;
@@ -649,8 +651,10 @@ async function fetchPaidBody(id){
     }
     try{localStorage.setItem('paidBodies',JSON.stringify(paidCache))}catch(e){/* quota */}
   }catch(e){
+    // Never cache the failure: otherwise the chapter stays broken even once the
+    // backend is back. Show the notice for this render only.
     console.warn('chapter load failed',e.message);
-    paidCache[id+':'+lang]='<p style="text-align:center;color:var(--tx3)">'+tr('needNet')+'</p>';
+    paidError[id+':'+lang]=(e.status===403)?tr('needNet'):(e.status?tr('errorMsg'):tr('needNet'));
   }finally{
     paidLoading=null;
     render();
