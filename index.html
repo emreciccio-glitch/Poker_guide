@@ -146,6 +146,8 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 .sl{font-size:.68rem;text-transform:uppercase;letter-spacing:.08em;color:var(--ac);font-weight:700;margin:14px 0 8px}.si{display:flex;align-items:center;justify-content:space-between;padding:12px;border:1px solid var(--bd);border-radius:12px;margin-bottom:8px;cursor:pointer;transition:.15s}.si:hover{border-color:var(--ac);background:var(--ac2)}.si .a{font-size:.86rem;font-weight:500}.si .a small{display:block;color:var(--tx3);font-size:.72rem;margin-top:1px}.si .p{font:700 .85rem 'JetBrains Mono',monospace;color:var(--ac)}
 /* Quiz modal */
 .quiz-q{margin-bottom:16px;padding:14px;border:1px solid var(--bd);border-radius:12px}.quiz-q p{margin:0 0 10px;font-weight:600;color:var(--tx)}.quiz-o{display:block;width:100%;text-align:left;padding:10px 12px;border:1px solid var(--bd);border-radius:8px;margin-bottom:6px;background:var(--sf);color:var(--tx2);cursor:pointer;transition:.12s}.quiz-o:hover{border-color:var(--ac);background:var(--ac2)}.quiz-o.correct{border-color:var(--ok);background:oklch(95% .03 150);color:var(--ok)}.quiz-o.wrong{border-color:oklch(55% .15 25);background:oklch(95% .03 25);color:oklch(55% .15 25)}
+.gl-search{position:sticky;top:0;z-index:2;width:100%;margin-bottom:12px;padding:10px 12px;border:1px solid var(--bd);border-radius:10px;background:var(--bg);color:var(--tx);outline:none;font-size:.86rem}
+.gl-search:focus{border-color:var(--ac)}
 .confirm-box{text-align:center;padding:20px}.confirm-box p{margin-bottom:16px;color:var(--tx2)}.confirm-box button{padding:10px 20px;border-radius:999px;border:1px solid var(--bd);background:var(--sf);color:var(--tx);cursor:pointer;margin:0 6px}.confirm-box button.primary{background:var(--ac);color:#fff;border-color:var(--ac)}
 .mob{display:none;position:fixed;inset:0;top:0;background:oklch(10% .01 235/.4);z-index:54}
 @media(max-width:900px){.art table.art-tbl{min-width:0;font-size:.76rem}.art table.art-tbl th,.art table.art-tbl td{padding:7px 8px}.main{padding-left:max(14px,env(safe-area-inset-left));padding-right:max(14px,env(safe-area-inset-right))}.hdr{padding-left:max(12px,env(safe-area-inset-left));padding-right:max(12px,env(safe-area-inset-right))}.logo-b{width:26px;height:26px;border-radius:7px;font-size:.68rem}.hdr-r{gap:6px}.sel{padding:6px 6px;font-size:.72rem}.icon{width:34px;height:34px}.cred-dot{min-width:28px;height:28px;font-size:.74rem}.app{grid-template-columns:1fr;padding-top:60px}.hdr{padding:8px 12px}.side{position:fixed;left:0;top:60px;bottom:0;width:260px;transform:translateX(-100%);transition:transform .22s;z-index:55;padding-bottom:calc(38px + env(safe-area-inset-bottom));-webkit-overflow-scrolling:touch}.side.open{transform:translateX(0)}.mob.open{display:block}.main{padding:18px 14px 88px}.menu{display:grid}.ghost{display:none}.prog{top:60px}}
@@ -173,7 +175,7 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 <!-- CHAT MODAL -->
 <div class="modal-bg bottom" id="chatModal">
 <div class="modal" style="border-radius:20px 20px 14px 14px">
-<div class="modal-head"><strong id="chatTitle">AI poker GTO coach</strong><span class="ghost" id="chatCost">1 credit = 1 question</span><span class="cred" id="chatCredBadge" style="margin-left:8px" onclick="openShop()">5</span><button class="modal-x" onclick="closeChat()">&#10005;</button></div>
+<div class="modal-head"><strong id="chatTitle">AI poker GTO coach</strong><span class="ghost" id="chatCost">1 credit = 1 question</span><span class="cred" id="chatCredBadge" style="margin-left:8px" onclick="openShop()">5</span><button class="modal-x" id="chatClear" style="margin-left:6px" onclick="clearChat()">&#128465;</button><button class="modal-x" onclick="closeChat()">&#10005;</button></div>
 <div class="modal-body" id="chatBody" style="height:380px"></div>
 <div class="modal-foot"><div class="chat-i"><input id="chatInput" placeholder="Ask about GTO strategy..." onkeydown="if(event.key==='Enter')sendMsg()"><button id="chatSendBtn" onclick="sendMsg()">&#10148;</button></div></div>
 </div></div>
@@ -200,7 +202,9 @@ const quizDone=JSON.parse(localStorage.getItem('quizDone')||'{}');
 // === CREDITS SYSTEM (localStorage beta) ===
 let credits=parseInt(localStorage.getItem('aiCredits')??'5');
 if(isNaN(credits)){credits=5;localStorage.setItem('aiCredits','5')}
-let chatHistory=[];
+// The conversation survives app restarts and language switches.
+let chatHistory=(function(){try{const v=JSON.parse(localStorage.getItem('chatHistory')||'[]');return Array.isArray(v)?v.slice(-40):[]}catch(e){return[]}})();
+function saveChat(){try{localStorage.setItem('chatHistory',JSON.stringify(chatHistory.slice(-40)))}catch(e){/* quota */}}
 let chatLoading=false;
 
 // Display helper only: the balance that counts is the one returned by the server.
@@ -213,7 +217,7 @@ function updateCreditsUI(){
 }
 
 // === TRANSLATIONS ===
-const T={en:{free:'free',pro:'pro',elite:'elite',extra:'extra',cost:'1 credit = 1 question',credits:'credits',prev:'previous',next:'next',quiz:'Quiz: test your knowledge',quizDone:'\u2713 Completed (repeat?)',quizConfirm:'You are about to start the quiz. If you close it before finishing, you will have to start over. Continue?',quizYes:'Start',quizNo:'Cancel',shopTitle:'Shop',unlockPro:'Unlock PRO',unlockElite:'Unlock ELITE',unlockAll:'PRO + ELITE Bundle',proPack:'7 advanced chapters',elitePack:'6 elite chapters',allPack:'All chapters unlocked',proCredits:'+15 AI credits',eliteCredits:'+25 AI credits',allCredits:'+40 AI credits',creditsPack:'AI Credits (launch offer)',close:'Close',aiBanner:'AI poker GTO coach',aiDesc:'Something unclear? Our AI is trained exclusively on advanced GTO strategy. Ask it to explain this topic.',glossary:'Glossary',noCredits:'No credits left. Tap here to buy more.',errorMsg:'Connection error. Try again.',thinking:'Thinking...'},it:{free:'gratuito',pro:'pro',elite:'elite',extra:'extra',cost:'1 credito = 1 domanda',credits:'crediti',prev:'precedente',next:'successivo',quiz:'Quiz: verifica le tue conoscenze',quizDone:'\u2713 Completato (ripeti?)',quizConfirm:'Stai per iniziare il quiz. Se chiudi prima di finire, dovrai ricominciare da capo. Continuare?',quizYes:'Inizia',quizNo:'Annulla',shopTitle:'Shop',unlockPro:'Sblocca PRO',unlockElite:'Sblocca ELITE',unlockAll:'Bundle PRO + ELITE',proPack:'7 capitoli avanzati',elitePack:'6 capitoli elite',allPack:'Tutto sbloccato',proCredits:'+15 crediti AI',eliteCredits:'+25 crediti AI',allCredits:'+40 crediti AI',creditsPack:'Crediti AI (offerta lancio)',close:'Chiudi',aiBanner:'AI poker GTO coach',aiDesc:'Non hai capito qualcosa? La nostra AI \u00e8 allenata esclusivamente sulla strategia GTO avanzata. Chiedile di spiegarti questo argomento.',glossary:'Glossario',noCredits:'Crediti esauriti. Tocca qui per acquistarne.',errorMsg:'Errore di connessione. Riprova.',thinking:'Sto pensando...'},es:{free:'gratis',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dito = 1 pregunta',credits:'cr\u00e9ditos',prev:'anterior',next:'siguiente',quiz:'Quiz: pon a prueba tus conocimientos',quizDone:'\u2713 Completado (repetir?)',quizConfirm:'Vas a iniciar el quiz. Si lo cierras antes de terminar, tendr\u00e1s que empezar de nuevo. \u00bfContinuar?',quizYes:'Empezar',quizNo:'Cancelar',shopTitle:'Tienda',unlockPro:'Desbloquear PRO',unlockElite:'Desbloquear ELITE',unlockAll:'Pack PRO + ELITE',proPack:'7 cap\u00edtulos avanzados',elitePack:'6 cap\u00edtulos elite',allPack:'Todo desbloqueado',proCredits:'+15 cr\u00e9ditos IA',eliteCredits:'+25 cr\u00e9ditos IA',allCredits:'+40 cr\u00e9ditos IA',creditsPack:'Cr\u00e9ditos IA (oferta lanzamiento)',close:'Cerrar',aiBanner:'AI poker GTO coach',aiDesc:'\u00bfAlgo no est\u00e1 claro? Nuestra IA est\u00e1 entrenada exclusivamente en estrategia GTO avanzada.',glossary:'Glosario',noCredits:'Sin cr\u00e9ditos. Toca aqu\u00ed para comprar.',errorMsg:'Error de conexi\u00f3n. Int\u00e9ntalo de nuevo.',thinking:'Pensando...'},de:{free:'kostenlos',pro:'pro',elite:'elite',extra:'extra',cost:'1 Credit = 1 Frage',credits:'Credits',prev:'zur\u00fcck',next:'weiter',quiz:'Quiz: teste dein Wissen',quizDone:'\u2713 Abgeschlossen (wiederholen?)',quizConfirm:'Du startest jetzt das Quiz. Wenn du es vorher schlie\u00dft, musst du von vorne beginnen. Fortfahren?',quizYes:'Starten',quizNo:'Abbrechen',shopTitle:'Shop',unlockPro:'PRO freischalten',unlockElite:'ELITE freischalten',unlockAll:'PRO + ELITE Bundle',proPack:'7 fortgeschrittene Kapitel',elitePack:'6 Elite-Kapitel',allPack:'Alles freigeschaltet',proCredits:'+15 KI-Credits',eliteCredits:'+25 KI-Credits',allCredits:'+40 KI-Credits',creditsPack:'KI-Credits (Launch-Angebot)',close:'Schlie\u00dfen',aiBanner:'AI poker GTO coach',aiDesc:'Etwas unklar? Unsere KI ist ausschlie\u00dflich auf fortgeschrittene GTO-Strategie trainiert.',glossary:'Glossar',noCredits:'Keine Credits. Tippe hier zum Kaufen.',errorMsg:'Verbindungsfehler. Erneut versuchen.',thinking:'Denke nach...'},fr:{free:'gratuit',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dit = 1 question',credits:'cr\u00e9dits',prev:'pr\u00e9c\u00e9dent',next:'suivant',quiz:'Quiz : teste tes connaissances',quizDone:'\u2713 Compl\u00e9t\u00e9 (refaire?)',quizConfirm:'Tu vas commencer le quiz. Si tu le fermes avant la fin, tu devras recommencer. Continuer ?',quizYes:'Commencer',quizNo:'Annuler',shopTitle:'Boutique',unlockPro:'D\u00e9bloquer PRO',unlockElite:'D\u00e9bloquer ELITE',unlockAll:'Pack PRO + ELITE',proPack:'7 chapitres avanc\u00e9s',elitePack:'6 chapitres elite',allPack:'Tout d\u00e9bloqu\u00e9',proCredits:'+15 cr\u00e9dits IA',eliteCredits:'+25 cr\u00e9dits IA',allCredits:'+40 cr\u00e9dits IA',creditsPack:'Cr\u00e9dits IA (offre lancement)',close:'Fermer',aiBanner:'AI poker GTO coach',aiDesc:"Quelque chose n'est pas clair ? Notre IA est entra\u00een\u00e9e exclusivement sur la strat\u00e9gie GTO avanc\u00e9e.",glossary:'Glossaire',noCredits:'Plus de cr\u00e9dits. Appuyez ici pour en acheter.',errorMsg:'Erreur de connexion. R\u00e9essayez.',thinking:'R\u00e9flexion...'}};
+const T={en:{free:'free',pro:'pro',elite:'elite',extra:'extra',cost:'1 credit = 1 question',credits:'credits',prev:'previous',next:'next',quiz:'Quiz: test your knowledge',quizDone:'\u2713 Completed (repeat?)',quizConfirm:'You are about to start the quiz. If you close it before finishing, you will have to start over. Continue?',quizYes:'Start',quizNo:'Cancel',shopTitle:'Shop',unlockPro:'Unlock PRO',unlockElite:'Unlock ELITE',unlockAll:'PRO + ELITE Bundle',proPack:'7 advanced chapters',elitePack:'6 elite chapters',allPack:'All chapters unlocked',proCredits:'+15 AI credits',eliteCredits:'+25 AI credits',allCredits:'+40 AI credits',creditsPack:'AI Credits (launch offer)',close:'Close',aiBanner:'AI poker GTO coach',aiDesc:'Something unclear? Our AI is trained exclusively on advanced GTO strategy. Ask it to explain this topic.',searchTerm:'Search a term...',noResults:'No matching term.',glossary:'Glossary',noCredits:'No credits left. Tap here to buy more.',errorMsg:'Connection error. Try again.',thinking:'Thinking...'},it:{free:'gratuito',pro:'pro',elite:'elite',extra:'extra',cost:'1 credito = 1 domanda',credits:'crediti',prev:'precedente',next:'successivo',quiz:'Quiz: verifica le tue conoscenze',quizDone:'\u2713 Completato (ripeti?)',quizConfirm:'Stai per iniziare il quiz. Se chiudi prima di finire, dovrai ricominciare da capo. Continuare?',quizYes:'Inizia',quizNo:'Annulla',shopTitle:'Shop',unlockPro:'Sblocca PRO',unlockElite:'Sblocca ELITE',unlockAll:'Bundle PRO + ELITE',proPack:'7 capitoli avanzati',elitePack:'6 capitoli elite',allPack:'Tutto sbloccato',proCredits:'+15 crediti AI',eliteCredits:'+25 crediti AI',allCredits:'+40 crediti AI',creditsPack:'Crediti AI (offerta lancio)',close:'Chiudi',aiBanner:'AI poker GTO coach',aiDesc:'Non hai capito qualcosa? La nostra AI \u00e8 allenata esclusivamente sulla strategia GTO avanzata. Chiedile di spiegarti questo argomento.',searchTerm:'Cerca un termine...',noResults:'Nessun termine trovato.',glossary:'Glossario',noCredits:'Crediti esauriti. Tocca qui per acquistarne.',errorMsg:'Errore di connessione. Riprova.',thinking:'Sto pensando...'},es:{free:'gratis',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dito = 1 pregunta',credits:'cr\u00e9ditos',prev:'anterior',next:'siguiente',quiz:'Quiz: pon a prueba tus conocimientos',quizDone:'\u2713 Completado (repetir?)',quizConfirm:'Vas a iniciar el quiz. Si lo cierras antes de terminar, tendr\u00e1s que empezar de nuevo. \u00bfContinuar?',quizYes:'Empezar',quizNo:'Cancelar',shopTitle:'Tienda',unlockPro:'Desbloquear PRO',unlockElite:'Desbloquear ELITE',unlockAll:'Pack PRO + ELITE',proPack:'7 cap\u00edtulos avanzados',elitePack:'6 cap\u00edtulos elite',allPack:'Todo desbloqueado',proCredits:'+15 cr\u00e9ditos IA',eliteCredits:'+25 cr\u00e9ditos IA',allCredits:'+40 cr\u00e9ditos IA',creditsPack:'Cr\u00e9ditos IA (oferta lanzamiento)',close:'Cerrar',aiBanner:'AI poker GTO coach',aiDesc:'\u00bfAlgo no est\u00e1 claro? Nuestra IA est\u00e1 entrenada exclusivamente en estrategia GTO avanzada.',searchTerm:'Busca un t\u00e9rmino...',noResults:'Ning\u00fan t\u00e9rmino encontrado.',glossary:'Glosario',noCredits:'Sin cr\u00e9ditos. Toca aqu\u00ed para comprar.',errorMsg:'Error de conexi\u00f3n. Int\u00e9ntalo de nuevo.',thinking:'Pensando...'},de:{free:'kostenlos',pro:'pro',elite:'elite',extra:'extra',cost:'1 Credit = 1 Frage',credits:'Credits',prev:'zur\u00fcck',next:'weiter',quiz:'Quiz: teste dein Wissen',quizDone:'\u2713 Abgeschlossen (wiederholen?)',quizConfirm:'Du startest jetzt das Quiz. Wenn du es vorher schlie\u00dft, musst du von vorne beginnen. Fortfahren?',quizYes:'Starten',quizNo:'Abbrechen',shopTitle:'Shop',unlockPro:'PRO freischalten',unlockElite:'ELITE freischalten',unlockAll:'PRO + ELITE Bundle',proPack:'7 fortgeschrittene Kapitel',elitePack:'6 Elite-Kapitel',allPack:'Alles freigeschaltet',proCredits:'+15 KI-Credits',eliteCredits:'+25 KI-Credits',allCredits:'+40 KI-Credits',creditsPack:'KI-Credits (Launch-Angebot)',close:'Schlie\u00dfen',aiBanner:'AI poker GTO coach',aiDesc:'Etwas unklar? Unsere KI ist ausschlie\u00dflich auf fortgeschrittene GTO-Strategie trainiert.',searchTerm:'Begriff suchen...',noResults:'Kein passender Begriff.',glossary:'Glossar',noCredits:'Keine Credits. Tippe hier zum Kaufen.',errorMsg:'Verbindungsfehler. Erneut versuchen.',thinking:'Denke nach...'},fr:{free:'gratuit',pro:'pro',elite:'elite',extra:'extra',cost:'1 cr\u00e9dit = 1 question',credits:'cr\u00e9dits',prev:'pr\u00e9c\u00e9dent',next:'suivant',quiz:'Quiz : teste tes connaissances',quizDone:'\u2713 Compl\u00e9t\u00e9 (refaire?)',quizConfirm:'Tu vas commencer le quiz. Si tu le fermes avant la fin, tu devras recommencer. Continuer ?',quizYes:'Commencer',quizNo:'Annuler',shopTitle:'Boutique',unlockPro:'D\u00e9bloquer PRO',unlockElite:'D\u00e9bloquer ELITE',unlockAll:'Pack PRO + ELITE',proPack:'7 chapitres avanc\u00e9s',elitePack:'6 chapitres elite',allPack:'Tout d\u00e9bloqu\u00e9',proCredits:'+15 cr\u00e9dits IA',eliteCredits:'+25 cr\u00e9dits IA',allCredits:'+40 cr\u00e9dits IA',creditsPack:'Cr\u00e9dits IA (offre lancement)',close:'Fermer',aiBanner:'AI poker GTO coach',aiDesc:"Quelque chose n'est pas clair ? Notre IA est entra\u00een\u00e9e exclusivement sur la strat\u00e9gie GTO avanc\u00e9e.",searchTerm:'Rechercher un terme...',noResults:'Aucun terme trouv\u00e9.',glossary:'Glossaire',noCredits:'Plus de cr\u00e9dits. Appuyez ici pour en acheter.',errorMsg:'Erreur de connexion. R\u00e9essayez.',thinking:'R\u00e9flexion...'}};
 function tr(k){return(T[lang]&&T[lang][k])||T.en[k]||k}
 function clabel(key){if(!data||!data.chapters[key])return key;const ch=data.chapters[key];return(ch.label&&(ch.label[lang]||ch.label.en||ch.label.it))||key}
 
@@ -288,14 +292,34 @@ function applyUI(){
   document.getElementById('chatTitle').textContent=tr('aiBanner');
   document.getElementById('chatCost').textContent=tr('cost');
   document.getElementById('chatInput').placeholder=lang==='it'?'Chiedi sulla strategia GTO...':lang==='es'?'Pregunta sobre estrategia GTO...':lang==='de'?'Frage zur GTO-Strategie...':lang==='fr'?'Pose ta question GTO...':'Ask about GTO strategy...';
-  resetChatWelcome();
+  renderChat();
   renderSide();render();
 }
 
-function resetChatWelcome(){
+function welcomeMsg(){
   const msgs={it:'Ciao! Sono il tuo AI poker coach. Se non hai capito qualcosa..sono qui ;)',en:'Hi! I\'m your AI poker coach. If something is not clear.. I\'m here ;)',es:'\u00a1Hola! Soy tu AI poker coach. Si algo no te ha quedado claro..estoy aqu\u00ed ;)',de:'Hi! Ich bin dein AI poker coach. Wenn etwas unklar ist..ich bin da ;)',fr:'Salut ! Je suis ton AI poker coach. Si quelque chose n\'est pas clair..je suis l\u00e0 ;)'};
-  document.getElementById('chatBody').innerHTML=`<div class="m bot"><div class="bb">${msgs[lang]||msgs.en}</div></div>`;
+  return msgs[lang]||msgs.en;
+}
+
+// Repaints the thread. The history is kept, so switching language or
+// restarting the app no longer throws the conversation away.
+function renderChat(){
+  let h=`<div class="m bot"><div class="bb">${welcomeMsg()}</div></div>`;
+  chatHistory.forEach((m)=>{
+    h+=(m.role==='user')
+      ? `<div class="m u"><div class="bb">${escHtml(m.content)}</div></div>`
+      : `<div class="m bot"><div class="bb">${formatReply(m.content)}</div></div>`;
+  });
+  const b=document.getElementById('chatBody');
+  b.innerHTML=h;
+  b.scrollTop=b.scrollHeight;
+}
+
+// Explicit wipe, only from the trash button.
+function clearChat(){
   chatHistory=[];
+  saveChat();
+  renderChat();
 }
 
 // === THEME ===
@@ -362,6 +386,7 @@ async function sendMsg(){
     // Update conversation history (keep last 6 for context)
     chatHistory.push({role:'user',content:v});
     chatHistory.push({role:'assistant',content:reply});
+    saveChat();
 
 
   }catch(err){
@@ -666,14 +691,35 @@ async function fetchPaidBody(id){
 }
 
 // === GLOSSARY ===
+function glossaryList(){
+  if(!data||!data.glossary)return[];
+  return data.glossary[lang]||data.glossary.en||data.glossary.it||[];
+}
+
+// Renders only the entries matching the query. Search runs on term and definition.
+function renderGlossary(q){
+  const g=glossaryList();
+  const needle=(q||'').trim().toLowerCase();
+  const rows=needle
+    ? g.filter(([t,d])=>String(t).toLowerCase().includes(needle)||String(d).toLowerCase().includes(needle))
+    : g;
+  const box=document.getElementById('glossaryList');
+  if(!box)return;
+  if(!rows.length){
+    box.innerHTML=`<p style="text-align:center;color:var(--tx3);padding:18px">${tr('noResults')}</p>`;
+    return;
+  }
+  box.innerHTML=rows.map(([t,d])=>`<div style="margin-bottom:10px"><strong style="color:var(--ac)">${escHtml(String(t))}</strong><br><span style="color:var(--tx2);font-size:.84rem">${escHtml(String(d))}</span></div>`).join('');
+}
+
 function showGlossary(){
   if(!data||!data.glossary)return;
-  const g=data.glossary[lang]||data.glossary.en||data.glossary.it||[];
-  let h=`<h3 style="margin-bottom:14px">${tr('glossary')} (${g.length})</h3>`;
-  h+=g.map(([t,d])=>`<div style="margin-bottom:10px"><strong style="color:var(--ac)">${t}</strong><br><span style="color:var(--tx2);font-size:.84rem">${d}</span></div>`).join('');
-  document.getElementById('quizBody').innerHTML=h;
+  document.getElementById('quizBody').innerHTML=
+    `<input class="gl-search" id="glossarySearch" type="search" autocomplete="off" placeholder="${tr('searchTerm')}" oninput="renderGlossary(this.value)">`
+    +`<div id="glossaryList"></div>`;
   document.getElementById('quizTitle').textContent=tr('glossary');
   document.getElementById('quizModal').classList.add('open');
+  renderGlossary('');
 }
 
 // === QUIZ ===
