@@ -493,6 +493,7 @@ function installId(){
   return v;
 }
 let sid=localStorage.getItem('sid')||'';
+let sessionRetryAfter=0;
 
 async function api(path,payload,retried){
   const res=await fetch(API_BASE+'/'+path,{
@@ -505,11 +506,15 @@ async function api(path,payload,retried){
   const json=await res.json().catch(()=>({}));
   if(!res.ok){
     // A rejected session is recoverable: build a new one and try again once.
-    // Happens after the binding was introduced, or when a token is revoked.
-    if(res.status===401&&!retried&&path!=='session'){
+    // Happens after the device binding was introduced, or when a token is revoked.
+    // The cooldown matters: if the backend keeps refusing (rotated secret, database
+    // down) every user action would otherwise cost two requests forever and the app
+    // would feel hung while quietly hammering the server.
+    if(res.status===401&&!retried&&path!=='session'&&Date.now()>sessionRetryAfter){
       sid='';localStorage.removeItem('sid');
       await startSession();
       if(sid)return api(path,payload,true);
+      sessionRetryAfter=Date.now()+30000;
     }
     const e=new Error(json.error||('http '+res.status));e.status=res.status;e.data=json;throw e;
   }
@@ -541,23 +546,49 @@ function applyServerState(j){
     credits=j.credits;
     localStorage.setItem('aiCredits',String(credits)); // cache for offline display only
   }
+  // Entitlement lost (refund, chargeback): drop the cached paid text as well.
+  // Leaving it behind means the chapters stay readable offline by flipping a flag.
+  const lost=('pro' in j&&owned.pro&&!j.pro)||('elite' in j&&owned.elite&&!j.elite);
   if('pro' in j)owned.pro=!!j.pro;
   if('elite' in j)owned.elite=!!j.elite;
+  if(lost){
+    Object.keys(paidCache).forEach(k=>delete paidCache[k]);
+    try{localStorage.removeItem('paidBodies')}catch(e){}
+  }
   saveOwned();updateCreditsUI();renderSide();render();
 }
 
 // Your own test unlock: open the app once with ?test=YOURCODE (the code you set
 // in TEST_UNLOCK_CODE on the backend). It is stored locally and reused. Users
 // cannot guess it, and without it nothing can be unlocked for free.
+// The unlock code used to be stored forever: opening the link once on a borrowed
+// phone left it unlocked for good, and the code sat in plain sight in storage.
+// Now it expires, and ?test= with no value turns it off.
+const TEST_CODE_TTL=14*24*3600*1000;
 function testCode(){
   const q=new URLSearchParams(location.search);
   if(q.has('test')){
     const v=q.get('test');
-    if(v)localStorage.setItem('testCode',v); else localStorage.removeItem('testCode');
+    if(v){
+      try{localStorage.setItem('testCode',JSON.stringify({v,exp:Date.now()+TEST_CODE_TTL}))}catch(e){}
+    }else{
+      localStorage.removeItem('testCode');
+    }
     // Drop the stored session so the code is applied to a fresh one
     localStorage.removeItem('sid');sid='';
   }
-  return localStorage.getItem('testCode')||'';
+  const raw=localStorage.getItem('testCode');
+  if(!raw)return '';
+  try{
+    const o=JSON.parse(raw);
+    if(o&&o.v&&o.exp>Date.now())return o.v;
+    localStorage.removeItem('testCode');
+    return '';
+  }catch(e){
+    // Legacy plain string from before the expiry existed: retire it.
+    localStorage.removeItem('testCode');
+    return '';
+  }
 }
 
 async function startSession(){
