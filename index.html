@@ -1,86 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<!-- skill:chrome -->
-<style>
-/* Credit line — bottom-right */
-.design-ui-credit {
-  position: fixed;
-  bottom: 12px;
-  right: 12px;
-  font: 11px/1 system-ui, sans-serif;
-  color: rgba(128,128,128,0.5);
-  pointer-events: none;
-  z-index: 2147483647;
-  transition: opacity 0.4s ease;
-  user-select: none;
-  letter-spacing: 0.02em;
-}
 
-/* Hide chrome on touch devices */
-@media (hover: none) {
-  .design-ui-credit { display: none; }
-}
-
-/* Print fixes */
-@media print {
-  * {
-    transition: none !important;
-    animation: none !important;
-    box-shadow: none !important;
-  }
-  body {
-    print-color-adjust: exact;
-    -webkit-print-color-adjust: exact;
-  }
-  .design-ui-credit { display: none !important; }
-}
-
-</style>
-<script>
-(function () {
-    // Design-ui pages are single compositions, so the whole body is editable.
-    function markEditable() {
-        document.body.classList.add('artifact-editable');
-    }
-
-    // Credit badge with idle-fade. Hover devices only.
-    function initChromeUI() {
-        if (!matchMedia('(hover: hover)').matches) return;
-
-        var credit = document.createElement('div');
-        credit.className = 'design-ui-credit';
-        credit.setAttribute('aria-hidden', 'true');
-        credit.innerHTML = '\u{1F49C} by ClickUp Brain';
-        document.body.appendChild(credit);
-
-        var timer = null;
-        var fade = function (out) { credit.style.opacity = out ? '0' : ''; };
-        fade(true);
-        var show = function () {
-            fade(false);
-            clearTimeout(timer);
-            timer = setTimeout(function () { fade(true); }, 3000);
-        };
-        document.addEventListener('mousemove', show);
-        show();
-    }
-
-    function init() {
-        markEditable();
-        initChromeUI();
-    }
-
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init);
-    } else {
-        init();
-    }
-})();
-
-</script>
-<!-- /skill:chrome -->
 <meta charset="UTF-8"/>
+<!-- GitHub Pages cannot send HTTP headers, so the policy has to travel in the page.
+     It is not cosmetic: this app and the Poker Variance Simulator share one origin
+     (emreciccio-glitch.github.io), and same-origin script can read the session token,
+     the install id and every cached paid chapter out of localStorage. A real fix needs
+     a domain of its own. Until then this at least blocks injected third-party script,
+     eval, plugins, form posts and page framing, and pins network calls to the backend.
+     'unsafe-inline' is unavoidable while all the app code lives inside this file. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://poker-ai-coach-19wq.vercel.app; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>The Poker Guide</title>
 <link rel="manifest" href="manifest.json">
@@ -242,11 +173,11 @@ const T2={
 Object.keys(T2).forEach(l=>Object.assign(T[l],T2[l]));
 
 const T3={
- en:{restore:'Restore purchases',restoreOk:'Purchases restored',restoreNone:'No purchases to restore',storeOnly:'Purchases are available in the app from Google Play or the Microsoft Store.',purchaseFailed:'Purchase not completed. Nothing was charged.'},
- it:{restore:'Ripristina acquisti',restoreOk:'Acquisti ripristinati',restoreNone:'Nessun acquisto da ripristinare',storeOnly:'Gli acquisti sono disponibili nell\u2019app da Google Play o Microsoft Store.',purchaseFailed:'Acquisto non completato. Non \u00e8 stato addebitato nulla.'},
- es:{restore:'Restaurar compras',restoreOk:'Compras restauradas',restoreNone:'No hay compras que restaurar',storeOnly:'Las compras est\u00e1n disponibles en la app de Google Play o Microsoft Store.',purchaseFailed:'Compra no completada. No se ha cobrado nada.'},
- de:{restore:'K\u00e4ufe wiederherstellen',restoreOk:'K\u00e4ufe wiederhergestellt',restoreNone:'Keine K\u00e4ufe zum Wiederherstellen',storeOnly:'K\u00e4ufe sind in der App aus Google Play oder dem Microsoft Store verf\u00fcgbar.',purchaseFailed:'Kauf nicht abgeschlossen. Es wurde nichts berechnet.'},
- fr:{restore:'Restaurer les achats',restoreOk:'Achats restaur\u00e9s',restoreNone:'Aucun achat \u00e0 restaurer',storeOnly:'Les achats sont disponibles dans l\u2019app depuis Google Play ou le Microsoft Store.',purchaseFailed:'Achat non finalis\u00e9. Rien n\u2019a \u00e9t\u00e9 factur\u00e9.'}
+ en:{restore:'Restore purchases',restoreOk:'Purchases restored',restoreNone:'No purchases to restore',storeOnly:'Purchases are available in the app from Google Play.',purchaseFailed:'Purchase not completed. Nothing was charged.'},
+ it:{restore:'Ripristina acquisti',restoreOk:'Acquisti ripristinati',restoreNone:'Nessun acquisto da ripristinare',storeOnly:'Gli acquisti sono disponibili nell\u2019app da Google Play.',purchaseFailed:'Acquisto non completato. Non \u00e8 stato addebitato nulla.'},
+ es:{restore:'Restaurar compras',restoreOk:'Compras restauradas',restoreNone:'No hay compras que restaurar',storeOnly:'Las compras est\u00e1n disponibles en la app de Google Play.',purchaseFailed:'Compra no completada. No se ha cobrado nada.'},
+ de:{restore:'K\u00e4ufe wiederherstellen',restoreOk:'K\u00e4ufe wiederhergestellt',restoreNone:'Keine K\u00e4ufe zum Wiederherstellen',storeOnly:'K\u00e4ufe sind in der App aus Google Play verf\u00fcgbar.',purchaseFailed:'Kauf nicht abgeschlossen. Es wurde nichts berechnet.'},
+ fr:{restore:'Restaurer les achats',restoreOk:'Achats restaur\u00e9s',restoreNone:'Aucun achat \u00e0 restaurer',storeOnly:'Les achats sont disponibles dans l\u2019app depuis Google Play.',purchaseFailed:'Achat non finalis\u00e9. Rien n\u2019a \u00e9t\u00e9 factur\u00e9.'}
 };
 Object.keys(T3).forEach(l=>Object.assign(T[l],T3[l]));
 
@@ -476,9 +407,11 @@ const CONSUMABLES=[SKU.c15,SKU.c40,SKU.c120];
 const PRICE_FALLBACK={[SKU.pro]:'\u20ac4,99',[SKU.elite]:'\u20ac7,99',[SKU.bundle]:'\u20ac9,99',[SKU.c15]:'\u20ac0,49',[SKU.c40]:'\u20ac0,99',[SKU.c120]:'\u20ac2,49'};
 const BONUS_LABEL={[SKU.pro]:15,[SKU.elite]:25,[SKU.bundle]:40};
 
+// Google Play only. The Microsoft entry was dead weight: the backend dropped its
+// receipt verification when the store was abandoned, so a purchase started here
+// could never have been honoured.
 const STORES=[
-  {store:'play',method:'https://play.google.com/billing'},
-  {store:'microsoft',method:'https://store.microsoft.com/billing'}
+  {store:'play',method:'https://play.google.com/billing'}
 ];
 
 const billing={service:null,method:null,store:null,ready:false,price:{},online:false};
@@ -576,6 +509,10 @@ function testCode(){
     }
     // Drop the stored session so the code is applied to a fresh one
     localStorage.removeItem('sid');sid='';
+    // Wipe the code out of the address bar the moment it has been read. Left there
+    // it survives in the TWA's history, in the share sheet, in the recents preview
+    // and in every screenshot of the app: the one link that unlocks everything.
+    try{history.replaceState(null,'',location.pathname+location.hash)}catch(e){}
   }
   const raw=localStorage.getItem('testCode');
   if(!raw)return '';
