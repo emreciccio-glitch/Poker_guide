@@ -9,15 +9,7 @@
      the install id and every cached paid chapter out of localStorage. A real fix needs
      a domain of its own. Until then this at least blocks injected third-party script,
      eval, plugins, form posts and page framing, and pins network calls to the backend.
-     'unsafe-inline' is unavoidable while all the app code lives inside this file.
-
-     https://play.google.com in connect-src is REQUIRED and must never be removed.
-     A Payment Request payment method identifier is a URL, and Chrome validates it
-     against connect-src before the PaymentRequest object is even constructed. Leave
-     it out and every in-app purchase dies with
-       RangeError: ... payment method identifier violates Content Security Policy
-     before the Play sheet can open. Locking down the CSP without this line silently
-     disables all revenue. -->
+     'unsafe-inline' is unavoidable while all the app code lives inside this file. -->
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://poker-ai-coach-19wq.vercel.app https://play.google.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
@@ -412,7 +404,8 @@ const API_BASE='https://poker-ai-coach-19wq.vercel.app/api';
 const SKU={pro:'pro_unlock',elite:'elite_unlock',bundle:'bundle_pro_elite',c15:'credits_15',c40:'credits_40',c120:'credits_120'};
 const CONSUMABLES=[SKU.c15,SKU.c40,SKU.c120];
 // Display only. The real amounts are granted by the server.
-const PRICE_FALLBACK={[SKU.pro]:'\u20ac4,99',[SKU.elite]:'\u20ac7,99',[SKU.bundle]:'\u20ac9,99',[SKU.c15]:'\u20ac0,49',[SKU.c40]:'\u20ac0,99',[SKU.c120]:'\u20ac2,49'};
+const PRICE_PENDING='\u2026';
+window.PG_DEBUG=false;
 const BONUS_LABEL={[SKU.pro]:15,[SKU.elite]:25,[SKU.bundle]:40};
 
 // Google Play only. The Microsoft entry was dead weight: the backend dropped its
@@ -474,7 +467,14 @@ function hasAccess(k){
 }
 // The PRO+ELITE bundle disappears as soon as PRO or ELITE has been purchased
 function bundleAvailable(){return !owned.pro && !owned.elite}
-function priceOf(sku){return billing.price[sku]||PRICE_FALLBACK[sku]||''}
+function priceOf(sku){
+  if(billing.price[sku])return billing.price[sku];
+  // No billing service on this platform, e.g. the site opened in a desktop browser.
+  // A placeholder there promises a price that is never coming and makes the shop look
+  // broken; the notice at the bottom already says purchases live in the Play app.
+  if(billing.ready&&!billing.service)return '';
+  return PRICE_PENDING;
+}
 
 function applyServerState(j){
   // The server can hand back a different account: it happens when a permanent
@@ -618,9 +618,6 @@ async function purchase(key){
       [{supportedMethods:billing.method,data:{sku}}],
       {total:{label:'Total',amount:{currency:'EUR',value:'0'}}} // the store applies its own price
     );
-    // canMakePayment() is quota-limited by Chrome: called repeatedly it stops
-    // answering and starts THROWING NotAllowedError. As a hard gate it turned a
-    // rate limit into "purchase not completed". Advisory only now.
     try{
       if(request.canMakePayment){
         const can=await request.canMakePayment();
@@ -645,14 +642,10 @@ async function purchase(key){
     await response.complete(ok?'success':'fail');
     if(ok)openShop();
   }catch(e){
-    // AbortError = the user closed the store sheet, not an error
     if(e&&e.name!=='AbortError'){
       console.warn(e);
-      // Show what Play actually said: on a phone there is no console to open, so a
-      // single generic message makes every billing failure look identical.
-      // Set window.PG_DEBUG=false to go back to the plain wording before launch.
       const detail=(e.name||'Error')+(e.message?(': '+e.message):'');
-      toast(window.PG_DEBUG===false?tr('purchaseFailed'):(tr('purchaseFailed')+' \u2014 '+detail));
+      toast(window.PG_DEBUG?(tr('purchaseFailed')+' \u2014 '+detail):tr('purchaseFailed'));
     }
   }
 }
