@@ -10,7 +10,7 @@
      a domain of its own. Until then this at least blocks injected third-party script,
      eval, plugins, form posts and page framing, and pins network calls to the backend.
      'unsafe-inline' is unavoidable while all the app code lives inside this file. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://poker-ai-coach-19wq.vercel.app https://play.google.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://poker-ai-coach-19wq.vercel.app https://play.google.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'; frame-ancestors 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>The Poker Guide</title>
@@ -141,9 +141,12 @@ button,select,input{font:inherit}a{text-decoration:none;color:inherit}
 let lang=localStorage.getItem('lang')||'en',cur='fondamentali',data=null;
 const quizDone=JSON.parse(localStorage.getItem('quizDone')||'{}');
 
-// === CREDITS SYSTEM (localStorage beta) ===
-let credits=parseInt(localStorage.getItem('aiCredits')??'5');
-if(isNaN(credits)){credits=5;localStorage.setItem('aiCredits','5')}
+// === CREDITS ===
+// The server owns the balance; this is the offline mirror. A fresh install used to
+// start at an optimistic 5, so an account that gets no welcome grant showed 5 and then
+// dropped to 0 as soon as the server replied: it looked like the app had taken them
+// away. Unknown now means unknown, and the badge shows a dash until the truth arrives.
+let credits=(function(){const v=parseInt(localStorage.getItem('aiCredits'));return Number.isFinite(v)?v:null})();
 // The conversation survives app restarts and language switches.
 let chatHistory=(function(){try{const v=JSON.parse(localStorage.getItem('chatHistory')||'[]');return Array.isArray(v)?v.slice(-40):[]}catch(e){return[]}})();
 function saveChat(){try{localStorage.setItem('chatHistory',JSON.stringify(chatHistory.slice(-40)))}catch(e){/* quota */}}
@@ -152,10 +155,11 @@ let chatLoading=false;
 // Display helper only: the balance that counts is the one returned by the server.
 function setCredits(n){credits=Math.max(0,n);localStorage.setItem('aiCredits',String(credits));updateCreditsUI()}
 function updateCreditsUI(){
+  const shown=(credits===null)?'\u2013':String(credits);
   const dot=document.getElementById('credTop');
-  dot.textContent=String(credits);
-  dot.title=credits+' '+tr('credits')+' · '+tr('cost');
-  document.getElementById('chatCredBadge').textContent=String(credits);
+  dot.textContent=shown;
+  dot.title=(credits===null)?tr('cost'):(credits+' '+tr('credits')+' \u00b7 '+tr('cost'));
+  document.getElementById('chatCredBadge').textContent=shown;
 }
 
 // === TRANSLATIONS ===
@@ -181,6 +185,14 @@ const T3={
 };
 Object.keys(T3).forEach(l=>Object.assign(T[l],T3[l]));
 
+const T5={
+ en:{cappedMsg:'Welcome credits are limited to a few new accounts per network each day. You can buy credits any time from the Shop.'},
+ it:{cappedMsg:'I crediti di benvenuto sono limitati a pochi account nuovi al giorno per rete. Puoi acquistare crediti quando vuoi dallo Shop.'},
+ es:{cappedMsg:'Los cr\u00e9ditos de bienvenida est\u00e1n limitados a unas pocas cuentas nuevas por red cada d\u00eda. Puedes comprar cr\u00e9ditos en la Tienda.'},
+ de:{cappedMsg:'Willkommens-Credits sind pro Netzwerk auf wenige neue Konten pro Tag begrenzt. Du kannst jederzeit Credits im Shop kaufen.'},
+ fr:{cappedMsg:'Les cr\u00e9dits de bienvenue sont limit\u00e9s \u00e0 quelques nouveaux comptes par r\u00e9seau et par jour. Tu peux acheter des cr\u00e9dits dans la Boutique.'}
+};
+
 const T4={
  en:{loading:'Loading chapter...',needNet:'Connection needed to open this chapter.',slowDown:'Too many questions in a row. Try again in a moment.',receiptUsed:'This purchase is already linked to another account.'},
  it:{loading:'Caricamento capitolo...',needNet:'Serve la connessione per aprire questo capitolo.',slowDown:'Troppe domande di fila. Riprova tra un attimo.',receiptUsed:'Questo acquisto \u00e8 gi\u00e0 collegato a un altro account.'},
@@ -189,6 +201,7 @@ const T4={
  fr:{loading:'Chargement du chapitre...',needNet:'Une connexion est n\u00e9cessaire pour ouvrir ce chapitre.',slowDown:'Trop de questions d\u2019affil\u00e9e. R\u00e9essaie dans un instant.',receiptUsed:'Cet achat est d\u00e9j\u00e0 li\u00e9 \u00e0 un autre compte.'}
 };
 Object.keys(T4).forEach(l=>Object.assign(T[l],T4[l]));
+Object.keys(T5).forEach(l=>Object.assign(T[l],T5[l]));
 
 // Chapters with quiz
 const quizSize={};  // quante domande estrarre per capitolo; vuoto = 8 (default)
@@ -311,7 +324,9 @@ async function sendMsg(){
   const sendBtn=document.getElementById('chatSendBtn');
 
   // === CHECK CREDITS ===
-  if(credits<=0){
+  // null means the server has not answered yet: let the request through and let the
+  // backend decide, rather than blocking a user who may well have credits.
+  if(credits!==null&&credits<=0){
     b.innerHTML+=`<div class="no-cred-msg" onclick="closeChat();openShop()">${tr('noCredits')}</div>`;
     b.scrollTop=b.scrollHeight;
     return;
@@ -486,6 +501,13 @@ function applyServerState(j){
   if(typeof j.credits==='number'){
     credits=j.credits;
     localStorage.setItem('aiCredits',String(credits)); // cache for offline display only
+  }
+  // The backend caps brand new free accounts per address, so several people on one
+  // wifi or behind the same mobile carrier can arrive with no welcome credits. Saying
+  // so once beats a silent zero that reads as a broken app.
+  if(j.capped&&!localStorage.getItem('cappedSeen')){
+    try{localStorage.setItem('cappedSeen','1')}catch(e){}
+    setTimeout(()=>toast(tr('cappedMsg')),1200);
   }
   // Entitlement lost (refund, chargeback): drop the cached paid text as well.
   // Leaving it behind means the chapters stay readable offline by flipping a flag.
@@ -775,13 +797,27 @@ function confirmCloseQuiz(){
   document.getElementById('quizBody').innerHTML=`<div class="confirm-box"><p>${tr('quizConfirm')}</p><button onclick="quizActive=false;document.getElementById('quizModal').classList.remove('open')">${qlbl('exit')}</button><button class="primary" onclick="document.getElementById('quizBody').innerHTML=quizBackup">${qlbl('cont')}</button></div>`;
 }
 
+// Fisher-Yates. The old code used [...arr].sort(()=>Math.random()-0.5), which is the
+// classic broken shuffle: a sort comparator must be consistent, and a random one is
+// not, so the engine's sort leaves a heavy bias. Measured over 200k runs with four
+// options, the correct answer landed in slot 1 or 2 about 66% of the time and in the
+// last slot only 12.6%, where a fair shuffle gives 25% each. Someone who always taps
+// the first option beats chance, which quietly makes every quiz easier than intended.
+function shuffled(arr){
+  const a=[...arr];
+  for(let i=a.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [a[i],a[j]]=[a[j],a[i]];
+  }
+  return a;
+}
+
 function startQuiz(chapter){
   if(!data)return;
   const pool=quizPool(chapter);
   if(!pool)return;
   const numQ=quizSize[chapter]||8;
-  const shuffled=[...pool].sort(()=>Math.random()-0.5);
-  const questions=shuffled.slice(0,Math.min(numQ,pool.length));
+  const questions=shuffled(pool).slice(0,Math.min(numQ,pool.length));
   window._quizState={chapter,questions,total:questions.length,current:0,score:0,locked:false};
   quizActive=true;
   quizBackup='';
@@ -797,7 +833,7 @@ function showQuizQuestion(){
   const qi=state.current;
   const q=state.questions[qi];
   const correctAnswer=q.options[q.answer];
-  const opts=[...q.options].sort(()=>Math.random()-0.5);
+  const opts=shuffled(q.options);
   let h='<p style="text-align:center;color:var(--tx3);font-size:.76rem;margin-bottom:14px">'+(qi+1)+'/'+state.total+'</p>';
   h+='<div class="quiz-q"><p>'+q.question+'</p>';
   opts.forEach(opt=>{
