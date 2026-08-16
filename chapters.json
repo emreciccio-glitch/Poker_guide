@@ -325,8 +325,12 @@
  "glossary": {
   "it": [
    [
-    "100X",
-    "150X – 200X – Indice della grandezza del proprio stack, espressa in numero di Big Blinds."
+    "100X / 150X / 200X",
+    "Indice della grandezza del proprio stack, espressa in numero di Big Blinds."
+   ],
+   [
+    "2,5X / 3X / 4X",
+    "L’entità di un rilancio. “Raise 3x”, ad esempio, significa rilanciare 3 volte l’importo della puntata dell’avversario."
    ],
    [
     "2BARREL",
@@ -337,16 +341,12 @@
     "Sigla per definire Two Pair, ovvero la doppia coppia."
    ],
    [
-    "2,5X / 3X / 4X",
-    "L’entità di un rilancio. “Raise 3x”, ad esempio, significa rilanciare 3 volte l’importo della puntata dell’avversario."
+    "3BARREL",
+    "Siglia di Triple barrel."
    ],
    [
     "3-BET / 4-BET",
     "Contro-rilancare (effettuare un Re-raise) su un avversario (indipendentemente dall’entità del raise)."
-   ],
-   [
-    "3BARREL",
-    "Siglia di Triple barrel."
    ],
    [
     "5MAX / 6MAX",
@@ -537,16 +537,16 @@
     "Il gettone che va a comporre il tuo stack. Ne sono previsti diversi per colore e per valore."
    ],
    [
-    "Chipleader",
-    "Il giocatore che durante una determinata fase di un torneo o di un Sit & Go ha il maggior numero di chip."
-   ],
-   [
     "Chip Race",
     "La rimozione delle chip di valore più piccolo quando queste non vengono più utilizzate, oppure l’introduzione di chip di valore più alto per ridurre il numero di gettoni presenti al tavolo."
    ],
    [
     "Chip Trick",
     "Qualsiasi tipo di manipolazione effettuato con le chip, un modo per tenersi impegnati quando non si sta giocando un colpo."
+   ],
+   [
+    "Chipleader",
+    "Il giocatore che durante una determinata fase di un torneo o di un Sit & Go ha il maggior numero di chip."
    ],
    [
     "Collusion",
@@ -607,6 +607,10 @@
    [
     "Deuce",
     "I 2."
+   ],
+   [
+    "Double barrel (second barrel, 2B)",
+    "Continuare al turn la continuation bet iniziata al flop. Puntare di nuovo al river è un triple barrel, o 3B."
    ],
    [
     "Double Suited",
@@ -689,24 +693,424 @@
     "Torneo che non prevede la presenza di re-buy, re-entry o add-on."
    ],
    [
+    "Full (full house, boat)",
+    "Il punto composto da un tris e una coppia. A parità di full conta prima il tris."
+   ],
+   [
     "Full ring",
     "Quando un tavolo viene riempito fino al limite massimo, 9 o 10 giocatori. Espressione spesso abbreviata in FR."
    ],
    [
-    "Rack La scatoletta",
-    "solitamente di plastica – in cui vengono messe le chip di un giocatore che viene spostato di tavolo."
+    "Grinder",
+    "Giocatore che passa molte ore al giorno giocando a poker online."
    ],
    [
-    "Squeeze Quando un giocatore",
-    "quasi sempre presente sul bottone o sui bui – rilancia ulteriormente dopo un raise precedente e almeno un call."
+    "Gutshot",
+    "Progetto di scala interno: con 7-8 in mano e 5-9 sul board, solo un 6 chiude la scala."
    ],
    [
-    "Stop and go Giocata che consiste nel tenere una linea conservativa",
-    "cioè checkando o callando – in una fase, per poi puntare in quella successiva."
+    "Hand-for-hand",
+    "Fase del torneo che precede di solito la bolla, in cui tutti i tavoli giocano una mano alla volta per restare sincronizzati."
    ],
    [
-    "Tilt Fase in cui un giocatore",
-    "quasi sempre dopo aver perso un gran piatto – non riesce a tenere a freno i nervi."
+    "Heads-up",
+    "La fase finale di un torneo o di un Sit & Go, quando restano solo due giocatori."
+   ],
+   [
+    "History",
+    "Le informazioni che si accumulano tra due giocatori che si affrontano spesso e ricordano le azioni precedenti in situazioni simili."
+   ],
+   [
+    "Home game",
+    "Partita organizzata in casa tra amici, invece che in poker room o al casinò."
+   ],
+   [
+    "Hooks",
+    "Soprannome per la coppia di J servita in mano."
+   ],
+   [
+    "H.O.R.S.E.",
+    "Formato di gioco misto composto da Hold’em, Omaha, Razz, Stud e Eight-or-Better."
+   ],
+   [
+    "ICM",
+    "Sigla di Independent Chip Model, il modello che traduce le chip in valore monetario atteso nei tornei."
+   ],
+   [
+    "Implied odds",
+    "Le chip che si pensa di vincere dall’avversario nelle puntate successive, quando si chiude il proprio progetto."
+   ],
+   [
+    "In the dark",
+    "Prendere una decisione senza aspettare di vedere la carta successiva."
+   ],
+   [
+    "In the money",
+    "La fase del torneo o del Sit & Go in cui tutti i giocatori rimasti hanno un premio garantito."
+   ],
+   [
+    "Iso-raise (isolation)",
+    "Rilanciare dopo che un altro giocatore è già entrato nel piatto, per giocare la mano contro di lui senza altri avversari."
+   ],
+   [
+    "Jackpot",
+    "Premio pagato da alcune poker room a chi realizza una mano particolare, come una scala reale."
+   ],
+   [
+    "Jam",
+    "Sinonimo di all in."
+   ],
+   [
+    "Johnnies",
+    "Gergo per la coppia di J servita, ad esempio J♥ J♣."
+   ],
+   [
+    "Kicker",
+    "La carta di accompagnamento, di solito alta, che decide il piatto quando due giocatori hanno lo stesso punto. A-K-7-7-7 batte K-Q-7-7-7 grazie al kicker asso."
+   ],
+   [
+    "Knockout",
+    "Formato di torneo in cui ogni giocatore ha una taglia sulla testa, per incentivare l’azione."
+   ],
+   [
+    "Laydown",
+    "Un altro modo per dire fold."
+   ],
+   [
+    "Level",
+    "Il livello di un torneo, definito dall’importo di bui e ante e dalla sua durata."
+   ],
+   [
+    "Limp",
+    "Limitarsi a pagare il big blind preflop, quando nessuno ha rilanciato prima."
+   ],
+   [
+    "Loose-aggressive",
+    "Giocatore che entra in molti piatti alternando azioni aggressive e linee più conservative, restando sempre molto attivo."
+   ],
+   [
+    "Mano",
+    "Sia le carte che un giocatore ha in mano, sia l’intera sequenza di gioco dalla distribuzione allo showdown."
+   ],
+   [
+    "Middle position",
+    "In un tavolo da dieci giocatori, le posizioni comprese tra early position e late position."
+   ],
+   [
+    "Misdeal",
+    "Un errore del dealer nella distribuzione delle carte."
+   ],
+   [
+    "Move",
+    "Qualsiasi giocata strategica, come un all in o un bluff."
+   ],
+   [
+    "Muck",
+    "Allo showdown, foldare senza mostrare le carte, soprattutto quando è già stata mostrata una mano migliore."
+   ],
+   [
+    "Multiway pot",
+    "Un piatto giocato da tre o più giocatori dopo il flop."
+   ],
+   [
+    "Nit",
+    "Giocatore estremamente tight, che bluffa molto raramente."
+   ],
+   [
+    "No-Limit",
+    "Struttura di puntata senza limite massimo, sia preflop sia postflop."
+   ],
+   [
+    "Nuts",
+    "La miglior mano possibile in una determinata situazione."
+   ],
+   [
+    "Offsuit",
+    "Avere due carte di semi diversi."
+   ],
+   [
+    "Omaha",
+    "Variante in cui ogni giocatore riceve quattro carte e deve usarne esattamente due, insieme a esattamente tre delle cinque carte comuni."
+   ],
+   [
+    "Option",
+    "La facoltà del big blind di checkare o rilanciare preflop, quando nessuno ha rilanciato prima di lui."
+   ],
+   [
+    "Out",
+    "Una carta che permette di vincere la mano, completando o migliorando il proprio punto."
+   ],
+   [
+    "Overbet",
+    "Una puntata più grande del piatto."
+   ],
+   [
+    "Overcard",
+    "Una carta più alta di quelle presenti sul board, o più alta di quelle che compongono la mano dell’avversario."
+   ],
+   [
+    "Overpair",
+    "Una coppia servita più alta di tutte le carte sul board, ad esempio K-K su Q-J-9-6-2."
+   ],
+   [
+    "Payout",
+    "La struttura di distribuzione dei premi di un torneo o di un Sit & Go."
+   ],
+   [
+    "Pocket cards",
+    "Le carte private di un giocatore."
+   ],
+   [
+    "Pocket pair",
+    "Una coppia servita in mano nel Texas Hold’em."
+   ],
+   [
+    "Poker face",
+    "Un'espressione che non lascia trasparire alcuna emozione agli avversari."
+   ],
+   [
+    "Position",
+    "La posizione di un giocatore rispetto all’azione. Giocare in position significa in genere agire dopo l’avversario."
+   ],
+   [
+    "Pot",
+    "Il totale delle chip presenti al centro del tavolo."
+   ],
+   [
+    "Pot odds",
+    "Il rapporto tra il costo del call, la dimensione del piatto e le probabilità di vincere la mano."
+   ],
+   [
+    "Pot-Limit",
+    "Struttura in cui puntate e rilanci non possono superare la dimensione del piatto."
+   ],
+   [
+    "Preflop",
+    "La prima fase della mano, prima che venga distribuita qualsiasi carta comune."
+   ],
+   [
+    "Prop bet",
+    "Una scommessa parallela tra giocatori al tavolo, non legata all’azione di gioco."
+   ],
+   [
+    "Push",
+    "Un altro modo per dire all in."
+   ],
+   [
+    "Quads",
+    "Un altro modo per dire poker, quattro carte dello stesso valore."
+   ],
+   [
+    "Rack",
+    "La scatoletta – solitamente di plastica – in cui vengono messe le chip di un giocatore che viene spostato di tavolo."
+   ],
+   [
+    "Rainbow",
+    "Un board che contiene carte di tutti e quattro i semi."
+   ],
+   [
+    "Raise",
+    "Il rilancio."
+   ],
+   [
+    "Rake",
+    "La parte del piatto trattenuta dalla poker room nel cash game, secondo una percentuale prestabilita."
+   ],
+   [
+    "Rakeback",
+    "Una percentuale del rake restituita al giocatore, in base alle promozioni della room e al volume di gioco."
+   ],
+   [
+    "Range",
+    "L’insieme delle mani che un giocatore può avere in una determinata situazione."
+   ],
+   [
+    "Rebuy",
+    "La possibilità di acquistare chip aggiuntive durante un torneo, una volta scesi sotto una certa soglia di stack."
+   ],
+   [
+    "Redraw",
+    "La riassegnazione dei giocatori ai tavoli durante un torneo, in base al numero di partecipanti rimasti."
+   ],
+   [
+    "Re-entry",
+    "Rientrare in un torneo dopo l’eliminazione, pagando un nuovo buy-in e ricevendo un nuovo stack iniziale."
+   ],
+   [
+    "Reraise",
+    "Rilanciare un rilancio precedente."
+   ],
+   [
+    "Ring game",
+    "Sinonimo di cash game."
+   ],
+   [
+    "River",
+    "La quinta e ultima carta comune."
+   ],
+   [
+    "Rounder",
+    "Chi considera il poker una professione."
+   ],
+   [
+    "Royal flush",
+    "La scala colore da 10 ad asso, il punto massimo."
+   ],
+   [
+    "Runner-runner",
+    "Chiudere un punto importante, come una scala o un colore, usando sia il turn sia il river."
+   ],
+   [
+    "Rush",
+    "Un periodo prolungato di vittorie, al tavolo o su più tornei."
+   ],
+   [
+    "Satellite",
+    "Torneo che mette in premio la qualificazione a un altro evento, live o online."
+   ],
+   [
+    "Scala",
+    "Cinque carte consecutive, formate dalle proprie carte e da quelle comuni, ad esempio 5-6-7-8-9."
+   ],
+   [
+    "Scala colore",
+    "Cinque carte consecutive dello stesso seme."
+   ],
+   [
+    "Scare card",
+    "Una carta che può cambiare la direzione della mano e spingere i giocatori a modificare la propria strategia."
+   ],
+   [
+    "Scoop",
+    "Nelle varianti hi-lo, vincere sia la parte alta sia la parte bassa del piatto."
+   ],
+   [
+    "Semi-bluff",
+    "Puntare con una mano non ancora forte ma con concrete possibilità di migliorare."
+   ],
+   [
+    "Set",
+    "Il tris formato da una coppia servita in mano più una carta sul board."
+   ],
+   [
+    "Shootout",
+    "Torneo in cui si avanza soltanto dopo essere rimasti ultimi giocatori al proprio tavolo."
+   ],
+   [
+    "Short stack",
+    "Giocatore con poche chip rispetto al livello del torneo o agli stack degli avversari."
+   ],
+   [
+    "Short-handed",
+    "Un tavolo con sei giocatori o meno."
+   ],
+   [
+    "Showdown",
+    "La fase finale della mano, quando si mostrano le carte e si determina il vincitore."
+   ],
+   [
+    "Sit out",
+    "La situazione in cui un giocatore è temporaneamente assente dal tavolo."
+   ],
+   [
+    "Slow roll",
+    "Prendersi un tempo inutilmente lungo per agire pur sapendo di avere una mano forte e ovvia. È considerato scorretto."
+   ],
+   [
+    "Small blind",
+    "Il piccolo buio, di norma la metà del big blind."
+   ],
+   [
+    "Split",
+    "La divisione del piatto allo showdown."
+   ],
+   [
+    "Squeeze",
+    "Quando un giocatore – quasi sempre presente sul bottone o sui bui – rilancia ulteriormente dopo un raise precedente e almeno un call."
+   ],
+   [
+    "Stack",
+    "Le chip a disposizione di un giocatore."
+   ],
+   [
+    "Starting hand",
+    "La mano iniziale ricevuta da un giocatore."
+   ],
+   [
+    "Steal",
+    "Di solito un tentativo dal bottone o dai bui di vincere il piatto dopo che tutti i giocatori precedenti hanno foldato."
+   ],
+   [
+    "Stop and go",
+    "Giocata che consiste nel tenere una linea conservativa – cioè checkando o callando – in una fase, per poi puntare in quella successiva."
+   ],
+   [
+    "Straddle",
+    "Nel cash game, una puntata al buio, di norma il doppio del big blind, effettuata prima della distribuzione delle carte."
+   ],
+   [
+    "Streets",
+    "Il flop, il turn e il river."
+   ],
+   [
+    "Structure",
+    "L’organizzazione di un torneo o di un Sit & Go, compresi i livelli dei bui e la loro durata."
+   ],
+   [
+    "Stud",
+    "Variante in cui ogni giocatore riceve sette carte, tre delle quali devono essere scartate."
+   ],
+   [
+    "Suited connectors",
+    "Due carte consecutive o vicine tra loro dello stesso seme, ad esempio 9♣ e 10♣."
+   ],
+   [
+    "Tight",
+    "Giocatore che entra in poche mani, in particolare in quelle che possono creare piatti grandi."
+   ],
+   [
+    "Tilt",
+    "Fase in cui un giocatore – quasi sempre dopo aver perso un gran piatto – non riesce a tenere a freno i nervi."
+   ],
+   [
+    "Top kicker",
+    "Il kicker più alto possibile, spesso un asso ad accompagnare un altro punto."
+   ],
+   [
+    "Top pair",
+    "La coppia più alta possibile sul board."
+   ],
+   [
+    "Top set",
+    "Il set formato con la carta più alta presente sul board."
+   ],
+   [
+    "Top top",
+    "Top pair con l’asso come kicker, ad esempio A-K su board K-Q-8-6-2."
+   ],
+   [
+    "Top two",
+    "Le due coppie più alte possibili sul board, ad esempio Q-J in mano su board Q-J-7-5-2."
+   ],
+   [
+    "Trips",
+    "Il tris formato da una carta in mano e da una coppia presente sul board, ad esempio 8-7 in mano su A-J-7-7-3."
+   ],
+   [
+    "Turn",
+    "La quarta carta comune."
+   ],
+   [
+    "Under the gun",
+    "La posizione immediatamente alla sinistra del big blind."
+   ],
+   [
+    "Value bet",
+    "Una puntata, di solito al river, fatta perché si aspetta di essere pagati da mani peggiori."
+   ],
+   [
+    "Walk",
+    "Quando tutti foldano preflop e il big blind vince il piatto senza opposizione."
    ]
   ],
   "en": [
