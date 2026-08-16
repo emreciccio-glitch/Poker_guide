@@ -4318,52 +4318,52 @@
     {
      "question": "In modern poker, what does the acronym GTO stand for?",
      "options": [
-      "Game Theory Optimal",
       "Game Table Organization",
       "Good Texas Odds",
-      "Great Tournament Outplays"
+      "Great Tournament Outplays",
+      "Game Theory Optimal"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "What is the main goal of mathematically balancing a preflop range?",
      "options": [
-      "Mixing value hands and bluffs so as not to be predictable",
       "Playing exclusively premium hands",
       "Always moving all-in to steal the blinds",
+      "Mixing value hands and bluffs so as not to be predictable",
       "Playing 100% of hands to confuse opponents"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "What is the recommended opening size if you have a stack of less than 40 BB?",
      "options": [
-      "2 BB",
       "2.5 BB",
       "3 BB",
-      "3.5 BB"
+      "3.5 BB",
+      "2 BB"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "What opening size is recommended for an average stack of 50 BB?",
      "options": [
-      "2.2 BB",
       "2 BB",
       "3 BB",
+      "2.2 BB",
       "3.5 BB"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Which opening size should you use with an average stack of 80 BB?",
      "options": [
-      "2.5 BB",
       "2.2 BB",
+      "2.5 BB",
       "3 BB",
       "4 BB"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "If you have a stack larger than 100 BB, what is the recommended opening size?",
@@ -4378,32 +4378,32 @@
     {
      "question": "In Blind vs Blind (BVB) situations, what opening size does the text suggest?",
      "options": [
-      "3.5 BB",
       "2 BB",
+      "3.5 BB",
       "2.2 BB",
       "3 BB"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "According to the author, is there an absolute mandatory opening size?",
      "options": [
-      "No, it often needs to be adapted to the context",
       "Yes, it is always exactly 3 BB",
       "Yes, 2 BB for any tournament",
-      "Yes, but it depends entirely on the dealer"
+      "Yes, but it depends entirely on the dealer",
+      "No, it often needs to be adapted to the context"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "What approach should you take from early positions (UTG and UTG+1)?",
      "options": [
-      "Extremely selective, limiting yourself to about 17% of hands",
       "Aggressive, opening up to 50% of hands",
       "Very passive, only limping in",
+      "Extremely selective, limiting yourself to about 17% of hands",
       "Random, to balance your image"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Which of these hands belong in a typical UTG and UTG+1 opening range?",
@@ -4418,22 +4418,22 @@
     {
      "question": "Why is it crucial to play hands of undoubted value from early positions?",
      "options": [
-      "To ease postflop decisions and induce uncertainty in opponents",
       "To get called by the entire table",
       "To immediately steal the blinds without ever playing postflop",
+      "To ease postflop decisions and induce uncertainty in opponents",
       "To force the Big Blind to fold every time"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "How does the opening range change when moving to Middle Position (LJ - HJ)?",
      "options": [
-      "It widens to about 20-28% of hands",
       "It narrows to 10-15% of hands",
       "It remains identical to the Early Position range",
+      "It widens to about 20-28% of hands",
       "It reaches almost 100% of available hands"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "What categories of hands are introduced when opening from Middle Position?",
@@ -4448,22 +4448,22 @@
     {
      "question": "Which table positions are considered the most profitable overall?",
      "options": [
-      "Button and CutOff (Late Position)",
       "UTG and UTG+1 (Early Position)",
       "The Small Blind and the Big Blind",
-      "Lojack and Hijack (Middle Position)"
+      "Lojack and Hijack (Middle Position)",
+      "Button and CutOff (Late Position)"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Upon reaching Late Position, to what percentage does the opening range explode?",
      "options": [
-      "40-50%",
       "20-28%",
       "17%",
-      "Over 70%"
+      "Over 70%",
+      "40-50%"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Which marginal combinations can you aggressively open in Late Position?",
@@ -4478,32 +4478,32 @@
     {
      "question": "What is a primary objective when raising from the Button or CutOff with marginal hands?",
      "options": [
-      "The direct steal of the blinds",
       "Creating a huge pot to comfortably fold on the flop",
+      "The direct steal of the blinds",
       "Waiting for an opponent's re-raise so you can fold",
       "Inviting the blinds into a multi-way pot"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Besides aiming to steal the blinds, why do you raise wide from Late Position?",
      "options": [
-      "To leverage your position and outplay opponents postflop",
       "Because the rules forbid folding on the Button",
+      "To leverage your position and outplay opponents postflop",
       "To show the table you always hold strong cards",
       "To end the hand quickly and move on to the next"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "If your stack is 150 BB and you are in Early Position, what is the correct action?",
      "options": [
-      "Open about 17% of hands with a sizing of 3 BB",
       "Open 40-50% of hands with a sizing of 2 BB",
+      "Open about 17% of hands with a sizing of 3 BB",
       "Open 17% of hands with a sizing of 3.5 BB",
       "Open 20-28% of hands with a sizing of 2.5 BB"
      ],
-     "answer": 0
+     "answer": 1
     }
    ],
    "it": [
@@ -4520,52 +4520,52 @@
     {
      "question": "Nel poker moderno, cosa significa l'acronimo GTO?",
      "options": [
-      "Game Theory Optimal",
       "Game Table Organization",
       "Good Texas Odds",
-      "Great Tournament Outplays"
+      "Great Tournament Outplays",
+      "Game Theory Optimal"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Qual è l'obiettivo principale del bilanciamento matematico del range preflop?",
      "options": [
-      "Mescolare mani di valore e bluff per non risultare prevedibili",
       "Giocare esclusivamente le mani premium",
       "Rilanciare sempre all-in per rubare i bui",
+      "Mescolare mani di valore e bluff per non risultare prevedibili",
       "Giocare il 100% delle mani per confondere i propri avversari"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Qual è la size di apertura consigliata se hai uno stack inferiore a 40 BB?",
      "options": [
-      "2 BB",
       "2.5 BB",
       "3 BB",
-      "3.5 BB"
+      "3.5 BB",
+      "2 BB"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Che size di apertura è raccomandata con uno stack medio di 50 BB?",
      "options": [
-      "2.2 BB",
       "2 BB",
       "3 BB",
+      "2.2 BB",
       "3.5 BB"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Quale size di apertura dovresti usare con uno stack medio di 80 BB?",
      "options": [
-      "2.5 BB",
       "2.2 BB",
+      "2.5 BB",
       "3 BB",
       "4 BB"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Se possiedi uno stack maggiore di 100 BB, qual è la size consigliata per aprire?",
@@ -4580,32 +4580,32 @@
     {
      "question": "In situazioni di guerra di bui (BVB), che size di apertura suggerisce il testo?",
      "options": [
-      "3.5 BB",
       "2 BB",
+      "3.5 BB",
       "2.2 BB",
       "3 BB"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Secondo l'autore, esiste una size di apertura obbligatoria in assoluto?",
      "options": [
-      "No, spesso bisogna adattarla al contesto",
       "Sì, è sempre e solo 3 BB",
       "Sì, 2 BB per qualsiasi torneo",
-      "Sì, ma dipende unicamente dal volere del dealer"
+      "Sì, ma dipende unicamente dal volere del dealer",
+      "No, spesso bisogna adattarla al contesto"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Che approccio bisogna adottare dalle prime posizioni (UTG e UTG+1)?",
      "options": [
-      "Estremamente selettivo, limitandosi a circa il 17% delle mani",
       "Aggressivo, aprendo fino al 50% delle mani",
       "Molto passivo, facendo solo limp",
+      "Estremamente selettivo, limitandosi a circa il 17% delle mani",
       "Casuale, per bilanciare la propria immagine"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Quali tra queste mani rientrano nel range di apertura tipico da UTG e UTG+1?",
@@ -4620,22 +4620,22 @@
     {
      "question": "Perché è fondamentale giocare mani di indubbio valore dalle prime posizioni?",
      "options": [
-      "Per facilitare le decisioni postflop e indurre incertezza negli avversari",
       "Per essere chiamati da tutto il tavolo",
       "Per rubare immediatamente i bui senza mai giocare il postflop",
+      "Per facilitare le decisioni postflop e indurre incertezza negli avversari",
       "Per costringere il Big Blind a foldare sempre"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Come cambia il range di apertura passando al Middle Position (LJ - HJ)?",
      "options": [
-      "Si allarga fino a circa il 20-28% delle mani",
       "Si restringe al 10-15% delle mani",
       "Rimane identico a quello dell'Early Position",
+      "Si allarga fino a circa il 20-28% delle mani",
       "Arriva quasi al 100% delle mani disponibili"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Quali categorie di mani vengono introdotte quando si apre dal Middle Position?",
@@ -4650,22 +4650,22 @@
     {
      "question": "Quali sono le posizioni al tavolo considerate le più profittevoli in assoluto?",
      "options": [
-      "Bottone e CutOff (Late Position)",
       "UTG e UTG+1 (Early Position)",
       "Lo Small Blind e il Big Blind",
-      "Lojack e Hijack (Middle Position)"
+      "Lojack e Hijack (Middle Position)",
+      "Bottone e CutOff (Late Position)"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Raggiungendo la Late Position, a quale percentuale esplode il range di apertura?",
      "options": [
-      "40-50%",
       "20-28%",
       "17%",
-      "Oltre il 70%"
+      "Oltre il 70%",
+      "40-50%"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Quali combinazioni marginali puoi permetterti di aprire aggressivamente in Late Position?",
@@ -4680,32 +4680,32 @@
     {
      "question": "Qual è uno degli obiettivi principali quando si rilancia da Bottone o CutOff con mani marginali?",
      "options": [
-      "Lo steal (furto) diretto dei bui",
       "Creare un piatto enorme per poter fare fold sereni al flop",
+      "Lo steal (furto) diretto dei bui",
       "Aspettare un re-raise avversario per poter foldare",
       "Invitare i bui a un piatto multi-way"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Oltre a puntare al furto dei bui, perché si rilancia ampiamente dalle Late Position?",
      "options": [
-      "Per sfruttare il posizionamento e outplayare gli avversari postflop",
       "Perché le regole vietano di passare le carte sul Bottone",
+      "Per sfruttare il posizionamento e outplayare gli avversari postflop",
       "Per mostrare al tavolo che si hanno sempre carte forti",
       "Per far terminare la mano rapidamente e passare alla successiva"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Se il tuo stack è di 150 BB e ti trovi in Early Position, qual è l'azione corretta?",
      "options": [
-      "Aprire circa il 17% delle mani con una size di 3 BB",
       "Aprire il 40-50% delle mani con una size di 2 BB",
+      "Aprire circa il 17% delle mani con una size di 3 BB",
       "Aprire il 17% delle mani con una size di 3.5 BB",
       "Aprire il 20-28% delle mani con una size di 2.5 BB"
      ],
-     "answer": 0
+     "answer": 1
     }
    ],
    "es": [
@@ -4722,52 +4722,52 @@
     {
      "question": "En el póker moderno, ¿qué significan las siglas GTO?",
      "options": [
-      "Game Theory Optimal",
       "Game Table Organization",
       "Good Texas Odds",
-      "Great Tournament Outplays"
+      "Great Tournament Outplays",
+      "Game Theory Optimal"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "¿Cuál es el objetivo principal de equilibrar matemáticamente el rango preflop?",
      "options": [
-      "Mezclar manos de valor y faroles para no ser predecibles",
       "Jugar exclusivamente las manos premium",
       "Ir siempre all-in para robar las ciegas",
+      "Mezclar manos de valor y faroles para no ser predecibles",
       "Jugar el 100% de las manos para confundir a los rivales"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "¿Cuál es el tamaño de apertura recomendado si tienes un stack inferior a 40 BB?",
      "options": [
-      "2 BB",
       "2.5 BB",
       "3 BB",
-      "3.5 BB"
+      "3.5 BB",
+      "2 BB"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "¿Qué tamaño de apertura se recomienda con un stack medio de 50 BB?",
      "options": [
-      "2.2 BB",
       "2 BB",
       "3 BB",
+      "2.2 BB",
       "3.5 BB"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "¿Qué tamaño de apertura deberías usar con un stack medio de 80 BB?",
      "options": [
-      "2.5 BB",
       "2.2 BB",
+      "2.5 BB",
       "3 BB",
       "4 BB"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Si posees un stack mayor a 100 BB, ¿cuál es el tamaño sugerido para abrir?",
@@ -4782,32 +4782,32 @@
     {
      "question": "En situaciones de guerra de ciegas (BVB), ¿qué tamaño de apertura sugiere el texto?",
      "options": [
-      "3.5 BB",
       "2 BB",
+      "3.5 BB",
       "2.2 BB",
       "3 BB"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Según el autor, ¿existe un tamaño de apertura obligatorio en absoluto?",
      "options": [
-      "No, a menudo hay que adaptarlo al contexto",
       "Sí, siempre es exactamente 3 BB",
       "Sí, 2 BB para cualquier torneo",
-      "Sí, pero depende únicamente de la decisión del crupier"
+      "Sí, pero depende únicamente de la decisión del crupier",
+      "No, a menudo hay que adaptarlo al contexto"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "¿Qué enfoque se debe adoptar desde las primeras posiciones (UTG y UTG+1)?",
      "options": [
-      "Extremadamente selectivo, limitándose a cerca del 17% de las manos",
       "Agresivo, abriendo hasta el 50% de las manos",
       "Muy pasivo, haciendo solo limp",
+      "Extremadamente selectivo, limitándose a cerca del 17% de las manos",
       "Aleatorio, para equilibrar la imagen en la mesa"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "¿Cuáles de estas manos entran en el rango de apertura típico desde UTG y UTG+1?",
@@ -4822,22 +4822,22 @@
     {
      "question": "¿Por qué es fundamental jugar manos de indudable valor desde las primeras posiciones?",
      "options": [
-      "Para facilitar las decisiones postflop e inducir incertidumbre en los oponentes",
       "Para que toda la mesa iguale la apuesta",
       "Para robar de inmediato las ciegas sin jugar el postflop",
+      "Para facilitar las decisiones postflop e inducir incertidumbre en los oponentes",
       "Para obligar a la Ciega Grande a retirarse siempre"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "¿Cómo cambia el rango de apertura al pasar a Middle Position (LJ - HJ)?",
      "options": [
-      "Se amplía hasta aproximadamente un 20-28% de las manos",
       "Se reduce a un 10-15% de las manos",
       "Permanece idéntico al de Early Position",
+      "Se amplía hasta aproximadamente un 20-28% de las manos",
       "Alcanza casi el 100% de las manos disponibles"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "¿Qué categorías de manos se introducen al abrir desde Middle Position?",
@@ -4852,22 +4852,22 @@
     {
      "question": "¿Cuáles son las posiciones en la mesa consideradas las más rentables?",
      "options": [
-      "Botón y CutOff (Late Position)",
       "UTG y UTG+1 (Early Position)",
       "La Ciega Pequeña y la Ciega Grande",
-      "Lojack y Hijack (Middle Position)"
+      "Lojack y Hijack (Middle Position)",
+      "Botón y CutOff (Late Position)"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Al alcanzar Late Position, ¿a qué porcentaje explota el rango de apertura?",
      "options": [
-      "40-50%",
       "20-28%",
       "17%",
-      "Más del 70%"
+      "Más del 70%",
+      "40-50%"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "¿Qué combinaciones marginales te puedes permitir abrir agresivamente en Late Position?",
@@ -4882,32 +4882,32 @@
     {
      "question": "¿Cuál es uno de los principales objetivos de subir en el Botón o CutOff con manos marginales?",
      "options": [
-      "El robo (steal) directo de las ciegas",
       "Crear un bote enorme para poder foldear cómodamente en el flop",
+      "El robo (steal) directo de las ciegas",
       "Esperar una resubida rival para poder retirarse",
       "Invitar a las ciegas a un bote multi-way"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Además de apuntar al robo de ciegas, ¿por qué se sube ampliamente desde Late Position?",
      "options": [
-      "Para aprovechar el posicionamiento y superar a los oponentes postflop",
       "Porque las reglas prohíben retirarse en el Botón",
+      "Para aprovechar el posicionamiento y superar a los oponentes postflop",
       "Para mostrar a la mesa que siempre se tienen cartas fuertes",
       "Para terminar la mano rápidamente y pasar a la siguiente"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Si tu stack es de 150 BB y estás en Early Position, ¿cuál es la acción correcta?",
      "options": [
-      "Abrir alrededor del 17% de las manos con un tamaño de 3 BB",
       "Abrir el 40-50% de las manos con un tamaño de 2 BB",
+      "Abrir alrededor del 17% de las manos con un tamaño de 3 BB",
       "Abrir el 17% de las manos con un tamaño de 3.5 BB",
       "Abrir el 20-28% de las manos con un tamaño de 2.5 BB"
      ],
-     "answer": 0
+     "answer": 1
     }
    ],
    "de": [
@@ -4924,52 +4924,52 @@
     {
      "question": "Wofür steht die Abkürzung GTO im modernen Poker?",
      "options": [
-      "Game Theory Optimal",
       "Game Table Organization",
       "Good Texas Odds",
-      "Great Tournament Outplays"
+      "Great Tournament Outplays",
+      "Game Theory Optimal"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Was ist das Hauptziel beim mathematischen Balancing der Preflop-Range?",
      "options": [
-      "Das Mischen von Value-Händen und Bluffs, um unberechenbar zu sein",
       "Das Spielen von ausschließlich Premium-Händen",
       "Immer All-In zu gehen, um die Blinds zu stehlen",
+      "Das Mischen von Value-Händen und Bluffs, um unberechenbar zu sein",
       "100% der Hände zu spielen, um die Gegner zu verwirren"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Welche Eröffnungsgröße wird bei einem Stack von weniger als 40 BB empfohlen?",
      "options": [
-      "2 BB",
       "2.5 BB",
       "3 BB",
-      "3.5 BB"
+      "3.5 BB",
+      "2 BB"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Welches Sizing wird bei einem durchschnittlichen Stack von 50 BB empfohlen?",
      "options": [
-      "2.2 BB",
       "2 BB",
       "3 BB",
+      "2.2 BB",
       "3.5 BB"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Welche Eröffnungsgröße solltest du bei einem Stack von 80 BB verwenden?",
      "options": [
-      "2.5 BB",
       "2.2 BB",
+      "2.5 BB",
       "3 BB",
       "4 BB"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Welche Größe wird zum Eröffnen empfohlen, wenn dein Stack größer als 100 BB ist?",
@@ -4984,32 +4984,32 @@
     {
      "question": "Welches Eröffnungs-Sizing schlägt der Text für Blind-vs-Blind-Situationen vor?",
      "options": [
-      "3.5 BB",
       "2 BB",
+      "3.5 BB",
       "2.2 BB",
       "3 BB"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Gibt es laut dem Autor eine absolut obligatorische Eröffnungsgröße?",
      "options": [
-      "Nein, man muss sie oft an den Kontext anpassen",
       "Ja, es sind immer genau 3 BB",
       "Ja, 2 BB für jedes Turnier",
-      "Ja, aber das hängt allein vom Dealer ab"
+      "Ja, aber das hängt allein vom Dealer ab",
+      "Nein, man muss sie oft an den Kontext anpassen"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Welcher Ansatz sollte in frühen Positionen (UTG und UTG+1) verfolgt werden?",
      "options": [
-      "Extrem selektiv, beschränkt auf etwa 17% der Hände",
       "Aggressiv, Eröffnung von bis zu 50% der Hände",
       "Sehr passiv, nur Limping",
+      "Extrem selektiv, beschränkt auf etwa 17% der Hände",
       "Zufällig, um das eigene Image zu balancen"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Welche dieser Hände fallen in eine typische Eröffnungs-Range aus UTG und UTG+1?",
@@ -5024,22 +5024,22 @@
     {
      "question": "Warum ist es so wichtig, aus frühen Positionen Hände von zweifellosem Wert zu spielen?",
      "options": [
-      "Um Postflop-Entscheidungen zu erleichtern und Unsicherheit bei den Gegnern zu erzeugen",
       "Um vom gesamten Tisch gecallt zu werden",
       "Um sofort die Blinds zu stehlen, ohne jemals Postflop zu spielen",
+      "Um Postflop-Entscheidungen zu erleichtern und Unsicherheit bei den Gegnern zu erzeugen",
       "Um den Big Blind zu zwingen, jedes Mal zu folden"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Wie verändert sich die Eröffnungs-Range in der Middle Position (LJ - HJ)?",
      "options": [
-      "Sie erweitert sich auf etwa 20-28% der Hände",
       "Sie verengt sich auf 10-15% der Hände",
       "Sie bleibt identisch mit der Early Position",
+      "Sie erweitert sich auf etwa 20-28% der Hände",
       "Sie erreicht fast 100% der verfügbaren Hände"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Welche Kategorien von Händen kommen hinzu in der Middle Position?",
@@ -5054,22 +5054,22 @@
     {
      "question": "Welche Positionen am Tisch gelten als die profitabelsten?",
      "options": [
-      "Button und CutOff (Late Position)",
       "UTG und UTG+1 (Early Position)",
       "Der Small Blind und der Big Blind",
-      "Lojack und Hijack (Middle Position)"
+      "Lojack und Hijack (Middle Position)",
+      "Button und CutOff (Late Position)"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Auf welchen Prozentsatz explodiert die Eröffnungs-Range in der Late Position?",
      "options": [
-      "40-50%",
       "20-28%",
       "17%",
-      "Über 70%"
+      "Über 70%",
+      "40-50%"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Welche marginalen Kombinationen kannst du in der Late Position aggressiv eröffnen?",
@@ -5084,32 +5084,32 @@
     {
      "question": "Was ist eines der Hauptziele beim Raisen am Button oder CutOff mit marginalen Händen?",
      "options": [
-      "Der direkte Steal der Blinds",
       "Einen riesigen Pot zu kreieren, um am Flop beruhigt folden zu können",
+      "Der direkte Steal der Blinds",
       "Auf einen Re-Raise des Gegners zu warten, um dann zu folden",
       "Die Blinds in einen Multi-Way-Pot einzuladen"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Warum wird aus der Late Position so weit geraist, abgesehen vom Blinds stehlen?",
      "options": [
-      "Um die Position zu nutzen und die Gegner Postflop auszuspielen",
       "Weil die Regeln das Folden am Button verbieten",
+      "Um die Position zu nutzen und die Gegner Postflop auszuspielen",
       "Um dem Tisch zu zeigen, dass man immer starke Karten hat",
       "Um die Hand schnell zu beenden und zur nächsten überzugehen"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Wenn dein Stack 150 BB beträgt und du in Early Position bist, was ist die richtige Aktion?",
      "options": [
-      "Etwa 17% der Hände mit einem Sizing von 3 BB eröffnen",
       "40-50% der Hände mit einem Sizing von 2 BB eröffnen",
+      "Etwa 17% der Hände mit einem Sizing von 3 BB eröffnen",
       "17% der Hände mit einem Sizing von 3.5 BB eröffnen",
       "20-28% der Hände mit einem Sizing von 2.5 BB eröffnen"
      ],
-     "answer": 0
+     "answer": 1
     }
    ],
    "fr": [
@@ -5126,52 +5126,52 @@
     {
      "question": "Dans le poker moderne, que signifie l'acronyme GTO ?",
      "options": [
-      "Game Theory Optimal",
       "Game Table Organization",
       "Good Texas Odds",
-      "Great Tournament Outplays"
+      "Great Tournament Outplays",
+      "Game Theory Optimal"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Quel est l'objectif principal de l'équilibrage mathématique de la range préflop ?",
      "options": [
-      "Mélanger des mains de valeur et des bluffs pour ne pas être prévisible",
       "Jouer exclusivement des mains premium",
       "Toujours faire tapis pour voler les blindes",
+      "Mélanger des mains de valeur et des bluffs pour ne pas être prévisible",
       "Jouer 100% de ses mains pour troubler ses adversaires"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Quelle est la taille de relance conseillée avec un tapis inférieur à 40 BB ?",
      "options": [
-      "2 BB",
       "2.5 BB",
       "3 BB",
-      "3.5 BB"
+      "3.5 BB",
+      "2 BB"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Quelle taille de relance est recommandée pour un tapis moyen de 50 BB ?",
      "options": [
-      "2.2 BB",
       "2 BB",
       "3 BB",
+      "2.2 BB",
       "3.5 BB"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Quelle taille de relance devriez-vous utiliser avec un tapis moyen de 80 BB ?",
      "options": [
-      "2.5 BB",
       "2.2 BB",
+      "2.5 BB",
       "3 BB",
       "4 BB"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Si vous avez un tapis supérieur à 100 BB, quelle est la taille de relance recommandée ?",
@@ -5186,32 +5186,32 @@
     {
      "question": "Dans les situations de bataille de blindes (BVB), quelle taille de relance suggère le texte ?",
      "options": [
-      "3.5 BB",
       "2 BB",
+      "3.5 BB",
       "2.2 BB",
       "3 BB"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Selon l'auteur, existe-t-il une taille d'ouverture obligatoire dans l'absolu ?",
      "options": [
-      "Non, il faut souvent l'adapter au contexte",
       "Oui, c'est toujours exactement 3 BB",
       "Oui, 2 BB pour tous les tournois",
-      "Oui, mais cela dépend uniquement du croupier"
+      "Oui, mais cela dépend uniquement du croupier",
+      "Non, il faut souvent l'adapter au contexte"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Quelle approche faut-il adopter dans les premières positions (UTG et UTG+1) ?",
      "options": [
-      "Extrêmement sélective, en se limitant à environ 17% des mains",
       "Agressive, en ouvrant jusqu'à 50% des mains",
       "Très passive, en ne faisant que des limps",
+      "Extrêmement sélective, en se limitant à environ 17% des mains",
       "Aléatoire, pour équilibrer son image"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Parmi ces mains, lesquelles entrent dans une range d'ouverture typique depuis UTG et UTG+1 ?",
@@ -5226,22 +5226,22 @@
     {
      "question": "Pourquoi est-il fondamental de jouer des mains de valeur certaine depuis les premières positions ?",
      "options": [
-      "Pour faciliter les décisions postflop et induire de l'incertitude chez les adversaires",
       "Pour être payé par toute la table",
       "Pour voler immédiatement les blindes sans jamais jouer postflop",
+      "Pour faciliter les décisions postflop et induire de l'incertitude chez les adversaires",
       "Pour forcer la Grosse Blinde à se coucher à chaque fois"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Comment évolue la range d'ouverture en Middle Position (LJ - HJ) ?",
      "options": [
-      "Elle s'élargit jusqu'à environ 20-28% des mains",
       "Elle se réduit à 10-15% des mains",
       "Elle reste identique à celle de l'Early Position",
+      "Elle s'élargit jusqu'à environ 20-28% des mains",
       "Elle atteint presque 100% des mains disponibles"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Quelles catégories de mains sont introduites en Middle Position ?",
@@ -5256,22 +5256,22 @@
     {
      "question": "Quelles sont les positions les plus rentables dans l'absolu ?",
      "options": [
-      "Bouton et CutOff (Late Position)",
       "UTG et UTG+1 (Early Position)",
       "La Petite Blinde et la Grosse Blinde",
-      "Lojack et Hijack (Middle Position)"
+      "Lojack et Hijack (Middle Position)",
+      "Bouton et CutOff (Late Position)"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "En atteignant la Late Position, à quel pourcentage explose la range d'ouverture ?",
      "options": [
-      "40-50%",
       "20-28%",
       "17%",
-      "Plus de 70%"
+      "Plus de 70%",
+      "40-50%"
      ],
-     "answer": 0
+     "answer": 3
     },
     {
      "question": "Quelles combinaisons marginales pouvez-vous ouvrir agressivement en Late Position ?",
@@ -5286,32 +5286,32 @@
     {
      "question": "Quel est l'un des principaux objectifs d'une relance au Bouton ou CutOff avec des mains marginales ?",
      "options": [
-      "Le vol direct des blindes",
       "Créer un énorme pot pour pouvoir se coucher sereinement au flop",
+      "Le vol direct des blindes",
       "Attendre une sur-relance adverse pour pouvoir se coucher",
       "Inviter les blindes dans un pot multi-way"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Outre le vol des blindes, pourquoi relance-t-on largement depuis les Late Positions ?",
      "options": [
-      "Pour tirer parti de la position et surpasser ses adversaires postflop",
       "Parce que les règles interdisent de se coucher au Bouton",
+      "Pour tirer parti de la position et surpasser ses adversaires postflop",
       "Pour montrer à la table qu'on a toujours des cartes fortes",
       "Pour terminer la main rapidement et passer à la suivante"
      ],
-     "answer": 0
+     "answer": 1
     },
     {
      "question": "Si votre tapis est de 150 BB en Early Position, quelle est la bonne action ?",
      "options": [
-      "Ouvrir environ 17% des mains avec un sizing de 3 BB",
       "Ouvrir 40-50% des mains avec un sizing de 2 BB",
+      "Ouvrir environ 17% des mains avec un sizing de 3 BB",
       "Ouvrir 17% des mains avec un sizing de 3.5 BB",
       "Ouvrir 20-28% des mains avec un sizing de 2.5 BB"
      ],
-     "answer": 0
+     "answer": 1
     }
    ]
   },
@@ -5321,31 +5321,31 @@
      "question": "Oltre alla forza effettiva delle carte, qual è l'altro elemento fondamentale del poker?",
      "options": [
       "La fortuna pura ad ogni mano",
-      "La capacità di prendere decisioni migliori con informazioni incomplete",
       "La velocità con cui si effettuano le puntate",
-      "L'abilità nel truccare il mazzo"
+      "L'abilità nel truccare il mazzo",
+      "La capacità di prendere decisioni migliori con informazioni incomplete"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Nel Texas Hold’em, quante carte private (hole cards) riceve ogni giocatore?",
      "options": [
       "1",
-      "2",
       "4",
+      "2",
       "5"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Quante carte comuni (community cards) possono essere distribuite sul tavolo al massimo?",
      "options": [
       "3",
       "4",
-      "5",
-      "7"
+      "7",
+      "5"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "Da quante carte è composta la combinazione finale di ciascun giocatore nel Texas Hold’em?",
@@ -5371,61 +5371,61 @@
      "question": "Che cos'è il \"pot\" (o piatto)?",
      "options": [
       "La tassa pagata alla casa da gioco",
-      "L'insieme delle fiches investite durante la mano",
       "Il numero totale di carte comuni",
-      "La puntata minima obbligatoria del mazziere"
+      "La puntata minima obbligatoria del mazziere",
+      "L'insieme delle fiches investite durante la mano"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Con quale mazzo si gioca normalmente al Texas Hold’em?",
      "options": [
-      "Mazzo da 40 carte regionali",
       "Mazzo francese da 52 carte senza jolly",
+      "Mazzo da 40 carte regionali",
       "Mazzo da 54 carte inclusi 2 jolly",
       "Mazzo da 32 carte"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Come si valutano i quattro semi (cuori, quadri, fiori, picche) nel Texas Hold’em?",
      "options": [
       "I semi rossi valgono più di quelli neri",
       "Le picche battono sempre i cuori",
-      "I semi hanno tutti lo stesso valore",
-      "Le fioriture determinano chi punta per primo"
+      "Le fioriture determinano chi punta per primo",
+      "I semi hanno tutti lo stesso valore"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "In quale delle seguenti combinazioni l'Asso NON può essere utilizzato per formare una scala valida?",
      "options": [
+      "8 - 9 - A - J - Q",
       "A - K - Q - J - 10",
       "A - 2 - 3 - 4 - 5",
-      "8 - 9 - A - J - Q",
       "L'Asso può essere usato in qualsiasi posizione"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "Qual è la combinazione di punti più forte in assoluto nel Texas Hold’em?",
      "options": [
-      "Poker d'Assi",
       "Scala reale",
+      "Poker d'Assi",
       "Full di Re",
       "Scala colore all'otto"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Da cosa è composta una Scala Colore?",
      "options": [
-      "Cinque carte dello stesso seme non in sequenza",
       "Cinque carte consecutive dello stesso seme",
+      "Cinque carte dello stesso seme non in sequenza",
       "Quattro carte dello stesso valore e una quinta carta spaiata",
       "Tre carte dello stesso seme e due di un altro"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Da cosa è composto un Full?",
@@ -5461,11 +5461,11 @@
      "question": "Quale delle seguenti scale vince contro la scala 9 - 8 - 7 - 6 - 5?",
      "options": [
       "8 - 7 - 6 - 5 - 4",
-      "10 - 9 - 8 - 7 - 6",
       "7 - 6 - 5 - 4 - 3",
-      "Hanno tutte lo stesso valore"
+      "Hanno tutte lo stesso valore",
+      "10 - 9 - 8 - 7 - 6"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Che cos'è il \"kicker\"?",
@@ -5481,61 +5481,61 @@
      "question": "Se le cinque carte comuni sul tavolo sono A - K - Q - J - 10 di semi diversi, cosa succede allo showdown?",
      "options": [
       "Vince chi possiede un Asso in mano",
-      "Il piatto viene diviso tra tutti i giocatori rimasti (split pot)",
       "Vince il giocatore in posizione di Bottone",
-      "La mano viene annullata dal dealer"
+      "La mano viene annullata dal dealer",
+      "Il piatto viene diviso tra tutti i giocatori rimasti (split pot)"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Cosa identifica il Dealer Button (BTN o bottone del mazziere)?",
      "options": [
-      "Il giocatore che deve puntare di più",
       "La posizione di chi agisce per ultimo nelle fasi di puntata successive al flop",
+      "Il giocatore che deve puntare di più",
       "L'unico giocatore autorizzato a bluffare",
       "Il giocatore che distribuisce fisicamente le carte online"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "In quale direzione si spostano il bottone e i bui dopo ogni mano?",
      "options": [
-      "In senso antiorario",
       "In senso orario",
+      "In senso antiorario",
       "Vengono assegnati casualmente",
       "Restano fermi per tutta la partita"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Quali sono i due bui obbligatori versati prima di distribuire le carte?",
      "options": [
-      "Ante e Main Pot",
       "Small Blind e Big Blind",
+      "Ante e Main Pot",
       "Call e Raise",
       "Check e Bet"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "In una partita con bui 10/20, quante fiches deve versare lo Small Blind preflop?",
      "options": [
       "5",
-      "10",
       "20",
+      "10",
       "0"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Quale tra le seguenti è considerata una posizione iniziale (Early Position)?",
      "options": [
       "Button (BTN)",
-      "Cutoff (CO)",
       "Under The Gun (UTG)",
+      "Cutoff (CO)",
       "Small Blind (SB)"
      ],
-     "answer": 2
+     "answer": 1
     },
     {
      "question": "Perché agire in posizione finale (es. Button) rappresenta un enorme vantaggio strategico?",
@@ -5551,41 +5551,41 @@
      "question": "Quante sono le fasi di puntata in una mano completa di Texas Hold’em?",
      "options": [
       "2 (Preflop e Showdown)",
-      "3 (Flop, Turn, River)",
       "4 (Preflop, Flop, Turn, River)",
+      "3 (Flop, Turn, River)",
       "5 (Preflop, Flop, Turn, River, Post-river)"
      ],
-     "answer": 2
+     "answer": 1
     },
     {
      "question": "Quante carte comuni vengono scoperte sul tavolo durante la fase del Flop?",
      "options": [
       "1",
       "2",
-      "3",
-      "5"
+      "5",
+      "3"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "Qual è la quarta carta comune distribuita sul tavolo?",
      "options": [
       "Il Flop",
-      "Il Turn",
       "Il River",
+      "Il Turn",
       "L'Ante"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Che cos'è il River nel Texas Hold’em?",
      "options": [
       "La prima puntata della mano",
-      "La quinta e ultima carta comune del board",
       "Il momento in cui si pagano i bui",
-      "L'eliminazione di un giocatore dal torneo"
+      "L'eliminazione di un giocatore dal torneo",
+      "La quinta e ultima carta comune del board"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Che cosa comporta l'azione del \"Fold\"?",
@@ -5610,12 +5610,12 @@
     {
      "question": "Cosa si intende con il termine \"Open Raise\" nel Preflop?",
      "options": [
-      "Il primo rilancio effettuato quando nessun giocatore è ancora entrato nel piatto prima di noi",
       "Chiamare il Big Blind senza rilanciare",
       "Andare subito all-in al Flop",
+      "Il primo rilancio effettuato quando nessun giocatore è ancora entrato nel piatto prima di noi",
       "Mostrare le proprie carte prima delle puntate"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Che cos'è una \"3-bet\"?",
@@ -5630,102 +5630,102 @@
     {
      "question": "Nel No-Limit Hold’em, quanto può puntare un giocatore in qualsiasi momento?",
      "options": [
+      "Fino all'intero importo del proprio stack",
       "Massimo 10 volte il Big Blind",
       "Fino alla dimensione del piatto attuale",
-      "Fino all'intero importo del proprio stack",
       "Un importo fisso stabilito dal mazziere"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "Nel Pot-Limit Hold’em, qual è il limite massimo per un rilancio?",
      "options": [
-      "Non c'è alcun limite",
       "La dimensione attuale del piatto",
+      "Non c'è alcun limite",
       "Il doppio del Big Blind",
       "La metà del proprio stack"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Nel gioco dal vivo, cosa succede se sposti nel piatto una singola scheda di grande valore senza dichiarare verbale il rilancio?",
      "options": [
       "Viene considerata automaticamente un All-in",
-      "Viene interpretata come Call (regola della single oversized chip)",
       "La mano viene annullata e si riceve una penalità",
+      "Viene interpretata come Call (regola della single oversized chip)",
       "Si ottiene il cambio automatico dal mazziere"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Se un giocatore va All-in con uno stack inferiore rispetto alle puntate degli altri, cosa si crea per la parte eccedente?",
      "options": [
       "Un nuovo mazzo di carte",
-      "Un Side Pot (piatto laterale) disputato solo dagli altri giocatori attivi",
       "Il rimborso immediato a tutti i partecipanti",
-      "Il congelamento del Flop"
+      "Il congelamento del Flop",
+      "Un Side Pot (piatto laterale) disputato solo dagli altri giocatori attivi"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Qual è la miglior mano di partenza (hole cards) nel Texas Hold’em?",
      "options": [
+      "Coppia di Assi (A - A)",
       "A - K dello stesso seme",
       "Coppia di Re (K - K)",
-      "Coppia di Assi (A - A)",
       "J - 10 dello stesso seme"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "Che cosa misura l'Equity di una mano nel poker?",
      "options": [
       "La quantità esatta di denaro che si vincerà nella mano corrente",
-      "La quota teorica del piatto che una mano può aspettarsi di vincere nel lungo periodo contro il range avversario",
       "Il numero di fiches rimaste nello stack",
+      "La quota teorica del piatto che una mano può aspettarsi di vincere nel lungo periodo contro il range avversario",
       "La percentuale di volte che il giocatore bluffa"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Cosa sono gli \"Outs\"?",
      "options": [
       "I giocatori già eliminati dal tavolo",
-      "Le carte rimanenti nel mazzo che migliorano la nostra mano in modo utile",
       "Le fiches uscite dal piatto",
+      "Le carte rimanenti nel mazzo che migliorano la nostra mano in modo utile",
       "Le decisioni sbagliate prese durante il gioco"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Secondo la \"Regola del 2 e del 4\", come si stima la probabilità di completare un progetto al Flop avendo Turn e River ancora da vedere?",
      "options": [
-      "Sommando 4 alla quota del piatto",
       "Moltiplicando il numero di Outs per 4",
+      "Sommando 4 alla quota del piatto",
       "Dividendo gli Outs per 2",
       "Moltiplicando il numero di Outs per 2"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Se al Flop hai un progetto di colore con 9 outs puliti, qual è la probabilità approssimativa di completarlo entro il River?",
      "options": [
       "Circa 18%",
-      "Circa 36%",
       "Circa 50%",
-      "Circa 90%"
+      "Circa 90%",
+      "Circa 36%"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Come si calcolano le \"Pot Odds\"?",
      "options": [
       "Confrontando la dimensione dello stack con i bui",
-      "Confrontando il costo del call con la dimensione totale del piatto finale che si può vincere",
       "Moltiplicando il numero di giocatori per le carte comuni",
-      "Dividendo i bluff per le puntate di valore"
+      "Dividendo i bluff per le puntate di valore",
+      "Confrontando il costo del call con la dimensione totale del piatto finale che si può vincere"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Cosa rappresentano le \"Implied Odds\" (odds implicite)?",
@@ -5751,31 +5751,31 @@
      "question": "Che cos'è una \"Value Bet\"?",
      "options": [
       "Una puntata fatta con una mano debole per far passare l'avversario",
-      "Una puntata effettuata con una mano forte con l'obiettivo di farsi chiamare da mani peggiori",
       "La puntata minima obbligatoria del Big Blind",
-      "Una puntata casuale senza uno scopo preciso"
+      "Una puntata casuale senza uno scopo preciso",
+      "Una puntata effettuata con una mano forte con l'obiettivo di farsi chiamare da mani peggiori"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Cosa caratterizza un \"Semi-bluff\"?",
      "options": [
-      "Puntare con una mano debole che non ha alcuna possibilità di migliorare",
       "Puntare con una mano non ancora completa (es. un progetto) che ha buone probabilità di diventare fortissima",
+      "Puntare con una mano debole che non ha alcuna possibilità di migliorare",
       "Passare la mano quando si ha la miglior combinazione",
       "Mostrare una sola carta prima dello showdown"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Cos'è la \"Fold Equity\"?",
      "options": [
       "Il valore in denaro delle carte scartate",
-      "La probabilità che l'avversario passi la sua mano di fronte a una nostra puntata",
       "La percentuale di mani giocate da posizione iniziale",
+      "La probabilità che l'avversario passi la sua mano di fronte a una nostra puntata",
       "Il costo fisso per entrare in un torneo"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Che cosa esprime il \"Valore Atteso\" (EV - Expected Value)?",
@@ -5791,21 +5791,21 @@
      "question": "Se possiedi uno stack di 10.000 fiches e i bui sono 100/200, a quanti Big Blind (BB) corrisponde il tuo stack?",
      "options": [
       "100 BB",
-      "50 BB",
       "200 BB",
+      "50 BB",
       "10 BB"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Qual è la differenza principale tra Cash Game e Tornei riguardo al valore delle fiches?",
      "options": [
       "Nel Cash Game le fiches non valgano nulla, nei tornei si",
-      "Nel Cash Game le fiches hanno un valore monetario diretto, nei tornei hanno valore legato alla struttura premi e sopravvivenza",
       "Nei tornei i bui non aumentano mai",
+      "Nel Cash Game le fiches hanno un valore monetario diretto, nei tornei hanno valore legato alla struttura premi e sopravvivenza",
       "Nel Cash Game si gioca senza mazziere"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Che cos'è il \"Tilt\" nel poker?",
@@ -5823,31 +5823,31 @@
      "question": "Besides the actual strength of the cards, what is the other fundamental element of poker?",
      "options": [
       "Pure luck in every hand",
-      "The ability to make better decisions with incomplete information",
       "The speed at which bets are made",
-      "The skill in rigging the deck"
+      "The skill in rigging the deck",
+      "The ability to make better decisions with incomplete information"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "In Texas Hold’em, how many private cards (hole cards) does each player receive?",
      "options": [
       "1",
-      "2",
       "4",
+      "2",
       "5"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "How many community cards can be dealt on the table at most?",
      "options": [
       "3",
       "4",
-      "5",
-      "7"
+      "7",
+      "5"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "How many cards make up each player's final combination in Texas Hold’em?",
@@ -5873,61 +5873,61 @@
      "question": "What is the \"pot\"?",
      "options": [
       "The fee paid to the house",
-      "The total chips invested during the hand",
       "The total number of community cards",
-      "The minimum mandatory bet by the dealer"
+      "The minimum mandatory bet by the dealer",
+      "The total chips invested during the hand"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Which deck is normally used to play Texas Hold’em?",
      "options": [
-      "40-card regional deck",
       "52-card French deck without jokers",
+      "40-card regional deck",
       "54-card deck including 2 jokers",
       "32-card deck"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "How are the four suits (hearts, diamonds, clubs, spades) valued in Texas Hold’em?",
      "options": [
       "Red suits are worth more than black ones",
       "Spades always beat hearts",
-      "All suits have the same value",
-      "Clubs determine who bets first"
+      "Clubs determine who bets first",
+      "All suits have the same value"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "In which of the following combinations CANNOT the Ace be used to form a valid straight?",
      "options": [
+      "8 - 9 - A - J - Q",
       "A - K - Q - J - 10",
       "A - 2 - 3 - 4 - 5",
-      "8 - 9 - A - J - Q",
       "The Ace can be used in any position"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "What is the absolute strongest hand combination in Texas Hold’em?",
      "options": [
-      "Four Aces",
       "Royal Flush",
+      "Four Aces",
       "Kings Full",
       "Eight-high Straight Flush"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "What makes up a Straight Flush?",
      "options": [
-      "Five non-consecutive cards of the same suit",
       "Five consecutive cards of the same suit",
+      "Five non-consecutive cards of the same suit",
       "Four cards of the same rank and a fifth unmatched card",
       "Three cards of one suit and two of another"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "What makes up a Full House?",
@@ -5963,11 +5963,11 @@
      "question": "Which of the following straights wins against a 9 - 8 - 7 - 6 - 5 straight?",
      "options": [
       "8 - 7 - 6 - 5 - 4",
-      "10 - 9 - 8 - 7 - 6",
       "7 - 6 - 5 - 4 - 3",
-      "They all have the same value"
+      "They all have the same value",
+      "10 - 9 - 8 - 7 - 6"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "What is the \"kicker\"?",
@@ -5983,61 +5983,61 @@
      "question": "If the five community cards on the board are A - K - Q - J - 10 of different suits, what happens at showdown?",
      "options": [
       "Whoever has an Ace in their hand wins",
-      "The pot is split among all remaining players (split pot)",
       "The player on the Button wins",
-      "The hand is voided by the dealer"
+      "The hand is voided by the dealer",
+      "The pot is split among all remaining players (split pot)"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "What does the Dealer Button (BTN) identify?",
      "options": [
-      "The player who must bet the most",
       "The position of the last to act in the betting rounds after the flop",
+      "The player who must bet the most",
       "The only player allowed to bluff",
       "The player who physically deals the cards online"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "In which direction do the button and blinds move after each hand?",
      "options": [
-      "Counterclockwise",
       "Clockwise",
+      "Counterclockwise",
       "They are assigned randomly",
       "They remain fixed for the entire game"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "What are the two mandatory blinds posted before cards are dealt?",
      "options": [
-      "Ante and Main Pot",
       "Small Blind and Big Blind",
+      "Ante and Main Pot",
       "Call and Raise",
       "Check and Bet"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "In a game with 10/20 blinds, how many chips must the Small Blind post preflop?",
      "options": [
       "5",
-      "10",
       "20",
+      "10",
       "0"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Which of the following is considered an Early Position?",
      "options": [
       "Button (BTN)",
-      "Cutoff (CO)",
       "Under The Gun (UTG)",
+      "Cutoff (CO)",
       "Small Blind (SB)"
      ],
-     "answer": 2
+     "answer": 1
     },
     {
      "question": "Why does acting in late position (e.g. Button) represent a huge strategic advantage?",
@@ -6053,41 +6053,41 @@
      "question": "How many betting rounds are there in a complete hand of Texas Hold’em?",
      "options": [
       "2 (Preflop and Showdown)",
-      "3 (Flop, Turn, River)",
       "4 (Preflop, Flop, Turn, River)",
+      "3 (Flop, Turn, River)",
       "5 (Preflop, Flop, Turn, River, Post-river)"
      ],
-     "answer": 2
+     "answer": 1
     },
     {
      "question": "How many community cards are revealed on the table during the Flop phase?",
      "options": [
       "1",
       "2",
-      "3",
-      "5"
+      "5",
+      "3"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "What is the fourth community card dealt on the table called?",
      "options": [
       "The Flop",
-      "The Turn",
       "The River",
+      "The Turn",
       "The Ante"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "What is the River in Texas Hold’em?",
      "options": [
       "The first bet of the hand",
-      "The fifth and final community card on the board",
       "The moment blinds are paid",
-      "The elimination of a player from the tournament"
+      "The elimination of a player from the tournament",
+      "The fifth and final community card on the board"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "What does the action of \"Fold\" entail?",
@@ -6112,12 +6112,12 @@
     {
      "question": "What is meant by the term \"Open Raise\" preflop?",
      "options": [
-      "The first raise made when no player has entered the pot before us",
       "Calling the Big Blind without raising",
       "Going all-in immediately on the Flop",
+      "The first raise made when no player has entered the pot before us",
       "Showing your cards before betting"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "What is a \"3-bet\"?",
@@ -6132,102 +6132,102 @@
     {
      "question": "In No-Limit Hold’em, how much can a player bet at any time?",
      "options": [
+      "Up to the entire amount of their stack",
       "Maximum 10 times the Big Blind",
       "Up to the current pot size",
-      "Up to the entire amount of their stack",
       "A fixed amount set by the dealer"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "In Pot-Limit Hold’em, what is the maximum limit for a raise?",
      "options": [
-      "There is no limit",
       "The current size of the pot",
+      "There is no limit",
       "Double the Big Blind",
       "Half of your stack"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "In live play, what happens if you toss a single high-value chip into the pot without verbally declaring a raise?",
      "options": [
       "It is automatically considered an All-in",
-      "It is interpreted as a Call (single oversized chip rule)",
       "The hand is voided and you receive a penalty",
+      "It is interpreted as a Call (single oversized chip rule)",
       "You get automatic change from the dealer"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "If a player goes All-in with a stack smaller than the bets of the others, what is created for the excess amount?",
      "options": [
       "A new deck of cards",
-      "A Side Pot contested only by the other active players",
       "Immediate refund to all participants",
-      "Freezing of the Flop"
+      "Freezing of the Flop",
+      "A Side Pot contested only by the other active players"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "What is the best starting hand (hole cards) in Texas Hold’em?",
      "options": [
+      "Pair of Aces (A - A)",
       "A - K suited",
       "Pair of Kings (K - K)",
-      "Pair of Aces (A - A)",
       "J - 10 suited"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "What does a hand's Equity measure in poker?",
      "options": [
       "The exact amount of money you will win in the current hand",
-      "The theoretical share of the pot a hand can expect to win in the long run against the opponent's range",
       "The number of chips left in the stack",
+      "The theoretical share of the pot a hand can expect to win in the long run against the opponent's range",
       "The percentage of times the player bluffs"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "What are \"Outs\"?",
      "options": [
       "Players already eliminated from the table",
-      "The remaining cards in the deck that improve our hand in a useful way",
       "Chips taken out of the pot",
+      "The remaining cards in the deck that improve our hand in a useful way",
       "Bad decisions made during the game"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "According to the \"Rule of 2 and 4\", how do you estimate the probability of completing a draw on the Flop with Turn and River still to come?",
      "options": [
-      "By adding 4 to the pot odds",
       "By multiplying the number of Outs by 4",
+      "By adding 4 to the pot odds",
       "By dividing the Outs by 2",
       "By multiplying the number of Outs by 2"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "If on the Flop you have a flush draw with 9 clean outs, what is the approximate probability of completing it by the River?",
      "options": [
       "About 18%",
-      "About 36%",
       "About 50%",
-      "About 90%"
+      "About 90%",
+      "About 36%"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "How are \"Pot Odds\" calculated?",
      "options": [
       "By comparing stack size to the blinds",
-      "By comparing the cost of a call with the total size of the final pot you can win",
       "By multiplying the number of players by the community cards",
-      "By dividing bluffs by value bets"
+      "By dividing bluffs by value bets",
+      "By comparing the cost of a call with the total size of the final pot you can win"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "What do \"Implied Odds\" represent?",
@@ -6253,31 +6253,31 @@
      "question": "What is a \"Value Bet\"?",
      "options": [
       "A bet made with a weak hand to make the opponent fold",
-      "A bet made with a strong hand with the goal of being called by worse hands",
       "The minimum mandatory bet of the Big Blind",
-      "A random bet with no specific purpose"
+      "A random bet with no specific purpose",
+      "A bet made with a strong hand with the goal of being called by worse hands"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "What characterizes a \"Semi-bluff\"?",
      "options": [
-      "Betting with a weak hand that has no chance of improving",
       "Betting with an incomplete hand (e.g. a draw) that has a good chance of becoming very strong",
+      "Betting with a weak hand that has no chance of improving",
       "Folding the hand when you have the best combination",
       "Showing a single card before showdown"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "What is \"Fold Equity\"?",
      "options": [
       "The cash value of discarded cards",
-      "The probability that the opponent will fold their hand facing our bet",
       "The percentage of hands played from early position",
+      "The probability that the opponent will fold their hand facing our bet",
       "The fixed cost to enter a tournament"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "What does \"Expected Value\" (EV) express?",
@@ -6293,21 +6293,21 @@
      "question": "If you have a stack of 10,000 chips and the blinds are 100/200, how many Big Blinds (BB) does your stack correspond to?",
      "options": [
       "100 BB",
-      "50 BB",
       "200 BB",
+      "50 BB",
       "10 BB"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "What is the main difference between Cash Games and Tournaments regarding chip value?",
      "options": [
       "In Cash Games chips are worth nothing, in tournaments they are",
-      "In Cash Games chips have a direct monetary value, in tournaments their value is tied to the prize structure and survival",
       "In tournaments blinds never increase",
+      "In Cash Games chips have a direct monetary value, in tournaments their value is tied to the prize structure and survival",
       "In Cash Games you play without a dealer"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "What is \"Tilt\" in poker?",
@@ -6325,31 +6325,31 @@
      "question": "Además de la fuerza real de las cartas, ¿cuál es el otro elemento fundamental del póker?",
      "options": [
       "La suerte pura en cada mano",
-      "La capacidad de tomar mejores decisiones con información incompleta",
       "La velocidad a la que se realizan las apuestas",
-      "La habilidad para amañar la baraja"
+      "La habilidad para amañar la baraja",
+      "La capacidad de tomar mejores decisiones con información incompleta"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "En el Texas Hold’em, ¿cuántas cartas privadas (hole cards) recibe cada jugador?",
      "options": [
       "1",
-      "2",
       "4",
+      "2",
       "5"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "¿Cuántas cartas comunitarias se pueden repartir en la mesa como máximo?",
      "options": [
       "3",
       "4",
-      "5",
-      "7"
+      "7",
+      "5"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "¿De cuántas cartas se compone la combinación final de cada jugador en el Texas Hold’em?",
@@ -6375,61 +6375,61 @@
      "question": "¿Qué es el \"pot\" o bote?",
      "options": [
       "La comisión pagada al casino",
-      "El conjunto de fichas invertidas durante la mano",
       "El número total de cartas comunitarias",
-      "La apuesta mínima obligatoria del crupier"
+      "La apuesta mínima obligatoria del crupier",
+      "El conjunto de fichas invertidas durante la mano"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "¿Con qué baraja se juega normalmente al Texas Hold’em?",
      "options": [
-      "Baraja regional de 40 cartas",
       "Baraja francesa de 52 cartas sin comodines",
+      "Baraja regional de 40 cartas",
       "Baraja de 54 cartas incluyendo 2 comodines",
       "Baraja de 32 cartas"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "¿Cómo se valoran los cuatro palos (corazones, diamantes, tréboles, picas) en el Texas Hold’em?",
      "options": [
       "Los palos rojos valen más que los negros",
       "Las picas siempre ganan a los corazones",
-      "Todos los palos tienen el mismo valor",
-      "Los tréboles determinan quién apuesta primero"
+      "Los tréboles determinan quién apuesta primero",
+      "Todos los palos tienen el mismo valor"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "¿En cuál de las siguientes combinaciones NO se puede usar el As para formar una escalera válida?",
      "options": [
+      "8 - 9 - A - J - Q",
       "A - K - Q - J - 10",
       "A - 2 - 3 - 4 - 5",
-      "8 - 9 - A - J - Q",
       "El As se puede usar en cualquier posición"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "¿Cuál es la combinación de manos más fuerte en absoluto en el Texas Hold’em?",
      "options": [
-      "Póker de Ases",
       "Escalera Real",
+      "Póker de Ases",
       "Full de Reyes",
       "Escalera de color al ocho"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "¿De qué se compone una Escalera de Color?",
      "options": [
-      "Cinco cartas del mismo palo no consecutivas",
       "Cinco cartas consecutivas del mismo palo",
+      "Cinco cartas del mismo palo no consecutivas",
       "Cuatro cartas del mismo valor y una quinta carta desparejada",
       "Tres cartas de un palo y dos de otro"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "¿De qué se compone un Full House (Full)?",
@@ -6465,11 +6465,11 @@
      "question": "¿Cuál de las siguientes escaleras gana contra la escalera 9 - 8 - 7 - 6 - 5?",
      "options": [
       "8 - 7 - 6 - 5 - 4",
-      "10 - 9 - 8 - 7 - 6",
       "7 - 6 - 5 - 4 - 3",
-      "Todas tienen el mismo valor"
+      "Todas tienen el mismo valor",
+      "10 - 9 - 8 - 7 - 6"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "¿Qué es el \"kicker\"?",
@@ -6485,61 +6485,61 @@
      "question": "Si las cinco cartas comunitarias en la mesa son A - K - Q - J - 10 de diferentes palos, ¿qué sucede en el showdown?",
      "options": [
       "Gana quien tenga un As en la mano",
-      "El bote se divide entre todos los jugadores restantes (bote repartido)",
       "Gana el jugador en posición de Botón",
-      "La mano es anulada por el crupier"
+      "La mano es anulada por el crupier",
+      "El bote se divide entre todos los jugadores restantes (bote repartido)"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "¿Qué identifica el Botón del Crupier (Dealer Button o BTN)?",
      "options": [
-      "El jugador que debe apostar más",
       "La posición de quien actúa en último lugar en las rondas de apuestas posteriores al flop",
+      "El jugador que debe apostar más",
       "El único jugador autorizado a farolear",
       "El jugador que reparte físicamente las cartas online"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "¿En qué dirección se mueven el botón y las ciegas después de cada mano?",
      "options": [
-      "En sentido antihorario",
       "En sentido horario",
+      "En sentido antihorario",
       "Se asignan al azar",
       "Permanecen fijos durante toda la partida"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "¿Cuáles son las dos ciegas obligatorias que se pagan antes de repartir las cartas?",
      "options": [
-      "Ante y Bote Principal",
       "Ciega Pequeña y Ciega Grande",
+      "Ante y Bote Principal",
       "Call y Raise",
       "Check y Bet"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "En una partida con ciegas 10/20, ¿cuántas fichas debe poner la Ciega Pequeña preflop?",
      "options": [
       "5",
-      "10",
       "20",
+      "10",
       "0"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "¿Cuál de las siguientes se considera una Posición Temprana (Early Position)?",
      "options": [
       "Botón (BTN)",
-      "Cutoff (CO)",
       "Under The Gun (UTG)",
+      "Cutoff (CO)",
       "Ciega Pequeña (SB)"
      ],
-     "answer": 2
+     "answer": 1
     },
     {
      "question": "¿Por qué actuar en posición tardía (ej. Botón) representa una enorme ventaja estratégica?",
@@ -6555,41 +6555,41 @@
      "question": "¿Cuántas rondas de apuestas hay en una mano completa de Texas Hold’em?",
      "options": [
       "2 (Preflop y Showdown)",
-      "3 (Flop, Turn, River)",
       "4 (Preflop, Flop, Turn, River)",
+      "3 (Flop, Turn, River)",
       "5 (Preflop, Flop, Turn, River, Post-river)"
      ],
-     "answer": 2
+     "answer": 1
     },
     {
      "question": "¿Cuántas cartas comunitarias se descubren en la mesa durante la fase del Flop?",
      "options": [
       "1",
       "2",
-      "3",
-      "5"
+      "5",
+      "3"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "¿Cuál es la cuarta carta comunitaria repartida en la mesa?",
      "options": [
       "El Flop",
-      "El Turn",
       "El River",
+      "El Turn",
       "El Ante"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "¿Qué es el River en el Texas Hold’em?",
      "options": [
       "La primera apuesta de la mano",
-      "La quinta y última carta comunitaria de la mesa",
       "El momento en que se pagan las ciegas",
-      "La eliminación de un jugador del torneo"
+      "La eliminación de un jugador del torneo",
+      "La quinta y última carta comunitaria de la mesa"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "¿Qué implica la acción de \"Fold\" (retirarse)?",
@@ -6614,12 +6614,12 @@
     {
      "question": "¿Qué se entiende por el término \"Open Raise\" en el Preflop?",
      "options": [
-      "La primera subida realizada cuando ningún jugador ha entrado aún al bote antes que nosotros",
       "Igualar la Ciega Grande sin subir",
       "Ir all-in inmediatamente en el Flop",
+      "La primera subida realizada cuando ningún jugador ha entrado aún al bote antes que nosotros",
       "Mostrar las propias cartas antes de las apuestas"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "¿Qué es una \"3-bet\"?",
@@ -6634,102 +6634,102 @@
     {
      "question": "En No-Limit Hold’em, ¿cuánto puede apostar un jugador en cualquier momento?",
      "options": [
+      "Hasta la cantidad total de su propio stack",
       "Máximo 10 veces la Ciega Grande",
       "Hasta el tamaño del bote actual",
-      "Hasta la cantidad total de su propio stack",
       "Una cantidad fija establecida por el crupier"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "En Pot-Limit Hold’em, ¿cuál es el límite máximo para una subida?",
      "options": [
-      "No hay ningún límite",
       "El tamaño actual del bote",
+      "No hay ningún límite",
       "El doble de la Ciega Grande",
       "La mitad del propio stack"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "En el juego en vivo, ¿qué sucede si pones en el bote una sola ficha de gran valor sin declarar verbalmente la subida?",
      "options": [
       "Se considera automáticamente un All-in",
-      "Se interpreta como Call (regla de la ficha única de gran valor)",
       "La mano se anula y se recibe una penalización",
+      "Se interpreta como Call (regla de la ficha única de gran valor)",
       "Se obtiene el cambio automático del crupier"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Si un jugador va All-in con un stack inferior a las apuestas de los demás, ¿qué se crea para la parte excedente?",
      "options": [
       "Una nueva baraja de cartas",
-      "Un Side Pot (bote secundario) disputado solo por los demás jugadores activos",
       "El reembolso inmediato a todos los participantes",
-      "La congelación del Flop"
+      "La congelación del Flop",
+      "Un Side Pot (bote secundario) disputado solo por los demás jugadores activos"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "¿Cuál es la mejor mano inicial (hole cards) en el Texas Hold’em?",
      "options": [
+      "Pareja de Ases (A - A)",
       "A - K del mismo palo",
       "Pareja de Reyes (K - K)",
-      "Pareja de Ases (A - A)",
       "J - 10 del mismo palo"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "¿Qué mide la Equity de una mano en el póker?",
      "options": [
       "La cantidad exacta de dinero que se ganará en la mano actual",
-      "La porción teórica del bote que una mano puede esperar ganar a largo plazo contra el rango del oponente",
       "El número de fichas restantes en el stack",
+      "La porción teórica del bote que una mano puede esperar ganar a largo plazo contra el rango del oponente",
       "El porcentaje de veces que el jugador farolea"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "¿Qué son los \"Outs\"?",
      "options": [
       "Los jugadores ya eliminados de la mesa",
-      "Las cartas restantes en la baraja que mejoran nuestra mano de manera útil",
       "Las fichas sacadas del bote",
+      "Las cartas restantes en la baraja que mejoran nuestra mano de manera útil",
       "Las decisiones equivocadas tomadas durante el juego"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Según la \"Regla del 2 y del 4\", ¿cómo se estima la probabilidad de completar un proyecto en el Flop teniendo Turn y River aún por ver?",
      "options": [
-      "Sumando 4 a las pot odds",
       "Multiplicando el número de Outs por 4",
+      "Sumando 4 a las pot odds",
       "Dividiendo los Outs por 2",
       "Multiplicando el número de Outs por 2"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Si en el Flop tienes un proyecto de color con 9 outs limpios, ¿cuál es la probabilidad aproximada de completarlo para el River?",
      "options": [
       "Aproximadamente 18%",
-      "Aproximadamente 36%",
       "Aproximadamente 50%",
-      "Aproximadamente 90%"
+      "Aproximadamente 90%",
+      "Aproximadamente 36%"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "¿Cómo se calculan las \"Pot Odds\" (probabilidades del bote)?",
      "options": [
       "Comparando el tamaño del stack con las ciegas",
-      "Comparando el coste del call con el tamaño total del bote final que se puede ganar",
       "Multiplicando el número de jugadores por las cartas comunitarias",
-      "Dividiendo los faroles entre las apuestas por valor"
+      "Dividiendo los faroles entre las apuestas por valor",
+      "Comparando el coste del call con el tamaño total del bote final que se puede ganar"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "¿Qué representan las \"Implied Odds\" (probabilidades implícitas)?",
@@ -6755,31 +6755,31 @@
      "question": "¿Qué es una \"Value Bet\" (apuesta por valor)?",
      "options": [
       "Una apuesta hecha con una mano débil para hacer que el oponente se retire",
-      "Una apuesta realizada con una mano fuerte con el objetivo de ser igualada por manos peores",
       "La apuesta mínima obligatoria de la Ciega Grande",
-      "Una apuesta aleatoria sin un propósito específico"
+      "Una apuesta aleatoria sin un propósito específico",
+      "Una apuesta realizada con una mano fuerte con el objetivo de ser igualada por manos peores"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "¿Qué caracteriza a un \"Semi-farol\" (semi-bluff)?",
      "options": [
-      "Apostar con una mano débil que no tiene ninguna posibilidad de mejorar",
       "Apostar con una mano aún no completada (ej. un proyecto) que tiene buenas probabilidades de volverse muy fuerte",
+      "Apostar con una mano débil que no tiene ninguna posibilidad de mejorar",
       "Retirarse cuando se tiene la mejor combinación",
       "Mostrar una sola carta antes del showdown"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "¿Qué es la \"Fold Equity\"?",
      "options": [
       "El valor en dinero de las cartas descartadas",
-      "La probabilidad de que el oponente retire su mano ante nuestra apuesta",
       "El porcentaje de manos jugadas desde posición temprana",
+      "La probabilidad de que el oponente retire su mano ante nuestra apuesta",
       "El coste fijo para entrar en un torneo"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "¿Qué expresa el \"Valor Esperado\" (EV - Expected Value)?",
@@ -6795,21 +6795,21 @@
      "question": "Si tienes un stack de 10.000 fichas y las ciegas son 100/200, ¿a cuántas Ciegas Grandes (BB) equivale tu stack?",
      "options": [
       "100 BB",
-      "50 BB",
       "200 BB",
+      "50 BB",
       "10 BB"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "¿Cuál es la diferencia principal entre Cash Game y Torneos respecto al valor de las fichas?",
      "options": [
       "En el Cash Game las fichas no valen nada, en los torneos sí",
-      "En el Cash Game las fichas tienen un valor monetario directo, en los torneos su valor está ligado a la estructura de premios y la supervivencia",
       "En los torneos las ciegas nunca aumentan",
+      "En el Cash Game las fichas tienen un valor monetario directo, en los torneos su valor está ligado a la estructura de premios y la supervivencia",
       "En el Cash Game se juega sin crupier"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "¿Qué es el \"Tilt\" en el póker?",
@@ -6827,31 +6827,31 @@
      "question": "Was ist neben der tatsächlichen Stärke der Karten das andere grundlegende Element des Pokers?",
      "options": [
       "Pures Glück in jeder Hand",
-      "Die Fähigkeit, mit unvollständigen Informationen bessere Entscheidungen zu treffen",
       "Die Geschwindigkeit, mit der Einsätze getätigt werden",
-      "Die Fähigkeit, das Deck zu manipulieren"
+      "Die Fähigkeit, das Deck zu manipulieren",
+      "Die Fähigkeit, mit unvollständigen Informationen bessere Entscheidungen zu treffen"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Wie viele verdeckte Karten (Hole Cards) erhält jeder Spieler beim Texas Hold’em?",
      "options": [
       "1",
-      "2",
       "4",
+      "2",
       "5"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Wie viele Gemeinschaftskarten (Community Cards) können maximal auf dem Tisch ausgeteilt werden?",
      "options": [
       "3",
       "4",
-      "5",
-      "7"
+      "7",
+      "5"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "Aus wie vielen Karten besteht die endgültige Kombination jedes Spielers beim Texas Hold’em?",
@@ -6877,61 +6877,61 @@
      "question": "Was ist der \"Pot\"?",
      "options": [
       "Die an das Casino gezahlte Gebühr",
-      "Die Gesamtheit der während der Hand investierten Chips",
       "Die Gesamtzahl der Gemeinschaftskarten",
-      "Der obligatorische Mindesteinsatz des Dealers"
+      "Der obligatorische Mindesteinsatz des Dealers",
+      "Die Gesamtheit der während der Hand investierten Chips"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Mit welchem Deck wird normalerweise Texas Hold’em gespielt?",
      "options": [
-      "Regionales Deck mit 40 Karten",
       "Französisches Deck mit 52 Karten ohne Joker",
+      "Regionales Deck mit 40 Karten",
       "Deck mit 54 Karten inklusive 2 Jokern",
       "Deck mit 32 Karten"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Wie werden die vier Farben (Herz, Karo, Kreuz, Pik) beim Texas Hold’em bewertet?",
      "options": [
       "Rote Farben sind mehr wert als schwarze",
       "Pik schlägt immer Herz",
-      "Alle Farben haben den gleichen Wert",
-      "Kreuz bestimmt, wer zuerst setzt"
+      "Kreuz bestimmt, wer zuerst setzt",
+      "Alle Farben haben den gleichen Wert"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "In welcher der folgenden Kombinationen KANN das Ass NICHT verwendet werden, um eine gültige Straße (Straight) zu bilden?",
      "options": [
+      "8 - 9 - A - J - Q",
       "A - K - Q - J - 10",
       "A - 2 - 3 - 4 - 5",
-      "8 - 9 - A - J - Q",
       "Das Ass kann in jeder Position verwendet werden"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "Was ist die absolut stärkste Handkombination beim Texas Hold’em?",
      "options": [
-      "Vier Asse (Poker)",
       "Royal Flush",
+      "Vier Asse (Poker)",
       "Full House mit Königen",
       "Straight Flush bis zur Acht"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Woraus besteht ein Straight Flush?",
      "options": [
-      "Fünf nicht aufeinanderfolgende Karten derselben Farbe",
       "Fünf aufeinanderfolgende Karten derselben Farbe",
+      "Fünf nicht aufeinanderfolgende Karten derselben Farbe",
       "Vier Karten desselben Wertes und eine fünfte ungepaarte Karte",
       "Drei Karten einer Farbe und zwei einer anderen"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Woraus besteht ein Full House?",
@@ -6967,11 +6967,11 @@
      "question": "Welche der folgenden Straßen gewinnt gegen die Straße 9 - 8 - 7 - 6 - 5?",
      "options": [
       "8 - 7 - 6 - 5 - 4",
-      "10 - 9 - 8 - 7 - 6",
       "7 - 6 - 5 - 4 - 3",
-      "Sie haben alle den gleichen Wert"
+      "Sie haben alle den gleichen Wert",
+      "10 - 9 - 8 - 7 - 6"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Was ist der \"Kicker\"?",
@@ -6987,61 +6987,61 @@
      "question": "Wenn die fünf Gemeinschaftskarten auf dem Tisch A - K - Q - J - 10 von verschiedenen Farben sind, was passiert beim Showdown?",
      "options": [
       "Wer ein Ass auf der Hand hat, gewinnt",
-      "Der Pot wird unter allen verbleibenden Spielern aufgeteilt (Split Pot)",
       "Der Spieler auf der Button-Position gewinnt",
-      "Die Hand wird vom Dealer annulliert"
+      "Die Hand wird vom Dealer annulliert",
+      "Der Pot wird unter allen verbleibenden Spielern aufgeteilt (Split Pot)"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Was kennzeichnet der Dealer Button (BTN)?",
      "options": [
-      "Den Spieler, der am meisten setzen muss",
       "Die Position desjenigen, der in den Setzrunden nach dem Flop als Letzter handelt",
+      "Den Spieler, der am meisten setzen muss",
       "Den einzigen Spieler, der bluffen darf",
       "Den Spieler, der online physisch die Karten austeilt"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "In welche Richtung bewegen sich der Button und die Blinds nach jeder Hand?",
      "options": [
-      "Gegen den Uhrzeigersinn",
       "Im Uhrzeigersinn",
+      "Gegen den Uhrzeigersinn",
       "Sie werden zufällig zugewiesen",
       "Sie bleiben das ganze Spiel über fest"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Was sind die beiden obligatorischen Blinds, die vor dem Austeilen der Karten gezahlt werden?",
      "options": [
-      "Ante und Main Pot",
       "Small Blind und Big Blind",
+      "Ante und Main Pot",
       "Call und Raise",
       "Check und Bet"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "In einem Spiel mit Blinds von 10/20, wie viele Chips muss der Small Blind Preflop setzen?",
      "options": [
       "5",
-      "10",
       "20",
+      "10",
       "0"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Welche der folgenden Positionen gilt als frühe Position (Early Position)?",
      "options": [
       "Button (BTN)",
-      "Cutoff (CO)",
       "Under The Gun (UTG)",
+      "Cutoff (CO)",
       "Small Blind (SB)"
      ],
-     "answer": 2
+     "answer": 1
     },
     {
      "question": "Warum ist das Handeln in später Position (z.B. Button) ein enormer strategischer Vorteil?",
@@ -7057,41 +7057,41 @@
      "question": "Wie viele Setzrunden gibt es in einer kompletten Hand beim Texas Hold’em?",
      "options": [
       "2 (Preflop und Showdown)",
-      "3 (Flop, Turn, River)",
       "4 (Preflop, Flop, Turn, River)",
+      "3 (Flop, Turn, River)",
       "5 (Preflop, Flop, Turn, River, Post-river)"
      ],
-     "answer": 2
+     "answer": 1
     },
     {
      "question": "Wie viele Gemeinschaftskarten werden während der Flop-Phase auf dem Tisch aufgedeckt?",
      "options": [
       "1",
       "2",
-      "3",
-      "5"
+      "5",
+      "3"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "Wie heißt die vierte Gemeinschaftskarte, die auf dem Tisch ausgeteilt wird?",
      "options": [
       "Der Flop",
-      "Der Turn",
       "Der River",
+      "Der Turn",
       "Das Ante"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Was ist der River beim Texas Hold’em?",
      "options": [
       "Der erste Einsatz der Hand",
-      "Die fünfte und letzte Gemeinschaftskarte auf dem Board",
       "Der Moment, in dem die Blinds gezahlt werden",
-      "Das Ausscheiden eines Spielers aus dem Turnier"
+      "Das Ausscheiden eines Spielers aus dem Turnier",
+      "Die fünfte und letzte Gemeinschaftskarte auf dem Board"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Was bedeutet die Aktion \"Fold\" (Passen/Aussteigen)?",
@@ -7116,12 +7116,12 @@
     {
      "question": "Was versteht man unter dem Begriff \"Open Raise\" vor dem Flop (Preflop)?",
      "options": [
-      "Die erste Erhöhung, wenn noch kein Spieler vor uns in den Pot eingestiegen ist",
       "Den Big Blind mitgehen (Call), ohne zu erhöhen",
       "Sofort auf dem Flop All-in gehen",
+      "Die erste Erhöhung, wenn noch kein Spieler vor uns in den Pot eingestiegen ist",
       "Seine Karten vor dem Setzen zeigen"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Was ist eine \"3-Bet\"?",
@@ -7136,102 +7136,102 @@
     {
      "question": "Wie viel kann ein Spieler beim No-Limit Hold’em jederzeit setzen?",
      "options": [
+      "Bis zum gesamten Betrag seines eigenen Stacks",
       "Maximal das 10-fache des Big Blinds",
       "Bis zur aktuellen Größe des Pots",
-      "Bis zum gesamten Betrag seines eigenen Stacks",
       "Einen vom Dealer festgelegten festen Betrag"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "Was ist beim Pot-Limit Hold’em das maximale Limit für eine Erhöhung?",
      "options": [
-      "Es gibt kein Limit",
       "Die aktuelle Größe des Pots",
+      "Es gibt kein Limit",
       "Das Doppelte des Big Blinds",
       "Die Hälfte des eigenen Stacks"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Was passiert beim Live-Spiel, wenn man einen einzelnen hochwertigen Chip in den Pot wirft, ohne die Erhöhung verbal anzukündigen?",
      "options": [
       "Es wird automatisch als All-in gewertet",
-      "Es wird als Call interpretiert (Single Oversized Chip Rule)",
       "Die Hand wird annulliert und man erhält eine Strafe",
+      "Es wird als Call interpretiert (Single Oversized Chip Rule)",
       "Man bekommt automatisch das Wechselgeld vom Dealer"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Wenn ein Spieler mit einem kleineren Stack als die Einsätze der anderen All-in geht, was wird für den überschüssigen Betrag erstellt?",
      "options": [
       "Ein neues Kartendeck",
-      "Ein Side Pot (Nebenpot), um den nur die anderen aktiven Spieler spielen",
       "Die sofortige Rückerstattung an alle Teilnehmer",
-      "Das Einfrieren des Flops"
+      "Das Einfrieren des Flops",
+      "Ein Side Pot (Nebenpot), um den nur die anderen aktiven Spieler spielen"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Was ist die beste Starthand (Hole Cards) beim Texas Hold’em?",
      "options": [
+      "Paar Asse (A - A)",
       "A - K gleicher Farbe (suited)",
       "Paar Könige (K - K)",
-      "Paar Asse (A - A)",
       "J - 10 gleicher Farbe"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "Was misst die Equity einer Hand beim Poker?",
      "options": [
       "Den exakten Geldbetrag, den man in der aktuellen Hand gewinnen wird",
-      "Den theoretischen Anteil am Pot, den eine Hand auf lange Sicht gegen die Range des Gegners erwarten kann zu gewinnen",
       "Die Anzahl der im Stack verbliebenen Chips",
+      "Den theoretischen Anteil am Pot, den eine Hand auf lange Sicht gegen die Range des Gegners erwarten kann zu gewinnen",
       "Den Prozentsatz, wie oft der Spieler blufft"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Was sind \"Outs\"?",
      "options": [
       "Die Spieler, die bereits vom Tisch eliminiert wurden",
-      "Die verbleibenden Karten im Deck, die unsere Hand auf nützliche Weise verbessern",
       "Die aus dem Pot entnommenen Chips",
+      "Die verbleibenden Karten im Deck, die unsere Hand auf nützliche Weise verbessern",
       "Die falschen Entscheidungen, die während des Spiels getroffen wurden"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Wie schätzt man nach der \"Zwei-mal-Vier-Regel\" (Rule of 2 and 4) die Wahrscheinlichkeit, auf dem Flop einen Draw zu vervollständigen, wenn Turn und River noch ausstehen?",
      "options": [
-      "Indem man 4 zu den Pot Odds addiert",
       "Indem man die Anzahl der Outs mit 4 multipliziert",
+      "Indem man 4 zu den Pot Odds addiert",
       "Indem man die Outs durch 2 teilt",
       "Indem man die Anzahl der Outs mit 2 multipliziert"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Wenn man auf dem Flop einen Flush Draw mit 9 sauberen Outs hat, wie hoch ist ungefähr die Wahrscheinlichkeit, ihn bis zum River zu vervollständigen?",
      "options": [
       "Ungefähr 18%",
-      "Ungefähr 36%",
       "Ungefähr 50%",
-      "Ungefähr 90%"
+      "Ungefähr 90%",
+      "Ungefähr 36%"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Wie werden die \"Pot Odds\" berechnet?",
      "options": [
       "Durch Vergleich der Stackgröße mit den Blinds",
-      "Durch Vergleich der Kosten für den Call mit der Gesamtgröße des finalen Pots, den man gewinnen kann",
       "Durch Multiplikation der Anzahl der Spieler mit den Gemeinschaftskarten",
-      "Durch Division der Bluffs durch die Value Bets"
+      "Durch Division der Bluffs durch die Value Bets",
+      "Durch Vergleich der Kosten für den Call mit der Gesamtgröße des finalen Pots, den man gewinnen kann"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Was stellen die \"Implied Odds\" (implizite Quoten) dar?",
@@ -7257,31 +7257,31 @@
      "question": "Was ist eine \"Value Bet\" (Wertwette)?",
      "options": [
       "Ein Einsatz mit einer schwachen Hand, um den Gegner zum Passen zu bringen",
-      "Ein Einsatz mit einer starken Hand mit dem Ziel, von schlechteren Händen gecallt zu werden",
       "Der obligatorische Mindesteinsatz des Big Blinds",
-      "Ein zufälliger Einsatz ohne bestimmten Zweck"
+      "Ein zufälliger Einsatz ohne bestimmten Zweck",
+      "Ein Einsatz mit einer starken Hand mit dem Ziel, von schlechteren Händen gecallt zu werden"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Was zeichnet einen \"Semi-Bluff\" aus?",
      "options": [
-      "Setzen mit einer schwachen Hand, die keine Chance auf Verbesserung hat",
       "Setzen mit einer noch unvollständigen Hand (z.B. einem Draw), die gute Chancen hat, sehr stark zu werden",
+      "Setzen mit einer schwachen Hand, die keine Chance auf Verbesserung hat",
       "Passen (Fold), obwohl man die beste Kombination hat",
       "Zeigen einer einzigen Karte vor dem Showdown"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Was ist die \"Fold Equity\"?",
      "options": [
       "Der Geldwert der abgelegten Karten",
-      "Die Wahrscheinlichkeit, dass der Gegner seine Hand auf unseren Einsatz hin aufgibt (foldet)",
       "Der Prozentsatz der aus früher Position gespielten Hände",
+      "Die Wahrscheinlichkeit, dass der Gegner seine Hand auf unseren Einsatz hin aufgibt (foldet)",
       "Die festen Kosten für die Teilnahme an einem Turnier"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Was drückt der \"Erwartungswert\" (EV - Expected Value) aus?",
@@ -7297,21 +7297,21 @@
      "question": "Wenn du einen Stack von 10.000 Chips hast und die Blinds 100/200 betragen, wie vielen Big Blinds (BB) entspricht dein Stack?",
      "options": [
       "100 BB",
-      "50 BB",
       "200 BB",
+      "50 BB",
       "10 BB"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Was ist der Hauptunterschied zwischen Cash Games und Turnieren hinsichtlich des Wertes der Chips?",
      "options": [
       "Im Cash Game sind die Chips nichts wert, in Turnieren schon",
-      "Im Cash Game haben die Chips einen direkten Geldwert, in Turnieren ist ihr Wert an die Preisstruktur und das Überleben gebunden",
       "In Turnieren steigen die Blinds nie",
+      "Im Cash Game haben die Chips einen direkten Geldwert, in Turnieren ist ihr Wert an die Preisstruktur und das Überleben gebunden",
       "Im Cash Game spielt man ohne Dealer"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Was ist \"Tilt\" beim Poker?",
@@ -7329,31 +7329,31 @@
      "question": "Outre la force réelle des cartes, quel est l'autre élément fondamental du poker ?",
      "options": [
       "La chance pure à chaque main",
-      "La capacité de prendre de meilleures décisions avec des informations incomplètes",
       "La vitesse à laquelle on effectue les mises",
-      "L'habileté à truquer le jeu de cartes"
+      "L'habileté à truquer le jeu de cartes",
+      "La capacité de prendre de meilleures décisions avec des informations incomplètes"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Au Texas Hold’em, combien de cartes privées (hole cards) chaque joueur reçoit-il ?",
      "options": [
       "1",
-      "2",
       "4",
+      "2",
       "5"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Combien de cartes communes (community cards) peuvent être distribuées sur la table au maximum ?",
      "options": [
       "3",
       "4",
-      "5",
-      "7"
+      "7",
+      "5"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "De combien de cartes est composée la combinaison finale de chaque joueur au Texas Hold’em ?",
@@ -7379,61 +7379,61 @@
      "question": "Qu'est-ce que le \"pot\" ?",
      "options": [
       "La taxe payée au casino",
-      "L'ensemble des jetons investis pendant la main",
       "Le nombre total de cartes communes",
-      "La mise minimale obligatoire du croupier"
+      "La mise minimale obligatoire du croupier",
+      "L'ensemble des jetons investis pendant la main"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Avec quel jeu de cartes joue-t-on normalement au Texas Hold’em ?",
      "options": [
-      "Jeu de 40 cartes régionales",
       "Jeu français de 52 cartes sans jokers",
+      "Jeu de 40 cartes régionales",
       "Jeu de 54 cartes incluant 2 jokers",
       "Jeu de 32 cartes"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Comment évalue-t-on les quatre enseignes (cœurs, carreaux, trèfles, piques) au Texas Hold’em ?",
      "options": [
       "Les enseignes rouges valent plus que les noires",
       "Les piques battent toujours les cœurs",
-      "Toutes les enseignes ont la même valeur",
-      "Les trèfles déterminent qui mise en premier"
+      "Les trèfles déterminent qui mise en premier",
+      "Toutes les enseignes ont la même valeur"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "Dans laquelle des combinaisons suivantes l'As NE PEUT-IL PAS être utilisé pour former une quinte valide ?",
      "options": [
+      "8 - 9 - A - J - Q",
       "A - K - Q - J - 10",
       "A - 2 - 3 - 4 - 5",
-      "8 - 9 - A - J - Q",
       "L'As peut être utilisé dans n'importe quelle position"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "Quelle est la combinaison de mains la plus forte dans l'absolu au Texas Hold’em ?",
      "options": [
-      "Carré d'As",
       "Quinte Flush Royale",
+      "Carré d'As",
       "Full aux Rois",
       "Quinte Flush hauteur huit"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "De quoi est composée une Quinte Flush ?",
      "options": [
-      "Cinq cartes de la même enseigne non consécutives",
       "Cinq cartes consécutives de la même enseigne",
+      "Cinq cartes de la même enseigne non consécutives",
       "Quatre cartes de la même valeur et une cinquième carte dépareillée",
       "Trois cartes d'une enseigne et deux d'une autre"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "De quoi est composé un Full (Full House) ?",
@@ -7469,11 +7469,11 @@
      "question": "Laquelle des quintes suivantes gagne contre la quinte 9 - 8 - 7 - 6 - 5 ?",
      "options": [
       "8 - 7 - 6 - 5 - 4",
-      "10 - 9 - 8 - 7 - 6",
       "7 - 6 - 5 - 4 - 3",
-      "Elles ont toutes la même valeur"
+      "Elles ont toutes la même valeur",
+      "10 - 9 - 8 - 7 - 6"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Qu'est-ce que le \"kicker\" ?",
@@ -7489,61 +7489,61 @@
      "question": "Si les cinq cartes communes sur la table sont A - K - Q - J - 10 de différentes enseignes, que se passe-t-il au showdown ?",
      "options": [
       "Celui qui possède un As en main gagne",
-      "Le pot est partagé entre tous les joueurs restants (split pot)",
       "Le joueur en position de Bouton gagne",
-      "La main est annulée par le croupier"
+      "La main est annulée par le croupier",
+      "Le pot est partagé entre tous les joueurs restants (split pot)"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Qu'identifie le Bouton du Croupier (Dealer Button ou BTN) ?",
      "options": [
-      "Le joueur qui doit miser le plus",
       "La position de celui qui agit en dernier dans les tours de mises après le flop",
+      "Le joueur qui doit miser le plus",
       "Le seul joueur autorisé à bluffer",
       "Le joueur qui distribue physiquement les cartes en ligne"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Dans quelle direction se déplacent le bouton et les blindes après chaque main ?",
      "options": [
-      "Dans le sens inverse des aiguilles d'une montre",
       "Dans le sens des aiguilles d'une montre",
+      "Dans le sens inverse des aiguilles d'une montre",
       "Ils sont attribués au hasard",
       "Ils restent fixes pendant toute la partie"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Quelles sont les deux blindes obligatoires versées avant de distribuer les cartes ?",
      "options": [
-      "Ante et Main Pot",
       "Small Blind et Big Blind",
+      "Ante et Main Pot",
       "Call et Raise",
       "Check et Bet"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Dans une partie avec des blindes 10/20, combien de jetons la Small Blind doit-elle verser préflop ?",
      "options": [
       "5",
-      "10",
       "20",
+      "10",
       "0"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Laquelle des positions suivantes est considérée comme une position de début de parole (Early Position) ?",
      "options": [
       "Bouton (BTN)",
-      "Cutoff (CO)",
       "Under The Gun (UTG)",
+      "Cutoff (CO)",
       "Small Blind (SB)"
      ],
-     "answer": 2
+     "answer": 1
     },
     {
      "question": "Pourquoi agir en position finale (ex. Bouton) représente-t-il un énorme avantage stratégique ?",
@@ -7559,41 +7559,41 @@
      "question": "Combien de phases de mise y a-t-il dans une main complète de Texas Hold’em ?",
      "options": [
       "2 (Préflop et Showdown)",
-      "3 (Flop, Turn, River)",
       "4 (Préflop, Flop, Turn, River)",
+      "3 (Flop, Turn, River)",
       "5 (Préflop, Flop, Turn, River, Post-river)"
      ],
-     "answer": 2
+     "answer": 1
     },
     {
      "question": "Combien de cartes communes sont découvertes sur la table pendant la phase du Flop ?",
      "options": [
       "1",
       "2",
-      "3",
-      "5"
+      "5",
+      "3"
      ],
-     "answer": 2
+     "answer": 3
     },
     {
      "question": "Quelle est la quatrième carte commune distribuée sur la table ?",
      "options": [
       "Le Flop",
-      "Le Turn",
       "Le River",
+      "Le Turn",
       "L'Ante"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Qu'est-ce que le River au Texas Hold’em ?",
      "options": [
       "La première mise de la main",
-      "La cinquième et dernière carte commune du tableau",
       "Le moment où l'on paie les blindes",
-      "L'élimination d'un joueur du tournoi"
+      "L'élimination d'un joueur du tournoi",
+      "La cinquième et dernière carte commune du tableau"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Qu'implique l'action de se \"Coucher\" (Fold) ?",
@@ -7618,12 +7618,12 @@
     {
      "question": "Que veut dire le terme \"Open Raise\" en Préflop ?",
      "options": [
-      "La première relance effectuée lorsqu'aucun joueur n'est encore entré dans le pot avant nous",
       "Payer la Big Blind sans relancer",
       "Faire tapis (all-in) immédiatement au Flop",
+      "La première relance effectuée lorsqu'aucun joueur n'est encore entré dans le pot avant nous",
       "Montrer ses cartes avant les mises"
      ],
-     "answer": 0
+     "answer": 2
     },
     {
      "question": "Qu'est-ce qu'un \"3-bet\" ?",
@@ -7638,102 +7638,102 @@
     {
      "question": "En No-Limit Hold’em, combien un joueur peut-il miser à tout moment ?",
      "options": [
+      "Jusqu'au montant total de son propre tapis (stack)",
       "Maximum 10 fois la Big Blind",
       "Jusqu'à la taille du pot actuel",
-      "Jusqu'au montant total de son propre tapis (stack)",
       "Un montant fixe établi par le croupier"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "En Pot-Limit Hold’em, quelle est la limite maximale pour une relance ?",
      "options": [
-      "Il n'y a aucune limite",
       "La taille actuelle du pot",
+      "Il n'y a aucune limite",
       "Le double de la Big Blind",
       "La moitié de son propre tapis"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "En partie live, que se passe-t-il si vous placez dans le pot un seul jeton de grande valeur sans annoncer verbalement la relance ?",
      "options": [
       "C'est automatiquement considéré comme un All-in",
-      "C'est interprété comme un Call (règle du jeton unique de valeur supérieure)",
       "La main est annulée et vous recevez une pénalité",
+      "C'est interprété comme un Call (règle du jeton unique de valeur supérieure)",
       "Vous obtenez le change automatique du croupier"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Si un joueur fait All-in avec un tapis inférieur aux mises des autres, que crée-t-on pour la partie excédentaire ?",
      "options": [
       "Un nouveau paquet de cartes",
-      "Un Side Pot (pot extérieur) disputé uniquement par les autres joueurs actifs",
       "Le remboursement immédiat à tous les participants",
-      "Le gel du Flop"
+      "Le gel du Flop",
+      "Un Side Pot (pot extérieur) disputé uniquement par les autres joueurs actifs"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Quelle est la meilleure main de départ (hole cards) au Texas Hold’em ?",
      "options": [
+      "Paire d'As (A - A)",
       "A - K assortis (même enseigne)",
       "Paire de Rois (K - K)",
-      "Paire d'As (A - A)",
       "J - 10 assortis"
      ],
-     "answer": 2
+     "answer": 0
     },
     {
      "question": "Que mesure l'Equity d'une main au poker ?",
      "options": [
       "La quantité exacte d'argent qui sera gagnée dans la main en cours",
-      "La part théorique du pot qu'une main peut espérer gagner sur le long terme contre la range (l'éventail de mains) adverse",
       "Le nombre de jetons restants dans le tapis",
+      "La part théorique du pot qu'une main peut espérer gagner sur le long terme contre la range (l'éventail de mains) adverse",
       "Le pourcentage de fois où le joueur bluffe"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Que sont les \"Outs\" ?",
      "options": [
       "Les joueurs déjà éliminés de la table",
-      "Les cartes restantes dans le jeu qui améliorent notre main de manière utile",
       "Les jetons sortis du pot",
+      "Les cartes restantes dans le jeu qui améliorent notre main de manière utile",
       "Les mauvaises décisions prises pendant la partie"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Selon la \"Règle du 2 et du 4\", comment estime-t-on la probabilité de compléter un tirage au Flop en ayant encore le Turn et la River à voir ?",
      "options": [
-      "En ajoutant 4 à la cote du pot",
       "En multipliant le nombre d'Outs par 4",
+      "En ajoutant 4 à la cote du pot",
       "En divisant les Outs par 2",
       "En multipliant le nombre d'Outs par 2"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Si au Flop vous avez un tirage couleur avec 9 outs propres, quelle est la probabilité approximative de le compléter d'ici la River ?",
      "options": [
       "Environ 18%",
-      "Environ 36%",
       "Environ 50%",
-      "Environ 90%"
+      "Environ 90%",
+      "Environ 36%"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Comment calcule-t-on les \"Pot Odds\" (cotes du pot) ?",
      "options": [
       "En comparant la taille du tapis avec les blindes",
-      "En comparant le coût de la mise à suivre (call) avec la taille totale du pot final que l'on peut gagner",
       "En multipliant le nombre de joueurs par les cartes communes",
-      "En divisant les bluffs par les mises de valorisation (value bets)"
+      "En divisant les bluffs par les mises de valorisation (value bets)",
+      "En comparant le coût de la mise à suivre (call) avec la taille totale du pot final que l'on peut gagner"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Que représentent les \"Implied Odds\" (cotes implicites) ?",
@@ -7759,31 +7759,31 @@
      "question": "Qu'est-ce qu'une \"Value Bet\" (mise de valorisation) ?",
      "options": [
       "Une mise faite avec une main faible pour faire coucher l'adversaire",
-      "Une mise effectuée avec une main forte dans le but d'être payé par des mains moins bonnes",
       "La mise minimale obligatoire de la Big Blind",
-      "Une mise aléatoire sans but précis"
+      "Une mise aléatoire sans but précis",
+      "Une mise effectuée avec une main forte dans le but d'être payé par des mains moins bonnes"
      ],
-     "answer": 1
+     "answer": 3
     },
     {
      "question": "Qu'est-ce qui caractérise un \"Semi-bluff\" ?",
      "options": [
-      "Miser avec une main faible qui n'a aucune chance de s'améliorer",
       "Miser avec une main non encore complète (ex. un tirage) qui a de bonnes chances de devenir très forte",
+      "Miser avec une main faible qui n'a aucune chance de s'améliorer",
       "Se coucher alors que l'on a la meilleure combinaison",
       "Montrer une seule carte avant le showdown"
      ],
-     "answer": 1
+     "answer": 0
     },
     {
      "question": "Qu'est-ce que la \"Fold Equity\" (équité de fold) ?",
      "options": [
       "La valeur en argent des cartes défaussées",
-      "La probabilité que l'adversaire couche sa main face à notre mise",
       "Le pourcentage de mains jouées en début de parole",
+      "La probabilité que l'adversaire couche sa main face à notre mise",
       "Le coût fixe pour participer à un tournoi"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Qu'exprime la \"Valeur Attendue\" (EV - Expected Value) ?",
@@ -7799,21 +7799,21 @@
      "question": "Si tu possèdes un tapis (stack) de 10.000 jetons et que les blindes sont 100/200, à combien de Big Blinds (BB) correspond ton tapis ?",
      "options": [
       "100 BB",
-      "50 BB",
       "200 BB",
+      "50 BB",
       "10 BB"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Quelle est la principale différence entre Cash Game et Tournois concernant la valeur des jetons ?",
      "options": [
       "En Cash Game les jetons ne valent rien, en tournois oui",
-      "En Cash Game les jetons ont une valeur monétaire directe, en tournois leur valeur est liée à la structure des prix et à la survie",
       "En tournois les blindes n'augmentent jamais",
+      "En Cash Game les jetons ont une valeur monétaire directe, en tournois leur valeur est liée à la structure des prix et à la survie",
       "En Cash Game on joue sans croupier"
      ],
-     "answer": 1
+     "answer": 2
     },
     {
      "question": "Qu'est-ce que le \"Tilt\" au poker ?",
