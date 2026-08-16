@@ -610,7 +610,19 @@ async function purchase(key){
       [{supportedMethods:billing.method,data:{sku}}],
       {total:{label:'Total',amount:{currency:'EUR',value:'0'}}} // the store applies its own price
     );
-    if(request.canMakePayment && !(await request.canMakePayment()))return toast(tr('storeOnly'));
+    // canMakePayment() used to gate the whole purchase, and it is quota-limited by
+    // Chrome: call it a few times in a row and it stops answering and starts THROWING
+    // (NotAllowedError). The throw landed in the catch below and every further
+    // purchase attempt died as "purchase not completed", while the very first one of
+    // the day worked fine. A pre-flight check that breaks the thing it is checking is
+    // worse than no check: show() already fails cleanly on its own, so this is now
+    // advisory only and can never block a sale.
+    try{
+      if(request.canMakePayment){
+        const can=await request.canMakePayment();
+        if(can===false)console.warn('canMakePayment said no, trying anyway');
+      }
+    }catch(e){console.warn('canMakePayment unavailable',e&&e.name)}
     const response=await request.show();
     const token=(response.details&&(response.details.token||response.details.purchaseToken))||'';
     let ok=false;
@@ -630,7 +642,15 @@ async function purchase(key){
     if(ok)openShop();
   }catch(e){
     // AbortError = the user closed the store sheet, not an error
-    if(e&&e.name!=='AbortError'){console.warn(e);toast(tr('purchaseFailed'))}
+    if(e&&e.name!=='AbortError'){
+      console.warn(e);
+      // Show what Play actually said. "Purchase not completed" for every possible
+      // cause is untestable on a phone, where there is no console to open: the real
+      // name and message are the difference between guessing and knowing.
+      // Set window.PG_DEBUG=false to go back to the plain message before launch.
+      const detail=(e.name||'Error')+(e.message?(': '+e.message):'');
+      toast(window.PG_DEBUG===false?tr('purchaseFailed'):(tr('purchaseFailed')+' \u2014 '+detail));
+    }
   }
 }
 
