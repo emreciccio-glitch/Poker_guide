@@ -9,8 +9,16 @@
      the install id and every cached paid chapter out of localStorage. A real fix needs
      a domain of its own. Until then this at least blocks injected third-party script,
      eval, plugins, form posts and page framing, and pins network calls to the backend.
-     'unsafe-inline' is unavoidable while all the app code lives inside this file. -->
-<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://poker-ai-coach-19wq.vercel.app; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
+     'unsafe-inline' is unavoidable while all the app code lives inside this file.
+
+     https://play.google.com in connect-src is REQUIRED and must never be removed.
+     A Payment Request payment method identifier is a URL, and Chrome validates it
+     against connect-src before the PaymentRequest object is even constructed. Leave
+     it out and every in-app purchase dies with
+       RangeError: ... payment method identifier violates Content Security Policy
+     before the Play sheet can open. Locking down the CSP without this line silently
+     disables all revenue. -->
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://poker-ai-coach-19wq.vercel.app https://play.google.com; manifest-src 'self'; base-uri 'none'; form-action 'none'; object-src 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>The Poker Guide</title>
@@ -610,13 +618,9 @@ async function purchase(key){
       [{supportedMethods:billing.method,data:{sku}}],
       {total:{label:'Total',amount:{currency:'EUR',value:'0'}}} // the store applies its own price
     );
-    // canMakePayment() used to gate the whole purchase, and it is quota-limited by
-    // Chrome: call it a few times in a row and it stops answering and starts THROWING
-    // (NotAllowedError). The throw landed in the catch below and every further
-    // purchase attempt died as "purchase not completed", while the very first one of
-    // the day worked fine. A pre-flight check that breaks the thing it is checking is
-    // worse than no check: show() already fails cleanly on its own, so this is now
-    // advisory only and can never block a sale.
+    // canMakePayment() is quota-limited by Chrome: called repeatedly it stops
+    // answering and starts THROWING NotAllowedError. As a hard gate it turned a
+    // rate limit into "purchase not completed". Advisory only now.
     try{
       if(request.canMakePayment){
         const can=await request.canMakePayment();
@@ -644,10 +648,9 @@ async function purchase(key){
     // AbortError = the user closed the store sheet, not an error
     if(e&&e.name!=='AbortError'){
       console.warn(e);
-      // Show what Play actually said. "Purchase not completed" for every possible
-      // cause is untestable on a phone, where there is no console to open: the real
-      // name and message are the difference between guessing and knowing.
-      // Set window.PG_DEBUG=false to go back to the plain message before launch.
+      // Show what Play actually said: on a phone there is no console to open, so a
+      // single generic message makes every billing failure look identical.
+      // Set window.PG_DEBUG=false to go back to the plain wording before launch.
       const detail=(e.name||'Error')+(e.message?(': '+e.message):'');
       toast(window.PG_DEBUG===false?tr('purchaseFailed'):(tr('purchaseFailed')+' \u2014 '+detail));
     }
